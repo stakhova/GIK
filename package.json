@@ -9,10 +9,11 @@
     "babel-register": "^6.5.2",
     "browser-sync": "^2.2.1",
     "del": "^2.2.0",
-    "gulp": "^3.9.0",
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.0.1",
     "gulp-babel": "^6.1.1",
     "gulp-cache": "^0.4.2",
+    "gulp-cached": "^1.1.0",
     "gulp-cssnano": "^2.0.0",
     "gulp-filter": "^4.0.0",
     "gulp-htmlmin": "^3.0.0",
@@ -20,14 +21,13 @@
     "gulp-imagemin": "^3.0.1",
     "gulp-load-plugins": "^1.2.4",
     "gulp-plumber": "^1.0.1",
+    "gulp-rigger": "^0.5.8",
     "gulp-sass": "^3.0.0",
     "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^2.2.0",
     "gulp-uglify": "^2.0.0",
     "gulp-useref": "^3.0.0",
     "run-sequence": "^1.2.2",
-    "wiredep": "^4.0.0",
-    "gulp-rigger": "^0.5.8",
-    "gulp-cached": "^1.1.0"
+    "wiredep": "^4.0.0"
   }
 }
