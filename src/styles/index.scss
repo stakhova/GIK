@@ -459,3 +459,77 @@
   }
 
 }
+
+.testimonials{
+  .container{
+    padding: 7rem 10rem;
+  }
+  &__img{
+    width: 40.7rem;
+    height: 40.7rem;
+  }
+  &__item{
+    display: flex;
+    gap:3rem;
+  }
+  &__title{
+    font: 700 2.4rem/normal 'UA-BRAND';
+    margin-bottom: 1rem;
+  }
+  &__subtitle{
+    font: 500 1.6rem/normal 'Lato';
+    color:var(--color-text-main);
+    margin-bottom: 2rem;
+  }
+  blockquote{
+    font: 500 1.8rem/150% 'Lato';
+    color:var(--color-text-main);
+    margin: 3rem 0;
+    position: relative;
+    &:after{
+      content: '';
+      position: absolute;
+      width: 3.3rem;
+      height: 6.4rem;
+      top: 1rem;
+      left: 0;
+      background: url("../img/quote.svg") center/3.3rem 6.4rem no-repeat;
+    }
+    &:before{
+      content: '';
+      position: absolute;
+      width: 3.3rem;
+      height: 6.4rem;
+      right: 0;
+      bottom: 1rem;
+      background: url("../img/quote.svg") center/3.3rem 6.4rem no-repeat;
+    }
+  }
+  p{
+    font: 500 1.8rem/150% 'Lato';
+    color:var(--color-text-main);
+    margin: 3rem 0;
+  }
+  .section__link{
+    position: relative;
+  }
+}
+
+.difference{
+  .section__title{
+    margin-bottom: 2rem;
+  }
+  &__subtitle{
+    margin-bottom: 2rem;
+  }
+  &__flex{
+    display: flex;
+    gap:1rem;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  &__logo{
+    width:10rem;
+    height: 10rem;
+  }
+}
