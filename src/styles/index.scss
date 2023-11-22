@@ -34,6 +34,13 @@
   &__name{
     font: 700 2rem/normal 'UA-BRAND';
   }
+  &__grey{
+    background: var(--color-grey-section);
+  }
+  &__text{
+    font: 500 1.8rem/150% 'Lato';
+    color:var(--color-text-main);
+  }
   &__link{
     position: absolute;
     left: 0;
@@ -266,7 +273,7 @@
 }
 
 .acoustics{
-  background: var(--color-grey-section);
+
   .container{
    padding: 8rem 10rem;
   }
@@ -301,4 +308,154 @@
     color:var(--color-text);
     font: 700 1.4rem/normal 'UA-BRAND';
   }
+}
+
+.categories{
+  .container{
+    padding: 8rem 10rem 10rem ;
+  }
+  .section__title{
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  &__list{
+    display: flex;
+    flex-wrap: wrap;
+    gap:2.9rem;
+  }
+  &__item{
+    width: calc((100% - 8.7rem)/3);
+  }
+  &__img{
+    width: 100%;
+    border: 0.1rem solid var(--color-grey);
+    height: 31.3rem;
+  }
+  .section__name{
+    position: relative;
+    padding: 3rem 5rem 3rem 2rem;
+    border: 0.1rem solid var(--color-black);
+    &:after{
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 2rem;
+      transform: translateY(-50%);
+      width: 2.3rem;
+      height: 2.3rem;
+      background: url("../img/arrow-orange.svg") center/2.3rem 2.3rem no-repeat;
+    }
+  }
+}
+
+.series{
+  .container{
+    padding: 8rem 10rem;
+  }
+  &__list{
+    display: flex;
+    flex-wrap: wrap;
+    gap:3rem;
+  }
+  &__item{
+    width: calc((100% - 3rem)/2);
+    display: flex;
+    gap: 3rem;
+  }
+  &__logo{
+    height: 8rem;
+    width: auto;
+  }
+  .section__name{
+    margin-bottom: 2rem;
+  }
+  .section__text{
+    margin-bottom: 1rem;
+  }
+  .section__link{
+    position: relative;
+  }
+  &__block{
+    width: 50%;
+  }
+  &__img{
+    width: 40%;
+  }
+}
+
+
+.flexrange{
+  .container{
+    padding: 5rem 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:3rem;
+  }
+  &__block{
+    max-width: 70rem;
+  }
+  &__logo{
+    width: 40rem;
+    margin-bottom: 3rem;
+  }
+  &__title{
+    text-transform: uppercase;
+    font: 700 3rem/normal 'UA-BRAND';
+  }
+  &__type{
+    display: flex;
+    gap:4rem;
+  }
+  &__item{
+    max-width: 25rem;
+    width: 100%;
+  }
+  &__img{
+    height: 31.9rem ;
+    margin-bottom: 3rem;
+  }
+  .section__name{
+    margin-bottom: 1rem;
+  }
+  .section__text{
+    margin-bottom: 1rem;
+  }
+  .section__link{
+    position: relative;
+  }
+}
+
+.feedback{
+  .container{
+    padding: 7rem 10rem 7rem;
+  }
+  &__list{
+    display: flex;
+    gap:3rem;
+    justify-content: center;
+  }
+  &__item{
+    max-width: 40.8rem;
+    width: 100%;
+  }
+  &__img{
+    height: 15rem;
+    margin-bottom: 2rem;
+  }
+  .section__name{
+    margin-bottom: 1.4rem;
+  }
+}
+
+.brand{
+  .container{
+    padding: 7rem 10rem;
+  }
+  &__img{
+    width: 100%;
+    height: auto;
+    max-width: 140rem;
+  }
+
 }
