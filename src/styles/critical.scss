@@ -24,7 +24,7 @@
 
 
 @font-face {
-    font-family: "UA-BRAND";
+    font-family: "ua BRAND";
     src: url("/fonts/UA-BRAND.eot");
     src: url("/fonts/UA-BRAND.eot?#iefix") format("embedded-opentype"), url("../fonts/UA-BRAND.woff") format("woff"), url("/fonts/UA-BRAND.ttf") format("truetype"), url("/fonts/UA-BRAND.svg#Montserrat") format("svg");
     font-weight: 700;
@@ -39,11 +39,11 @@
     --color-primary:#FD6E10;
     --color-primary-second:#125A66;
     --color-grey:#F0F1F2;
-    --color-grey-section:#BEC1C7;
+    --color-grey-section:rgba(190,193,199,0.1);
     --color-price:#57606F;
-
+    --color-footer-bottom:#F8F9F9;
     --Lato: 'Lato', sans-serif;
-    --UA-BRAND: 'UA-BRAND', sans-serif;
+    --UA-BRAND: 'ua BRAND', arial;
 }
 
 *, *:before,

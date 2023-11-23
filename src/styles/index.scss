@@ -29,10 +29,10 @@
 
 .section{
   &__title{
-    font: 700 4.8rem/normal 'UA-BRAND';
+    font: 700 4.8rem/normal 'ua BRAND';
   }
   &__name{
-    font: 700 2rem/normal 'UA-BRAND';
+    font: 700 2rem/normal 'ua BRAND';
   }
   &__grey{
     background: var(--color-grey-section);
@@ -40,15 +40,43 @@
   &__text{
     font: 500 1.8rem/150% 'Lato';
     color:var(--color-text-main);
+    &>*{
+      font: 500 1.8rem/150% 'Lato';
+      color:var(--color-text-main);
+    }
+  }
+  &__drop{
+    font: 700 2rem/normal 'ua BRAND';
+    padding-right: 2.5rem;
+    position: relative;
+    &:after{
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      width: 1.5rem;
+      height: 1.6rem;
+      background: url("../img/down.svg") center/1.5rem 1.6rem no-repeat;
+    }
+    &-open{
+      &:after{
+        transform: translateY(-50%) rotate(-180deg);
+      }
+    }
   }
   &__link{
     position: absolute;
     left: 0;
     bottom: 0;
-    a{
+    color:var(--color-primary);
+
+    & > * {
+      width: max-content;
       display: block;
       position: relative;
       padding-right: 2.8rem;
+      font: 700 1.6rem/normal 'ua BRAND';
       &:after{
         content: '';
         position: absolute;
@@ -90,7 +118,7 @@
   &__burger {
     width: 2.4rem;
     height: 2.4rem;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
@@ -148,6 +176,7 @@
     justify-content: space-between;
     gap:11.2rem;
     align-items: center;
+    margin-left: -9rem;
   }
   &__item{
     & > *{
@@ -200,7 +229,7 @@
   }
   &__button{
     padding: 0.6rem 3rem 0.6rem 1rem;
-    font: 700 1.2rem/normal 'UA-BRAND';
+    font: 700 1.2rem/normal 'ua BRAND';
     color:var(--color-white);
     border-radius: 10rem;
     background: #125A66;
@@ -224,21 +253,21 @@
 
   }
 }
-.feature{
+.featured{
   .section__title{
     text-align: center;
   }
   .container{
     padding: 8rem 10rem 7rem;
   }
-  &__menu{
+  &__list{
     display: flex;
     justify-content: space-between;
     gap:3rem;
     margin-top: 7rem;
   }
   &__item{
-    width: calc((100 - 9rem)/4);
+    width: calc((100% - 9rem)/4);
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
@@ -252,20 +281,22 @@
     right: 1rem;
     padding: 0.4rem 1rem;
     border: 0.1rem solid var(--color-black);
+    background: rgba(255, 255, 255, 0.80);
   }
   &__img{
     width: 100%;
-    height: 30.4rem;
+    height: 31.3rem;
     margin-bottom: 1.2rem;
     border: 0.1rem solid var(--color-grey);
     display: block;
   }
 
   &__price{
-    font: 700 2rem/normal 'UA-BRAND';
+    font: 700 1.4rem/normal 'ua BRAND';
     color:var(--color-price);
     span{
-      font-weight: 400
+      font: 400 1.4rem/normal 'ua BRAND';
+
     }
   }
 
@@ -273,7 +304,6 @@
 }
 
 .acoustics{
-
   .container{
    padding: 8rem 10rem;
   }
@@ -281,14 +311,14 @@
     margin-bottom: 3rem;
   }
   &__subtitle{
-    font: 400 2rem/normal 'UA-BRAND';
+    font: 400 2rem/normal 'ua BRAND';
     margin-bottom: 2rem;
   }
-  &__text{
+  .section__text{
     margin-bottom: 3rem;
     color:var(--color-text);
-    font: 500 1.8rem/normal 'Lato';
   }
+
   &__list{
     display: flex;
     gap: 3rem;
@@ -298,6 +328,8 @@
     display: flex;
     flex-direction: column;
     gap:8px;
+    position: relative;
+    padding-bottom: 3.4rem;
   }
   &__img{
     width: 100%;
@@ -306,7 +338,7 @@
   }
   &__price{
     color:var(--color-text);
-    font: 700 1.4rem/normal 'UA-BRAND';
+    font: 700 1.4rem/normal 'ua BRAND';
   }
 }
 
@@ -316,7 +348,7 @@
   }
   .section__title{
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 7rem;
   }
   &__list{
     display: flex;
@@ -324,7 +356,10 @@
     gap:2.9rem;
   }
   &__item{
-    width: calc((100% - 8.7rem)/3);
+    width: calc((100% - 8.7rem)/4);
+    &>*{
+      display: block;
+    }
   }
   &__img{
     width: 100%;
@@ -343,7 +378,7 @@
       transform: translateY(-50%);
       width: 2.3rem;
       height: 2.3rem;
-      background: url("../img/arrow-orange.svg") center/2.3rem 2.3rem no-repeat;
+      background: url("../img/arrow-black.svg") center/2.3rem 2.3rem no-repeat;
     }
   }
 }
@@ -401,7 +436,7 @@
   }
   &__title{
     text-transform: uppercase;
-    font: 700 3rem/normal 'UA-BRAND';
+    font: 700 3rem/normal 'ua BRAND';
   }
   &__type{
     display: flex;
@@ -456,16 +491,30 @@
     width: 100%;
     height: auto;
     max-width: 140rem;
+    margin: 0 auto;
   }
 
 }
 
+
+
 .testimonials{
   .container{
     padding: 7rem 10rem;
+
+  }
+  &__slider{
+    overflow: hidden;
+    position: relative;
+  }
+  &__nav{
+    position: absolute;
+    bottom: 0;
+    right: 0;
   }
   &__img{
-    width: 40.7rem;
+    width: 44%;
+    max-width: 40.7rem;
     height: 40.7rem;
   }
   &__item{
@@ -473,25 +522,26 @@
     gap:3rem;
   }
   &__title{
-    font: 700 2.4rem/normal 'UA-BRAND';
+    font: 700 2.4rem/normal 'ua BRAND';
     margin-bottom: 1rem;
   }
   &__subtitle{
     font: 500 1.6rem/normal 'Lato';
     color:var(--color-text-main);
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
   blockquote{
     font: 500 1.8rem/150% 'Lato';
     color:var(--color-text-main);
     margin: 3rem 0;
     position: relative;
+    padding: 7.4rem 0 ;
     &:after{
       content: '';
       position: absolute;
       width: 3.3rem;
       height: 6.4rem;
-      top: 1rem;
+      top: 0rem;
       left: 0;
       background: url("../img/quote.svg") center/3.3rem 6.4rem no-repeat;
     }
@@ -501,7 +551,7 @@
       width: 3.3rem;
       height: 6.4rem;
       right: 0;
-      bottom: 1rem;
+      bottom: 0rem;
       background: url("../img/quote.svg") center/3.3rem 6.4rem no-repeat;
     }
   }
@@ -510,16 +560,24 @@
     color:var(--color-text-main);
     margin: 3rem 0;
   }
+  .section__title{
+    margin-bottom: 5rem;
+    text-align: center;
+  }
   .section__link{
     position: relative;
+
   }
 }
 
 .difference{
+  .container{
+    padding: 7rem 10rem 5rem;
+  }
   .section__title{
     margin-bottom: 2rem;
   }
-  &__subtitle{
+  .section__text{
     margin-bottom: 2rem;
   }
   &__flex{
@@ -529,7 +587,74 @@
     margin-bottom: 2rem;
   }
   &__logo{
+    min-width: 10rem;
     width:10rem;
     height: 10rem;
   }
+  &__more{
+    &-btn{
+
+    }
+    &-content{
+      padding-top: 2rem;
+      display: none;
+      & > *{
+        color:var(--color-text-main);
+        font: 500 1.8rem/150% 'Lato';
+        margin-bottom: 2rem;
+      }
+      & > h2{
+        font: 700 1.6rem/normal 'ua BRAND';
+        margin-bottom: 1rem;
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+.footer{
+  &__top{
+    .container{
+      padding: 6rem 10rem 5rem;
+    }
+  }
+  &__bottom{
+    background-color: var(--color-footer-bottom);
+    .container{
+      padding: 1.5rem 10rem;
+      & > *{
+        text-align: center;
+        font: 500 1.4rem/2rem 'Lato';
+        color:var(--color-price)
+      }
+    }
+  }
+  &__logo{
+    width: 22.8rem;
+    margin-bottom: 5.1rem ;
+  }
+  &__title{
+    margin-bottom: 2rem;
+  }
+  &__social{
+    display: flex;
+    gap:2rem;
+    & > *{
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+  &__block{
+    display: flex;
+    gap:1rem;
+  }
+  &__menu{
+    *{
+      white-space: nowrap;
+    }
+  }
+}
+
+.swiper-button-next, .swiper-button-prev{
+  position: relative;
 }
