@@ -15,7 +15,7 @@
     font-style: normal;
 }
 @font-face {
-    font-family: "UA-BRAND";
+    font-family: "ua BRAND";
     src: url("/fonts/UA-BRAND.eot");
     src: url("/fonts/UA-BRAND.eot?#iefix") format("embedded-opentype"), url("../fonts/UA-BRAND-regular.woff") format("woff"), url("/fonts/UA-BRAND.ttf") format("truetype"), url("/fonts/UA-BRAND.svg#Montserrat") format("svg");
     font-weight: 400;
@@ -30,7 +30,20 @@
     font-weight: 700;
     font-style: normal;
 }
-
+@font-face {
+    font-family: "Gilroy";
+    src: url("/fonts/UA-BRAND.eot");
+    src: url("/fonts/UA-BRAND.eot?#iefix") format("embedded-opentype"), url("../fonts/Gilroy-Bold.woff") format("woff"), url("/fonts/UA-BRAND.ttf") format("truetype"), url("/fonts/UA-BRAND.svg#Montserrat") format("svg");
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Gilroy";
+    src: url("/fonts/UA-BRAND.eot");
+    src: url("/fonts/UA-BRAND.eot?#iefix") format("embedded-opentype"), url("../fonts/Gilroy-SemiBold.woff") format("woff"), url("/fonts/UA-BRAND.ttf") format("truetype"), url("/fonts/UA-BRAND.svg#Montserrat") format("svg");
+    font-weight: 600;
+    font-style: normal;
+}
 :root {
     --color-white: #fff;
     --color-black: #212121;

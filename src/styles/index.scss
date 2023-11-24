@@ -10,6 +10,7 @@
   display: flex;
   -ms-flex-direction: column;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .wrap__main {
@@ -49,6 +50,10 @@
     font: 700 2rem/normal 'ua BRAND';
     padding-right: 2.5rem;
     position: relative;
+    &:hover{
+      transition: .2s ease;
+      filter: invert(24%) sepia(95%) saturate(417%) hue-rotate(141deg) brightness(93%) contrast(90%);
+    }
     &:after{
       content: '';
       position: absolute;
@@ -83,18 +88,25 @@
         top: 50%;
         right: 0;
         transform: translateY(-50%);
+        background: url("../img/arrow-orange.svg") center/1.8rem 1.8rem no-repeat;
         width: 1.8rem;
         height: 1.8rem;
-        background: url("../img/arrow-orange.svg") center/1.8rem 1.8rem no-repeat;
+      }
+    }
+    &:hover{
+      transition: .2s ease;
+      color:var(--color-primary-second);
+      &>a:after{
+        background: url("../img/arrow-green.svg") center/1.8rem 1.8rem no-repeat;
       }
     }
   }
 }
 .header{
-  z-index: 4;
+  z-index: 5;
   position: relative;
   &__top{
-    z-index: 4;
+    z-index: 5;
     position: relative;
     background-color: var(--color-primary-second);
     padding: 0.8rem 0;
@@ -108,6 +120,15 @@
     display: flex;
     align-items: center;
     gap: 2rem;
+    & > *{
+      height: 2.4rem;
+      width: 2.4rem;
+      cursor: pointer;
+      &:hover{
+        filter: invert(52%) sepia(40%) saturate(4572%) hue-rotate(354deg) brightness(101%) contrast(98%);
+        transition: .2s ease;
+      }
+    }
   }
   &__social{
     display: flex;
@@ -116,7 +137,12 @@
     & > *{
       height: 2.4rem;
       width: 2.4rem;
+      &:hover{
+        filter: invert(52%) sepia(40%) saturate(4572%) hue-rotate(354deg) brightness(101%) contrast(98%);
+        transition: .2s ease;
+      }
     }
+
   }
   &__burger {
     width: 2.4rem;
@@ -169,7 +195,7 @@
     align-items: center;
     justify-content: space-between;
     gap:6rem;
-    padding: 1.4rem 0;
+
   }
   &__logo{
     width: 22.8rem;
@@ -177,13 +203,17 @@
   &__menu{
     display: flex;
     justify-content: space-between;
-    gap:11.2rem;
+    gap:2rem;
     align-items: center;
     margin-left: -9rem;
   }
   &__item{
     & > *{
       display: block;
+      font: 500 1.6rem/normal 'Lato';
+    }
+    & > a{
+      padding: 3rem 4.6rem;
       font: 500 1.6rem/normal 'Lato';
     }
   }
@@ -207,6 +237,123 @@
       height: 3.1rem;
       background: url("../img/customer-support.svg") center/3.1rem 3.1rem no-repeat;
       z-index: 3;
+    }
+  }
+  &__block{
+    position: relative;
+  }
+
+  &__drop{
+    &-menu{
+      display: flex;
+      gap:0.4rem;
+      align-items: center;
+      & > a{
+        padding: 3rem 4.6rem;
+        font: 500 1.6rem/normal 'Lato';
+      }
+    }
+    &-btn{
+      position: relative;
+      width: 1.5rem;
+      height: 1.6rem;
+      //top:50%;
+      transform: translateY(-30%);
+      right: -0.5rem;
+      &:after{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 1.5rem;
+        height: 1.6rem;
+        background: url("../img/down.svg") center/1.5rem 1.6rem no-repeat;
+        z-index: 3;
+      }
+    }
+    &-wrap{
+      top: 8.4rem;
+      gap:5rem;
+      z-index: 7;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      display: none;
+    }
+    &:hover .header__drop-wrap{
+      display: block;
+    }
+    &-content{
+      color:var(--color-primary-second);
+      display: flex;
+      justify-content: space-between;
+      border-radius: 2rem;
+      background: white;
+      padding: 5rem 5rem 5rem 4rem;
+      position: relative;
+      //&:after{
+      //  content: '';
+      //  position: absolute;
+      //  background-color: var(--color-black);
+      //  opacity: 0.8;
+      //  width: 100vw;
+      //  z-index: -1;
+      //  top: -1rem;
+      //  left: 50%;
+      //  transform: translateX(-50%);
+      //  height: calc(100vh - 11.4rem);
+      //}
+    }
+
+    &-img{
+      width:12rem;
+      height: 12rem;
+      margin-bottom: 3rem;
+    }
+    &-item{
+      max-width: 16rem;
+      width: 100%;
+    }
+    &-title{
+      font: 700 1.6rem/2rem 'Gilroy';
+      padding-bottom: 2.6rem;
+      position: relative;
+      &:after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 0.1rem;
+        background-color: var(--color-primary-second);
+      }
+    }
+    &-list{
+      margin-top: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap:3.2rem;
+      a{
+        display: block;
+        position: relative;
+        color:var(--color-price);
+        font: 600 1.4rem/2rem 'Gilroy';
+        &:hover{
+          text-decoration:underline;
+          transition: .2s ease;
+          color:var(--color-primary-second);
+        }
+        &:not(:last-child):after{
+          content: '';
+          position: absolute;
+          bottom: -1.6rem;
+          background: #D9D9D9;
+          width: 100%;
+          left: 0;
+          height: 0.1rem;
+        }
+      }
     }
   }
 
@@ -236,8 +383,9 @@
     font: 700 1.2rem/normal 'ua BRAND';
     color:var(--color-white);
     border-radius: 10rem;
-    background: #125A66;
+    background: var(--color-primary-second);
     position: relative;
+    border: 0.1rem solid  var(--color-primary-second);
     &:after{
       content: '';
       position: absolute;
@@ -249,6 +397,11 @@
       background: url("../img/arrow-white.svg") center/1.6rem 1.6rem no-repeat;
       z-index: 3;
     }
+    &:hover{
+      background-color: transparent;
+      border: 0.1rem solid white;
+      transition: .2s ease;
+    }
   }
 }
 .side{
@@ -256,22 +409,23 @@
     position: fixed;
     z-index: 3;
     display: flex;
-    height:100vw;
+    display: none;
+    height:100vh;
     background-color: var(--color-white);
     top: 0;
   }
   &__item{
     position: relative;
     width: 5.9rem;
-    height: 100vh;
+    height: calc(100vh - 11.4rem);
     background: var(--color-white);
     & > *{
-      cursor: pointer;
+      font: 500 1.6rem/normal 'Lato';
       position: absolute;
       top: calc(100vh/3);
       display: inline-block;
       vertical-align: top;
-      transform: translate(0,100%) rotate(-90deg);
+      transform: rotate(-90deg);
       transform-origin: 0 0;
       white-space: nowrap;
       width: calc(100vh/3);
@@ -286,6 +440,9 @@
       top: calc((100vh/3)*3);
     }
   }
+  &__block{
+
+  }
   &__content{
     position: absolute;
     width: calc(100vw - 5.9rem);
@@ -294,6 +451,9 @@
     left: -100%;
     z-index: 2;
 
+    &.show{
+      display: block;
+    }
     &-desc{
       background-color: var(--color-footer-bottom);
     }
@@ -305,9 +465,13 @@
     }
     &-item{
       display: none;
+      //display: flex;
       position: relative;
       width: calc(100vw - 5.9rem);
       height: calc(100vh - 11.4rem);
+      &.flex{
+        display: flex;
+      }
       &>*{
         position: relative;
         z-index: 2;
@@ -360,6 +524,20 @@
     gap: 0.8rem;
     position: relative;
     padding-bottom: 3.4rem;
+    &:hover{
+      transition: .2s ease;
+      .featured__flash{
+        background-color: var(--color-black);
+        opacity: 1;
+        color:white;
+      }
+      a{
+        color:var(--color-primary-second);
+        &:after{
+          background: url("../img/arrow-green.svg") center/1.8rem 1.8rem no-repeat;
+        }
+      }
+    }
   }
   &__flash{
     display: block;
@@ -414,7 +592,7 @@
     width: calc((100% - 3rem)/2);
     display: flex;
     flex-direction: column;
-    gap:8px;
+    gap:0.8rem;
     position: relative;
     padding-bottom: 3.4rem;
   }
@@ -446,7 +624,18 @@
     width: calc((100% - 8.7rem)/4);
     &>*{
       display: block;
+      &:hover{
+        & > .section__name{
+          background-color: var(--color-black);
+          color:var(--color-white);
+          transition: .2s ease;
+        }
+        & > .section__name:after{
+          filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(357deg) brightness(105%) contrast(101%);
+        }
+      }
     }
+
   }
   &__img{
     width: 100%;
@@ -600,9 +789,10 @@
     right: 0;
     display: flex;
     gap:2rem;
+    width: 10.2rem;
+    height: 2.9rem;
   }
   &__img{
-
     min-width: 40.7rem;
     max-width: 40.7rem;
     height: 40.7rem;
@@ -728,22 +918,52 @@
   }
   &__title{
     margin-bottom: 2rem;
+    font: 700 1.4rem/2rem "Lato"
+  }
+  a:hover{
+    color:var(--color-primary-second);
+    transition: .2s ease;
   }
   &__social{
     display: flex;
     gap:2rem;
+    margin-top: 2rem;
     & > *{
       width: 3rem;
       height: 3rem;
+      &:hover{
+        filter: invert(52%) sepia(40%) saturate(4572%) hue-rotate(354deg) brightness(101%) contrast(98%);
+        transition: .2s ease;
+      }
     }
   }
   &__block{
-    display: flex;
-    gap:1rem;
+    display: grid;
+    grid-template-columns: 11% 25% 14% 7% 5% 23%;;
+    grid-gap: 5rem;
   }
   &__menu{
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    height: 15rem;
     *{
       white-space: nowrap;
+    }
+  }
+  &__item{
+    &:nth-child(2){
+      margin-left: 5rem;
+      a{
+        margin-bottom:1.2rem ;
+      }
+    }
+    a{
+      display: block;
+    }
+    & *{
+      font: 500 1.4rem/2rem "Lato"
     }
   }
 }
@@ -758,6 +978,11 @@
   height: 2.9rem;
   background: rgba(87, 96, 111, 0.39);
   backdrop-filter: blur(1rem);
+  margin: 0;
+  &:hover{
+    transition: .2s ease;
+    background-color: var(--color-black);
+  }
   &:after{
     display: none;
   }
