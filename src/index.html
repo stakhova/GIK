@@ -15,9 +15,32 @@
             </div>
         </section>
         <section class="banner">
-            <div class="banner__img img">
-                <img src="img/back.png" alt="">
+            <div class="banner__slider swiper-container">
+                <ul class="banner__list swiper-wrapper">
+                    <li class="banner__item swiper-slide">
+                        <picture class="banner__img img">
+                            <source media="(min-width: 666px)" srcset="img/back.png">
+                            <source media="(min-width: 320px)" srcset="img/back-mob.png">
+                            <img src="img/back.png" alt="">
+                        </picture>
+
+                    </li>
+                    <li class="banner__item swiper-slide">
+                        <picture class="banner__img img">
+                            <source media="(min-width: 666px)" srcset="img/back.png">
+                            <source media="(min-width: 320px)" srcset="img/back-mob.png">
+                            <img src="img/back.png" alt="">
+                        </picture>
+                    </li>
+                </ul>
+                <div class="banner__nav">
+                    <div class="banner__prev swiper-button-prev"></div>
+                    <div class="banner__pagination slider__pagination"></div>
+                    <div class="banner__prev swiper-button-next"></div>
+                </div>
+
             </div>
+
         </section>
         <section class="featured">
             <div class="container">
@@ -199,12 +222,30 @@
                             </div>
                             <h3 class="section__name">Sound Blocks</h3>
                             <p class="section__text">Sound Blocks are a revolutionary concept in the GIK Acoustics product line, establishing a new benchmark in performance and flexibility for high-end audio rooms that need world-class performance.</p>
-                            <div class="section__link">
-                                <a href="">Shop now </a>
-                            </div>
                         </div>
                         <div class="series__img img" >
                             <img src="img/series2.png" alt="">
+                        </div>
+                    </li>
+                    <li class="series__item">
+                        <div class="series__block">
+                            <h3 class="section__name">GOTHAM N23 5” QUADRATIC DIFFUSOR</h3>
+                            <p class="section__text">Provides unparalleled performance with the widest diffusion range on the market: from 1250hz to 9500hz with scattering effects down to 650hz.</p>
+                        </div>
+                        <div class="series__img img" >
+                            <img src="img/series3.png" alt="">
+                        </div>
+                    </li>
+                    <li class="series__item">
+                        <div class="series__block">
+                            <div class="series__logo img">
+                                <img src="img/logo3.png" alt="">
+                            </div>
+                            <h3 class="section__name">Alpha Series</h3>
+                            <p class="section__text">Sound Blocks are a revolutionary concept in the GIK Acoustics product line, establishing a new benchmark in performance and flexibility for high-end audio rooms that need world-class performance.</p>
+                        </div>
+                        <div class="series__img img" >
+                            <img src="img/series4.png" alt="">
                         </div>
                     </li>
                 </ul>
@@ -248,30 +289,32 @@
         </section>
         <section class="feedback section__grey">
             <div class="container">
-                <ul class="feedback__list">
-                    <li class="feedback__item">
-                        <div class="feedback__img img">
-                            <img src="img/feedback1.png" alt="">
-                        </div>
-                        <h3 class="section__name">Recording Magazine</h3>
-                        <p class="section__text">Recording Magazine's Paul Vnuk reviewed our Impression Series in the November 2017 issue.</p>
-                    </li>
-                    <li class="feedback__item">
-                        <div class="feedback__img img">
-                            <img src="img/feedback2.png" alt="">
-                        </div>
-                        <h3 class="section__name">AV Nirvana</h3>
-                        <p class="section__text">In September, AV Nirvana's Todd Anderson reviewed our 4A Alpha Series Panels.</p>
-                    </li>
-                    <li class="feedback__item">
-                        <div class="feedback__img img">
-                            <img src="img/feedback3.png" alt="">
-                        </div>
-                        <h3 class="section__name">Positive Feedback</h3>
-                        <p class="section__text">Read Gary Beard's full review of our Impression Series on Positive Feedback.</p>
-                    </li>
-
-                </ul>
+                <div class="feedback__slider swiper-container">
+                    <ul class="feedback__list swiper-wrapper">
+                        <li class="feedback__item swiper-slide">
+                            <div class="feedback__img img">
+                                <img src="img/feed1.png" alt="">
+                            </div>
+                            <h3 class="section__name">Recording Magazine</h3>
+                            <p class="section__text">Recording Magazine's Paul Vnuk reviewed our Impression Series in the November 2017 issue.</p>
+                        </li>
+                        <li class="feedback__item swiper-slide">
+                            <div class="feedback__img img">
+                                <img src="img/feed2.png" alt="">
+                            </div>
+                            <h3 class="section__name">AV Nirvana</h3>
+                            <p class="section__text">In September, AV Nirvana's Todd Anderson reviewed our 4A Alpha Series Panels.</p>
+                        </li>
+                        <li class="feedback__item swiper-slide">
+                            <div class="feedback__img img">
+                                <img src="img/feed3.png" alt="">
+                            </div>
+                            <h3 class="section__name">Positive Feedback</h3>
+                            <p class="section__text">Read Gary Beard's full review of our Impression Series on Positive Feedback.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="feedback__pagination slider__pagination"></div>
             </div>
         </section>
         <section class="brand">

@@ -6,7 +6,7 @@ function openDrop(){
     })
 }
 
-const main = new Swiper('.testimonials__slider', {
+const testimonials = new Swiper('.testimonials__slider', {
     slidesPerView: 1,
     spaceBetween: 60,
     centeredSlides: true,
@@ -18,6 +18,46 @@ const main = new Swiper('.testimonials__slider', {
 });
 
 
+const banner = new Swiper('.banner__slider', {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    centeredSlides: true,
+    loop: true,
+
+    pagination: {
+        el: '.banner__pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".banner__next",
+        prevEl: ".banner__prev"
+    }
+});
+function mobChange(){
+    if(window.innerWidth <= 666) {
+
+        $('.header__top-block').prepend($('.header__logo'))
+        $('.header__block').append($('.header__social'))
+        $('.delivery__text h2, .delivery__text h3').wrapAll("<div class='delivery__text-block'></div>")
+        $(".footer__item:nth-child(4), .footer__item:nth-child(5)").wrapAll("<div class='footer__item footer__item-mob'></div>");
+
+        //feeback-slider init
+        const main = new Swiper('.feedback__slider', {
+            slidesPerView: 1.5,
+            spaceBetween: 20,
+            centeredSlides: false,
+            loop: true,
+            pagination: {
+                el: '.feedback__pagination',
+                clickable: true,
+            },
+        });
+        let slidersCount = $('.feedback .swiper-pagination-bullet').length
+        $('.feedback .swiper-pagination-bullet').css('width',`calc(100%/${slidersCount})`)
+    }
+
+
+}
 
 function showSideMenu(){
     $(".side__item > *").on("click", function() {
@@ -45,6 +85,7 @@ function showSideMenu(){
 $(document).ready(function(){
     openDrop();
     showSideMenu()
+    mobChange()
 });
 
 $(window).load(function(){
