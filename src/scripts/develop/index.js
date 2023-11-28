@@ -158,12 +158,56 @@ function showSideMenu(){
         $('.side__block.hide').animate({left: '-100%'}, 500);
     })
 }
+
+function ajaxSend(date, url, funcSuccess, funcError) {
+    $.ajax({
+        url: url,
+        data: date,
+        method: 'POST',
+        success: function (res) {
+            console.log('success ajax');
+            funcSuccess(res);
+        },
+        error: function (error) {
+            funcError(error);
+        },
+
+    });
+}
+
+// send form
+function sendForm(form, url, funcSuccess, funcError) {
+    form = form.serialize();
+    ajaxSend(form, url, funcSuccess, funcError);
+}
+
+function searchSuccess(){
+    $('.header__search-form').hide();
+    $('.header__search').show()
+    $('.header__search-form')[0].reset()
+}
+function openSearch(){
+    $(document).on('click','.header__search', function (){
+        console.log(11111)
+        $(this).hide()
+        $('.header__search-form').show()
+    })
+    $(document).on('click','.header__search-btn', function (e){
+        e.preventDefault();
+        console.log(1111)
+        sendForm($('.header__search-form'),'/wp-admin/admin-ajax.php', searchSuccess, searchSuccess)
+    })
+}
+
+
+
 $(document).ready(function(){
     openReadMore();
     showSideMenu()
     mobileChange()
     dropMenuHeader()
     initSliders()
+    openSearch()
     $(document).on('click','.header__burger,.header__hide', openMenu )
 });
 
