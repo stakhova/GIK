@@ -31,6 +31,13 @@
     font-style: normal;
 }
 @font-face {
+    font-family: "ua BRAND";
+    src: url("/fonts/UA-BRAND.eot");
+    src: url("/fonts/UA-BRAND.eot?#iefix") format("embedded-opentype"), url("../fonts/ua-BRAND-black.woff") format("woff"), url("/fonts/UA-BRAND.ttf") format("truetype"), url("/fonts/UA-BRAND.svg#Montserrat") format("svg");
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
     font-family: "Gilroy";
     src: url("/fonts/UA-BRAND.eot");
     src: url("/fonts/UA-BRAND.eot?#iefix") format("embedded-opentype"), url("../fonts/Gilroy-Bold.woff") format("woff"), url("/fonts/UA-BRAND.ttf") format("truetype"), url("/fonts/UA-BRAND.svg#Montserrat") format("svg");

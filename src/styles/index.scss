@@ -39,12 +39,12 @@
     font: 700 2rem/normal 'ua BRAND';
   }
   &__grey{
-    background: var(--color-grey-section);
+    background-color: var(--color-grey-section);
   }
   &__text{
     font: 500 1.8rem/150% 'Lato';
     color:var(--color-text-main);
-    &>*{
+    & > *{
       font: 500 1.8rem/150% 'Lato';
       color:var(--color-text-main);
     }
@@ -170,7 +170,7 @@ header{
     gap:0.3rem;
     & > * {
       height: 0.2rem;
-      background: var(--color-white);
+      background-color: var(--color-white);
       border-radius: 0.5rem;
       transition: .2s ease;
     }
@@ -223,7 +223,7 @@ header{
     align-items: center;
   }
   &__item{
-    &:not(:last-child) >*:after{
+    &:not(:last-child) > *:after{
       content: '';
       position: absolute;
       right: -1rem;
@@ -232,7 +232,7 @@ header{
       transform: translateY(-50%);
       height: 1rem;
       opacity: 0.3;
-      background: var(--color-black)
+      background-color: var(--color-black)
     }
     & > *{
       position: relative;
@@ -325,7 +325,7 @@ header{
       display: flex;
       justify-content: flex-start;
       border-radius: 2rem;
-      background: white;
+      background-color: white;
       padding: 5rem 5rem 5rem 4rem;
       position: relative;
       gap:5rem;
@@ -385,7 +385,7 @@ header{
           content: '';
           position: absolute;
           bottom: -1.6rem;
-          background: #D9D9D9;
+          background-color: #D9D9D9;
           width: 100%;
           left: 0;
           height: 0.1rem;
@@ -444,7 +444,7 @@ header{
     font: 700 1.2rem/normal 'ua BRAND';
     color:var(--color-white);
     border-radius: 10rem;
-    background: var(--color-primary-second);
+    background-color: var(--color-primary-second);
     position: relative;
     border: 0.1rem solid  var(--color-primary-second);
     &:after{
@@ -488,7 +488,7 @@ header{
     position: relative;
     width: 5.9rem;
     height: calc(100vh - 12.4rem);
-    background: var(--color-white);
+    background-color: var(--color-white);
     &:after, &:before{
       content: '';
       position: absolute;
@@ -579,7 +579,7 @@ header{
       .section__link{
         margin-top: 4rem;
       }
-      & >*{
+      & > *{
         font: 400 5rem/normal 'ua BRAND';
         strong{
           font-weight: 900;
@@ -601,7 +601,7 @@ header{
       justify-content: space-between;
       width: calc(100vw - 5.9rem);
       height: calc(100vh - 11.4rem);
-      &>*{
+      & > *{
         position: relative;
         z-index: 2;
       }
@@ -611,7 +611,7 @@ header{
         width: 100%;
         height: 100%;
         opacity: 0.5;
-        background: #000;
+        background-color: #000;
       }
 
     }
@@ -671,7 +671,7 @@ header{
     z-index: 2;
   }
   &__pagination{
-    background: var(--color-blur);
+    background-color: var(--color-blur);
     backdrop-filter: blur(1rem);
     display: flex;
     gap:1rem;
@@ -682,7 +682,7 @@ header{
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 6rem;
-    background: white;
+    background-color: white;
     opacity: 0.2;
 
 
@@ -742,7 +742,7 @@ header{
     font: 600 1rem/normal 'Gilroy' ;
     padding: 0.4rem 1rem;
     border: 0.1rem solid var(--color-black);
-    background: rgba(255, 255, 255, 0.80);
+    background-color: rgba(255, 255, 255, 0.80);
   }
   &__img{
     width: 100%;
@@ -818,7 +818,7 @@ header{
   }
   &__item{
     width: calc((100% - 8.7rem)/4);
-    &>*{
+    & > *{
       display: flex;
       flex-direction: column;
       height: 100%;
@@ -1034,6 +1034,7 @@ header{
     gap:2rem;
     width: 10.2rem;
     height: 2.9rem;
+    z-index: 1;
   }
   &__img{
     min-width: 40.7rem;
@@ -1232,7 +1233,7 @@ header{
   width: 4.1rem;
   min-width: 4.1rem;
   height: 2.9rem;
-  background: var(--color-blur);
+  background-color: var(--color-blur);
   backdrop-filter: blur(1rem);
   margin: 0;
   &:hover{
@@ -1412,7 +1413,7 @@ header{
   .flexrange .container{
     flex-direction: column;
     gap:3rem;
-    &>*{
+    & > *{
       width: 100%;
     }
   }

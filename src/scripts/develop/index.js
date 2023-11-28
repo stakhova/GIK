@@ -73,20 +73,12 @@ function dropMenu(){
 }
 
 function openMenu() {
-    $('.header__burger').click(function (){
-        // $(this).toggleClass("header__burger-open");
-        $('.header').toggleClass('header__show');
-        $('body').toggleClass('hidden');
-        $('.header__back').toggleClass('header__back-show')
-    })
-    $('.header__hide').on('click',function (){
-        // $(this).toggleClass("header__burger-open");
-        $('.header').toggleClass('header__show');
-        $('body').toggleClass('hidden');
-        $('.header__back').toggleClass('header__back-show')
-    })
+    // $(this).toggleClass("header__burger-open");
+    $('.header').toggleClass('header__show');
+    $('body').toggleClass('hidden');
+    $('.header__back').toggleClass('header__back-show')
 };
-function mobChange(){
+function mobileChange(){
 
     if(window.innerWidth <= 666) {
         $('.header__drop-item').each(function (){
@@ -118,11 +110,10 @@ function mobChange(){
 function showSideMenu(){
 
     let block = $('.side__block')
-    $(".side__item > *").on("click", function() {
+    $(".side__item button").on("click", function() {
         let tab = $(this).data('tab-name')
 
         if($(this).hasClass('active')){
-            console.log(111111111111)
             block.removeClass("show")
             block.addClass("hide")
             setTimeout(function(){
@@ -135,16 +126,18 @@ function showSideMenu(){
                 let tabContent = $(this).data('name')
                 if( tab == tabContent){
                     $(this).toggleClass('show')
-                    $(this).next().removeClass('show')
-                    $(this).prev().removeClass('show')
+                    $(this).nextAll().removeClass('show')
+                    $(this).prevAll().removeClass('show')
+
                 }
             })
         }
 
         $(this).toggleClass('active')
-        $(this).prev().removeClass('active')
-        $(this).next().removeClass('active')
-
+        $(this).prevAll().removeClass('active')
+        $(this).nextAll().removeClass('active')
+        console.log(1234,$(this).nextAll())
+        console.log(1234,$(this).prevAll())
 
         $('.side__block.show').animate({left: '5.9rem'}, 500);
         $('.side__block.hide').animate({left: '-100%'}, 500);
@@ -163,9 +156,10 @@ function showSideMenu(){
 $(document).ready(function(){
     openDrop();
     showSideMenu()
-    mobChange()
-    openMenu()
+    mobileChange()
     dropMenu()
+
+    $(document).on('click','.header__burger,.header__hide', openMenu )
 });
 
 $(window).load(function(){
