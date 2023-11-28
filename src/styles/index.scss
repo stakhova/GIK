@@ -1875,10 +1875,7 @@ header{
     z-index: 6;
   }
   header{
-    padding-bottom: 3.2rem;
-  }
-  .side{
-    display: none;
+    padding-bottom: 7.5rem;
   }
   .header__hide{
     width: 10vw;
@@ -1906,7 +1903,113 @@ header{
   .footer__bottom .container{
     padding: 1.4rem 1.6rem;
   }
+  .side__item{
+    width: 100vw;
+    height: max-content;
+    display: flex;
+  }
+  .side__wrap:after{
+    display: none;
+  }
+  .side__wrap{
+    top:3.2rem;
+    height: max-content;
+  }
+  .side__item > *{
+    padding: 1.4rem;
+    position: relative;
+    top:unset;
+    transform: none;
+    width: calc(100vw / 3);
+    font-size: 1.2rem;
+  }
+  .side__item > *:nth-child(2), .side__item > *:nth-child(3){
+    top:unset;
+    position: relative;
+    &:after{
+      content:'';
+      position: absolute;
+      left: 0;
+      height: 1.4rem;
+      width: 0.1rem;
+      transform: translateX(-50%);
+      background-color: var(--color-black);
+    }
+  }
+  .side__item > *.active{
+    border: none;
+    border-width: 0;
+    &:before{
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -0.4rem;
+      height: 0.4rem;
+      width: 100%;
+      background-color: var(--color-primary-second);
+    }
+  }
+  .side__block{
+    top: 7.2rem;
+    width: 100vw;
+    height: calc(100vh - 7.5rem);
+    z-index: 5;
+  }
+  .side__content-item{
+    width: 100vw;
+    height: calc(100vh - 7.5rem);
+  }
+  .side__content-title{
+    display: none;
+  }
+  .side__content-desc{
+    width: 100%;
+    height: calc(100vh - 7.2rem);
+  }
+  .delivery{
+    z-index: 2;
+  }
+  .side__content-desc{
+    border: none;
+  }
+  .side__content-text{
+    padding: 2rem 1.6rem;
+  }
+  .side__title{
+    font-size: 2.4rem;
+    margin-bottom:1.4rem ;
+  }
+  .side__subtitle{
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+  }
+  .side__text > *{
+    font-size: 1.4rem;
+  }
+  .side .side__content-text .section__link{
+    padding: 1.4rem 1rem;
+    margin-top: 2rem;
+  }
+  .side__block-close{
+    top:2rem;
+    right: 2rem;
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  .side__item:after, .side__item:before{
+    display: none;
+  }
+  .footer__item-mob>*{
+    width: calc(50% - 0.5rem);
+
+    }
+  .footer__item:nth-child(2){
+    margin: 0;
+  }
 }
+
+
 
 @media only screen and (max-width: 480px) {
   .acoustics__list{
@@ -1924,5 +2027,9 @@ header{
     width: 1.4rem;
     height: 1.4rem;
     right: calc(-10vw + 1rem);
+  }
+  .side__item > *{
+    padding: 1.4rem 0;
+    font-size: 1rem;
   }
 }

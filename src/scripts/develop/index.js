@@ -1,40 +1,44 @@
-
-function openDrop(){
-    $('.section__drop').click(function (){
+const INNER_WIDTH =window.innerWidth
+function openReadMore(){
+    $(document).on('click', '.section__drop', function (){
         $(this).next().toggle(300)
         $(this).toggleClass('section__drop-open')
     })
 }
 
-const testimonials = new Swiper('.testimonials__slider', {
-    slidesPerView: 1,
-    spaceBetween: 60,
-    centeredSlides: true,
-    loop: true,
-    navigation: {
-        nextEl: ".testimonials__next",
-        prevEl: ".testimonials__prev"
-    }
-});
+function initSliders(){
+    const testimonials = new Swiper('.testimonials__slider', {
+        slidesPerView: 1,
+        spaceBetween: 60,
+        centeredSlides: true,
+        loop: true,
+        navigation: {
+            nextEl: ".testimonials__next",
+            prevEl: ".testimonials__prev"
+        }
+    });
+    const banner = new Swiper('.banner__slider', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        centeredSlides: true,
+        loop: true,
+
+        pagination: {
+            el: '.banner__pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".banner__next",
+            prevEl: ".banner__prev"
+        }
+    });
+}
 
 
-const banner = new Swiper('.banner__slider', {
-    slidesPerView: 1,
-    spaceBetween: 0,
-    centeredSlides: true,
-    loop: true,
 
-    pagination: {
-        el: '.banner__pagination',
-        clickable: true,
-    },
-    navigation: {
-        nextEl: ".banner__next",
-        prevEl: ".banner__prev"
-    }
-});
 
-function dropMenu(){
+
+function dropMenuHeader(){
     let dropMenu = $('.header__drop-menu .header__drop-btn')
     let dropSubmenu = ('.header__drop-btn-wrap .header__drop-btn')
 
@@ -78,9 +82,9 @@ function openMenu() {
     $('body').toggleClass('hidden');
     $('.header__back').toggleClass('header__back-show')
 };
-function mobileChange(){
 
-    if(window.innerWidth <= 666) {
+function mobileChange(){
+    if(INNER_WIDTH <= 666) {
         $('.header__drop-item').each(function (){
             $(this).append('<div class="header__drop-btn-wrap"><button class="header__drop-btn"></button></div>')
         })
@@ -108,9 +112,8 @@ function mobileChange(){
 }
 
 function showSideMenu(){
-
     let block = $('.side__block')
-    $(".side__item button").on("click", function() {
+    $(document).on("click", ".side__item button", function() {
         let tab = $(this).data('tab-name')
 
         if($(this).hasClass('active')){
@@ -136,10 +139,12 @@ function showSideMenu(){
         $(this).toggleClass('active')
         $(this).prevAll().removeClass('active')
         $(this).nextAll().removeClass('active')
-        console.log(1234,$(this).nextAll())
-        console.log(1234,$(this).prevAll())
+        if(INNER_WIDTH<= 666){
+            $('.side__block.show').animate({left: '0'}, 500);
+        } else {
+            $('.side__block.show').animate({left: '5.9rem'}, 500);
+        }
 
-        $('.side__block.show').animate({left: '5.9rem'}, 500);
         $('.side__block.hide').animate({left: '-100%'}, 500);
     });
 
@@ -154,11 +159,11 @@ function showSideMenu(){
     })
 }
 $(document).ready(function(){
-    openDrop();
+    openReadMore();
     showSideMenu()
     mobileChange()
-    dropMenu()
-
+    dropMenuHeader()
+    initSliders()
     $(document).on('click','.header__burger,.header__hide', openMenu )
 });
 
