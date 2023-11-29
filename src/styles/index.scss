@@ -206,8 +206,13 @@ header{
   &__search{
     &-form{
       display: none;
+      position: relative;
+      right: -0.6rem;
+
     }
     &-block{
+
+      max-height: 2.4rem;
       height: 100%;
       width: 19.2rem;
       display: flex;
@@ -221,7 +226,7 @@ header{
         border: none;
         background-color: transparent;
         font: 500 1.6rem / 2rem 'Lato';
-        padding: 0.2rem 1rem;
+        padding: 0.2rem 0.2rem 0.2rem 1rem ;
       }
     }
     &-btn{
@@ -1701,13 +1706,16 @@ header{
     width: 13.7rem;
   }
   .header{
-    display: none;
+    //display: none;
+    left: -110%;
+    top: 0;
   }
   .header__menu{
     flex-direction: column;
   }
   .header__show{
     transition: .2s ease;
+
     position: fixed;
     top:0;
     display: block;
@@ -1928,15 +1936,21 @@ header{
   .header__hide-btn{
     position: relative;
     display: block;
+    width: 2rem;
+    height: 2rem;
+    top:1rem;
+    right: calc(10vw - 7rem);
+
     &:after{
       content: '';
       position: absolute;
-      top: 1rem;
-      right: calc(-10vw + 2rem);
-      width: 1.6rem;
-      height: 1.6rem;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 1.4rem;
+      height: 1.4rem;
       z-index: 1;
-      background: url("../img/close.svg") center/1.6rem 1.6rem no-repeat;
+      background: url("../img/close.svg") center/1.4rem 1.4rem no-repeat;
     }
   }
   .footer__bottom .container{
@@ -1954,8 +1968,11 @@ header{
     top:3.2rem;
     height: max-content;
   }
+  .side__item{
+    padding-top: 1.4rem;
+  }
   .side__item > *{
-    padding: 1.4rem;
+    padding: 0 1.4rem 1.4rem;
     position: relative;
     top:unset;
     transform: none;
@@ -2087,13 +2104,18 @@ header{
   .acoustics__img {
     height: 51vw;
   }
-  .header__hide-btn:after{
-    width: 1.4rem;
-    height: 1.4rem;
-    right: calc(-10vw + 1rem);
-  }
+
   .side__item > *{
-    padding: 1.4rem 0;
+    padding: 0 1.4rem 1.4rem;
     font-size: 1rem;
+  }
+  .header__hide-btn {
+    right: calc(10vw - 5rem);
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .header__hide-btn {
+    right: calc(10vw - 4rem);
   }
 }

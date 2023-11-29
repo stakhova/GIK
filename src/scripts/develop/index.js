@@ -77,8 +77,13 @@ function dropMenuHeader(){
 }
 
 function openMenu() {
-    // $(this).toggleClass("header__burger-open");
+    $('.header__burger').toggleClass("header__burger-open");
     $('.header').toggleClass('header__show');
+    if($('.header').hasClass('header__show')){
+        $('.header').animate({left: '0'}, 200);
+    } else{
+        $('.header').animate({left: '-110%'}, 200);
+    }
     $('body').toggleClass('hidden');
     $('.header__back').toggleClass('header__back-show')
 };
@@ -182,19 +187,17 @@ function sendForm(form, url, funcSuccess, funcError) {
 }
 
 function searchSuccess(){
-    $('.header__search-form').hide();
-    $('.header__search').show()
+    $('.header__search-form').hide(300);
+    $('.header__search').show(300)
     $('.header__search-form')[0].reset()
 }
 function openSearch(){
     $(document).on('click','.header__search', function (){
-        console.log(11111)
         $(this).hide()
-        $('.header__search-form').show()
+        $('.header__search-form').show(300)
     })
     $(document).on('click','.header__search-btn', function (e){
         e.preventDefault();
-        console.log(1111)
         sendForm($('.header__search-form'),'/wp-admin/admin-ajax.php', searchSuccess, searchSuccess)
     })
 }
