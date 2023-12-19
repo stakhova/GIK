@@ -1,0 +1,16 @@
+<svg width="62" height="42" viewBox="0 0 62 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 7">
+<g id="Rectangle 139" filter="url(#filter0_b_1230_47)">
+<rect width="62" height="42" transform="matrix(-1 0 0 1 62 0)" fill="#57606F" fill-opacity="0.39"/>
+</g>
+<path id="Polygon 1" d="M39 19.2679C40.3333 20.0378 40.3333 21.9623 39 22.7321L28.5 28.7942C27.1667 29.564 25.5 28.6018 25.5 27.0622L25.5 14.9378C25.5 13.3982 27.1667 12.436 28.5 13.2058L39 19.2679Z" fill="white"/>
+</g>
+<defs>
+<filter id="filter0_b_1230_47" x="-20" y="-20" width="102" height="82" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImageFix" stdDeviation="10"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1230_47"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1230_47" result="shape"/>
+</filter>
+</defs>
+</svg>
