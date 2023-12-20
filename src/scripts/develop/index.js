@@ -282,6 +282,20 @@ function headerSubmenu(){
     }
 }
 
+
+function setActiveArticle(){
+    $('.articles__category-item').click(function (){
+        $(this).toggleClass('active')
+        $(this).prevAll().removeClass('active')
+        $(this).nextAll().removeClass('active')
+        let val = $(this).text()
+        $('.articles__input').val(val)
+        console.log(33333, $('.articles__input').val())
+        sendForm($('.articles__category'), '/wp-admin/admin-ajax.php', function (){
+
+        });
+    })
+}
 $(document).ready(function () {
     $('.filter__select').each(function() {
         const currentSelect = $(this);
@@ -299,7 +313,8 @@ $(document).ready(function () {
     openSearch();
     headerSubmenu();
     playVideo();
-    accordion()
+    accordion();
+    setActiveArticle();
     $(document).on('click', '.header__burger,.header__hide', openMenu);
 });
 

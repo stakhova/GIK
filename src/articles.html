@@ -4,243 +4,140 @@
   //= partials/header.html
 
   <div class="wrap__main">
-    <section class="products">
-      <div class="products__banner-back img">
-        <img src="./img/product-banner-back.png" alt="">
-      </div>
+    <section class="articles">
       <div class="container">
-        <div class="products__banner">
-          <div class="products__banner-title">
-            <h1>All Products</h1>
+        <div class="articles__block">
+          <h2 class="section__title">Articles</h2>
+          <form class="articles__category">
+            <input type="text" name="get_articles" hidden>
+            <input class="articles__input" type="text" name="category" hidden>
+            <button class="articles__category-item" type="button">Videos</button>
+            <button class="articles__category-item" type="button">Articles</button>
+            <button class="articles__category-item" type="button">Application</button>
+            <button class="articles__category-item" type="button">Materials Fabrics</button>
+            <button class="articles__category-item" type="button">Downloads</button>
+            <button class="articles__category-item" type="button">Blog</button>
+          </form>
+          <div class="articles__subtitle">
+            <h3>Education videos</h3>
           </div>
-          <div class="products__banner-block">
-            <div class="products__banner-img img">
-              <img src="./img/product-banner.svg" alt="">
-            </div>
-            <div class="products__banner-text">
-              <h2>Lorem ipsum dolor sit amet, consectetur</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.</p>
-              <p>Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.</p>
-            </div>
+          <div class="articles__text">
+            <p>GIK Acoustics not only offers quality, patented, Eco-friendly products but we also provide customers with custom acoustical advice as well as helpful educational articles. We take a holistic approach in helping customers understand the acoustical issues in their space and then present a practical approach to addressing the issues.</p>
           </div>
-        </div>
-      </div>
-    </section>
-    <section class="category">
-      <div class="container">
-        <div class="filter__block">
-          <h3 class="filter__title">Filter</h3>
-          <div class="filter__item">
-            <select name="sort" class="filter__select">
-              <option value="default"><span>Sort by:</span>Default sorting</option>
-              <option value="latest">Latest</option>
-              <option value="low to high"><span>Price:</span> Low to high</option>
-              <option value="high to low"><span>Price:</span> High to low</option>
-            </select>
-          </div>
-
-        </div>
-        <div class="category__block">
-          <h3 class="products__title">Category</h3>
-          <ul class="category__list">
-            <li class="category__item">
-              <div class="category__img img">
+          <ul class="video__list articles__list">
+            <li class="video__item">
+              <div class="video__img img" data-video="//www.youtube.com/embed/Kd15Z0wJ1jM?autoplay=1&mute=1">
                 <img src="./img/banner.png" alt="">
+                <div class="video__play">
+                  <img src="./img/play.svg" alt="">
+                </div>
               </div>
+              <h3 class="video__subtitle">Acoustic Panels</h3>
               <div class="category__sublist-title">
-                <div class="category__link"><a href="">Acoustic Panels</a></div>
-              </div>
-              <ul class="category__sublist">
-                <li class="category__link"><a href="">Broadband Acoustic Panels</a></li>
-                <li class="category__link"><a href="">Alpha Series</a></li>
-                <li class="category__link"><a href="">Impression Series</a></li>
-                <li class="category__link"><a href="">Acoustic Art Panels</a></li>
-                <li class="category__link"><a href="">Room Kits – Starting at $581.99</a></li>
-              </ul>
-            </li>
-            <li class="category__item">
-              <div class="category__img img">
-                <img src="./img/category2.png" alt="">
-              </div>
-              <div class="category__sublist-title">
-                <div class="category__link"><a href="">Acoustic Panels</a></div>
-              </div>
-              <ul class="category__sublist">
-                <li class="category__link"><a href="">Broadband Acoustic Panels</a></li>
-                <li class="category__link"><a href="">Alpha Series</a></li>
-                <li class="category__link"><a href="">Impression Series</a></li>
-                <li class="category__link"><a href="">Acoustic Art Panels</a></li>
-                <li class="category__link"><a href="">Room Kits – Starting at $581.99</a></li>
-              </ul>
-            </li>
-            <li class="category__item">
-              <div class="category__img img">
-                <img src="./img/category2.png" alt="">
-              </div>
-              <div class="category__sublist-title">
-                <div class="category__link"><a href="">Acoustic Panels</a></div>
-              </div>
-              <ul class="category__sublist">
-                <li class="category__link"><a href="">Broadband Acoustic Panels</a></li>
-                <li class="category__link"><a href="">Alpha Series</a></li>
-                <li class="category__link"><a href="">Impression Series</a></li>
-                <li class="category__link"><a href="">Acoustic Art Panels</a></li>
-                <li class="category__link"><a href="">Room Kits – Starting at $581.99</a></li>
-              </ul>
-            </li>
-            <li class="category__item">
-              <div class="category__img img">
-                <img src="./img/category2.png" alt="">
-              </div>
-              <div class="category__sublist-title">
-                <div class="category__link"><a href="">Acoustic Panels</a></div>
-              </div>
-              <ul class="category__sublist">
-                <li class="category__link"><a href="">Broadband Acoustic Panels</a></li>
-                <li class="category__link"><a href="">Alpha Series</a></li>
-                <li class="category__link"><a href="">Impression Series</a></li>
-                <li class="category__link"><a href="">Acoustic Art Panels</a></li>
-                <li class="category__link"><a href="">Room Kits – Starting at $581.99</a></li>
-              </ul>
-            </li>
-            <li class="category__item">
-              <div class="category__img img">
-                <img src="./img/category2.png" alt="">
-              </div>
-              <div class="category__sublist-title">
-                <div class="category__link"><a href="">Acoustic Panels</a></div>
-              </div>
-              <ul class="category__sublist">
-                <li class="category__link"><a href="">Broadband Acoustic Panels</a></li>
-                <li class="category__link"><a href="">Alpha Series</a></li>
-                <li class="category__link"><a href="">Impression Series</a></li>
-                <li class="category__link"><a href="">Acoustic Art Panels</a></li>
-                <li class="category__link"><a href="">Room Kits – Starting at $581.99</a></li>
-              </ul>
-            </li>
-          </ul>
-
-        </div>
-      </div>
-    </section>
-    <section class="lines">
-      <div class="container">
-        <div class="category__block">
-          <h3 class="products__title">Product Lines</h3>
-          <ul class="category__list">
-            <li class="category__item">
-              <div class="category__img img">
-                <img src="./img/category2.png" alt="">
-              </div>
-              <div class="category__sublist-title">
-                <div class="category__link"><a href="">Acoustic Panels</a></div>
+                <div class="category__link"><a href="">Improve Sound Quality</a></div>
               </div>
             </li>
-            <li class="category__item">
-              <div class="category__img img">
-                <img src="./img/category2.png" alt="">
+            <li class="video__item">
+              <div class="video__img img" data-video="//www.youtube.com/embed/Kd15Z0wJ1jM?autoplay=1&mute=1">
+                <img src="./img/banner.png" alt="">
+                <div class="video__play">
+                  <img src="./img/play.svg" alt="">
+                </div>
               </div>
+              <h3 class="video__subtitle">Acoustic Panels</h3>
               <div class="category__sublist-title">
-                <div class="category__link"><a href="">Acoustic Panels</a></div>
+                <div class="category__link"><a href="">Treat These Areas First: Where to begin Acoustic Treatment</a></div>
               </div>
             </li>
-            <li class="category__item">
-              <div class="category__img img">
-                <img src="./img/category2.png" alt="">
+            <li class="video__item">
+              <div class="video__img img" data-video="//www.youtube.com/embed/Kd15Z0wJ1jM?autoplay=1&mute=1">
+                <img src="./img/banner.png" alt="">
+                <div class="video__play">
+                  <img src="./img/play.svg" alt="">
+                </div>
               </div>
+              <h3 class="video__subtitle">Acoustic Panels</h3>
               <div class="category__sublist-title">
-                <div class="category__link"><a href="">Acoustic Panels</a></div>
+                <div class="category__link"><a href="">Treat These Areas First: Where to begin Acoustic Treatment</a></div>
               </div>
             </li>
-            <li class="category__item">
-              <div class="category__img img">
-                <img src="./img/category2.png" alt="">
+            <li class="video__item">
+              <div class="video__img img" data-video="//www.youtube.com/embed/Kd15Z0wJ1jM?autoplay=1&mute=1">
+                <img src="./img/banner.png" alt="">
+                <div class="video__play">
+                  <img src="./img/play.svg" alt="">
+                </div>
               </div>
+              <h3 class="video__subtitle">Acoustic Panels</h3>
               <div class="category__sublist-title">
-                <div class="category__link"><a href="">Acoustic Panels</a></div>
+                <div class="category__link"><a href="">Treat These Areas First: Where to begin Acoustic Treatment</a></div>
               </div>
             </li>
-            <li class="category__item">
-              <div class="category__img img">
-                <img src="./img/category2.png" alt="">
+            <li class="video__item">
+              <div class="video__img img" data-video="//www.youtube.com/embed/Kd15Z0wJ1jM?autoplay=1&mute=1">
+                <img src="./img/banner.png" alt="">
+                <div class="video__play">
+                  <img src="./img/play.svg" alt="">
+                </div>
               </div>
+              <h3 class="video__subtitle">Acoustic Panels</h3>
               <div class="category__sublist-title">
-                <div class="category__link"><a href="">Acoustic Panels</a></div>
+                <div class="category__link"><a href="">Treat These Areas First: Where to begin Acoustic Treatment</a></div>
               </div>
             </li>
-            <li class="category__item">
-              <div class="category__img img">
-                <img src="./img/category2.png" alt="">
+            <li class="video__item">
+              <div class="video__img img" data-video="//www.youtube.com/embed/Kd15Z0wJ1jM?autoplay=1&mute=1">
+                <img src="./img/banner.png" alt="">
+                <div class="video__play">
+                  <img src="./img/play.svg" alt="">
+                </div>
               </div>
+              <h3 class="video__subtitle">Acoustic Panels</h3>
               <div class="category__sublist-title">
-                <div class="category__link"><a href="">Acoustic Panels</a></div>
+                <div class="category__link"><a href="">Treat These Areas First: Where to begin Acoustic Treatment</a></div>
               </div>
             </li>
-          </ul>
-
-        </div>
-      </div>
-    </section>
-    <section class="popular">
-      <div class="container">
-        <div class="category__block">
-          <div class="popular__header">
-            <h3 class="products__title">Popular products</h3>
-            <div class="popular__nav slider__nav">
-              <div class="popular__prev swiper-button-prev"></div>
-              <div class="popular__pagination slider__pagination"></div>
-              <div class="popular__next swiper-button-next"></div>
-            </div>
-          </div>
-        </div>
-        <div class="popular__slider swiper-container">
-          <ul class="popular__list swiper-wrapper">
-            <li class="popular__item swiper-slide">
-              <div class="category__img img">
-                <img src="./img/category2.png" alt="">
+            <li class="video__item">
+              <div class="video__img img" data-video="//www.youtube.com/embed/Kd15Z0wJ1jM?autoplay=1&mute=1">
+                <img src="./img/banner.png" alt="">
+                <div class="video__play">
+                  <img src="./img/play.svg" alt="">
+                </div>
               </div>
+              <h3 class="video__subtitle">Acoustic Panels</h3>
               <div class="category__sublist-title">
-                <div class="category__link"><a href="">2A Alpha Series Acoustic Panel Diffusor/Absorber (50mm)</a></div>
-              </div>
-              <h3 class="popular__subtitle">Starting at 58.50 € excl. VAT</h3>
-              <div class="popular__tag">
-                <span>Acoustic Art Panels</span>
-                <span>ART PRINTS</span>
+                <div class="category__link"><a href="">Treat These Areas First: Where to begin Acoustic Treatment</a></div>
               </div>
             </li>
-            <li class="popular__item swiper-slide">
-              <div class="category__img img">
-                <img src="./img/category2.png" alt="">
+            <li class="video__item">
+              <div class="video__img img" data-video="//www.youtube.com/embed/Kd15Z0wJ1jM?autoplay=1&mute=1">
+                <img src="./img/banner.png" alt="">
+                <div class="video__play">
+                  <img src="./img/play.svg" alt="">
+                </div>
               </div>
+              <h3 class="video__subtitle">Acoustic Panels</h3>
               <div class="category__sublist-title">
-                <div class="category__link"><a href="">2A Alpha Series Acoustic Panel Diffusor/Absorber (50mm)</a></div>
-              </div>
-              <h3 class="popular__subtitle">Starting at 58.50 € excl. VAT</h3>
-              <div class="popular__tag">
-                <span>Acoustic Art Panels</span>
-                <span>ART PRINTS</span>
+                <div class="category__link"><a href="">Acoustic advice</a></div>
               </div>
             </li>
-            <li class="popular__item swiper-slide">
-              <div class="category__img img">
-                <img src="./img/cat2.png" alt="">
+            <li class="video__item">
+              <div class="video__img img" data-video="//www.youtube.com/embed/Kd15Z0wJ1jM?autoplay=1&mute=1">
+                <img src="./img/category1.png" alt="">
+                <div class="video__play">
+                  <img src="./img/play.svg" alt="" >
+                </div>
               </div>
+              <h3 class="video__subtitle">Acoustic Panels</h3>
               <div class="category__sublist-title">
-                <div class="category__link"><a href="">Acoustic Panels</a></div>
-              </div>
-              <h3 class="popular__subtitle">Starting at 58.50 € excl. VAT</h3>
-              <div class="popular__tag">
-                <span>Acoustic Art Panels</span>
-                <span>ART PRINTS</span>
+                <div class="category__link"><a href="">Room acouusctic visualiser</a></div>
               </div>
             </li>
           </ul>
         </div>
-
-
       </div>
     </section>
+
   </div>
 
   //= partials/footer.html

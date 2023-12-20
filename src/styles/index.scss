@@ -1870,7 +1870,7 @@ header {
   .category__link{
     width: 100%;
   }
-  .video__play {
+  &__play {
     width: 6.2rem;
     height: 4.2rem;
     position: absolute;
@@ -1891,6 +1891,7 @@ header {
 
 .faq{
   background-color: var(--color-grey-section);
+
   .container{
     padding: 10rem;
   }
@@ -1937,22 +1938,97 @@ header {
     padding: 3rem 2rem;
     display: none;
     transition: .2s ease;
-    & > *{
+    & > h2,& > h3,& > h4,& > h5,& > h6{
+      font: 700 1.4rem/150% 'Lato';
+      color:var(--color-black)
+    }
+    & > p{
       font: 500 1.8rem/150% 'Lato';
       color:var(--color-price)
     }
     &.open{
-      display: block;
+      display: flex;
+      flex-direction: column;
+      gap:1rem;
       transition: .2s ease;
     }
   }
-
+  &__page{
+    background-color: transparent;
+    .container{
+      padding: 10rem 10rem ;
+      max-width: 148.2rem;
+    }
+    .faq__list{
+      max-width: 100%;
+    }
+    .section__title{
+      margin-bottom: 3rem;
+    }
+  }
 }
+
+.articles{
+  .container{
+    padding: 9rem 10rem 10rem;
+  }
+  .category__sublist-title:after{
+    display: none;
+  }
+  &__list{
+    flex-wrap: wrap;
+  }
+  .video__item{
+    width: calc((100% - 6rem)/3);
+  }
+  &__category{
+    margin: 1.2rem 0 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap:1rem;
+    &-item{
+      color:var(--color-white);
+      padding: 0.8rem 1.2rem;
+      background-color: var(--color-blur);
+      text-transform: uppercase;
+      font: 600 1.2rem/normal 'Lato';
+      &.active{
+        background-color: var(--color-primary);
+      }
+    }
+  }
+  &__subtitle > *{
+    font: 700 2rem/normal 'UA-BRAND';
+    margin-bottom: 1.2rem;
+  }
+  &__text > *{
+    font: 500 2rem/150% 'Gilroy';
+  }
+  &__list{
+    margin-top: 5rem;
+    gap: 4rem 3rem;
+  }
+  &__block{
+    max-width: 128.4rem;
+    margin: 0 auto;
+  }
+  .category__sublist-title .category__link > *{
+    font-size: 2rem;
+  }
+  .category__link{
+    width: 100%;
+  }
+}
+
+
+
 .filter {
   &__block {
     display: flex;
     gap: 1rem;
     margin-bottom: 5rem;
+    align-items: center;
   }
   &__title{
     font: 700 2rem/normal 'Gilroy';
@@ -1971,6 +2047,7 @@ header {
    border:0.1rem solid var(--color-black);
    align-items: center;
    width: 21.8rem;
+    padding: 1.4rem 2rem;
    & > span{
      font: 600 1.4rem/normal 'Gilroy';
      color:#808080;
@@ -1993,16 +2070,55 @@ header {
     }
   }
 }
-.select2-search{
 
-}
+//.select2-container--default .select2-results__option--highlighted[aria-selected]{
+//  background-color: var(--color-grey);
+//  color:var(--color-black)
+//}
+//.select2-container--default .select2-results__option[aria-selected=true]{
+//  background-color: var(--color-grey);
+//}
+
 .select2-container--default .select2-selection--single{
   border:none
 }
-.select2-container .select2-selection--single .select2-selection__rendered{
-  //padding: 1.4rem 2rem;
+.select2-results__option{
+  font: 600 1.4rem/normal "Gilroy";
+  padding: 1rem 0.5rem;
 }
-
+.select2-container .select2-selection--single .select2-selection__rendered{
+  font: 600 1.4rem/normal "Gilroy";
+  padding: 0 2rem 0 0 ;
+}
+.select2-container .select2-selection--single{
+  height: auto;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  width: 1.5rem;
+  height: 1.5rem;
+  top: 50%;
+  right:0;
+  transform: translateY(-50%);
+  position: absolute;
+  &:after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 1.5rem;
+    height: 1.5rem;
+    background: url("../img/down.svg") center/1.5rem 1.5rem no-repeat;
+  }
+}
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b, .select2-container--default .select2-selection--single .select2-selection__arrow b{
+  border: none;
+}
+.select2-container--open .select2-selection--single .select2-selection__arrow  {
+  &:after{
+    transform: translate(-50%, -50%) rotate(-180deg);
+  }
+}
 
 @media only screen and (min-width: 1025px) {
   .head .header__drop-content{
