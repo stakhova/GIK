@@ -48,6 +48,30 @@ function initSliders() {
     });
 }
 
+
+function accordion(){
+    $(document).on('click', '.faq__header', function (){
+      let content =  $(this).next('.faq__content');
+      $(this).closest('.faq__item').prevAll().find('.faq__content').removeClass('open')
+      $(this).closest('.faq__item').nextAll().find('.faq__content').removeClass('open')
+
+      if(content.hasClass('open')){
+          content.removeClass('open')
+      }else{
+          content.addClass('open')
+
+      }
+    })
+}
+
+function playVideo() {
+    $(document).on('click', '.video__img', function () {
+        let video = '<iframe allowFullScreen allow=" fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" frameBorder="0" src="' + $(this).data('video') + '" title="' + $(this).data('title') + '"></iframe>';
+        $(this).closest('.video__play').hide();
+        $(this).replaceWith(video);
+    });
+}
+
 function dropMenuHeader() {
     let dropMenu = $('.header__drop-menu .header__drop-btn');
     let dropSubmenu = '.header__drop-btn-wrap .header__drop-btn';
@@ -257,14 +281,25 @@ function headerSubmenu(){
 
     }
 }
+
 $(document).ready(function () {
+    $('.filter__select').each(function() {
+        const currentSelect = $(this);
+        const currentSelectDropdown = currentSelect.closest('.filter__item-wrapper').find('.filter__dropdown');
+        currentSelect.select2({
+            minimumResultsForSearch: -1,
+            dropdownParent: currentSelectDropdown,
+        });
+    })
     openReadMore();
     showSideMenu();
     mobileChange();
     dropMenuHeader();
     initSliders();
     openSearch();
-    headerSubmenu()
+    headerSubmenu();
+    playVideo();
+    accordion()
     $(document).on('click', '.header__burger,.header__hide', openMenu);
 });
 
