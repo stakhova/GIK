@@ -227,11 +227,41 @@ function sendForm(form, url, funcSuccess, funcError) {
     ajaxSend(form, url, funcSuccess, funcError);
 }
 
+function searchActive(){
+    $('.faq__form input').focus(function() {
+        $(this).closest('.faq__form').addClass('big');
+        $(this).removeAttr('placeholder')
+    });
+    $('.faq__form input').blur(function() {
+        $(this).closest('.faq__form').removeClass('big');
+        $(this).attr('placeholder','Search')
+    });
+    $(document).on('submit', '.faq__form', function (e) {
+        e.preventDefault();
+        sendForm($('.faq__form'), '/wp-admin/admin-ajax.php', faqSearchSuccess, faqSearchSuccess);
+    });
+}
+
+
+function tab(){
+    $(".tab__header-item").click(function() {
+        $(".tab__header-item").removeClass("active").eq($(this).index()).addClass("active");
+        $(".tab__content-item").hide().eq($(this).index()).fadeIn()
+    }).eq(0).addClass("active");
+}
+
+function faqSearchSuccess() {
+    // $('.faq__form input').attr('placeholder','Search')
+    // $('.faq__form input[name=search]').val('')
+    // $('.faq__form').removeClass('big')
+}
 function searchSuccess() {
     $('.header__search-form').hide(300);
     $('.header__search').show(300);
     $('.header__search-form')[0].reset();
     $('.header__phone').show(300)
+
+
 }
 function openSearch() {
     $(document).on('click', '.header__search', function () {
@@ -305,6 +335,8 @@ $(document).ready(function () {
             dropdownParent: currentSelectDropdown,
         });
     })
+    tab();
+    searchActive();
     openReadMore();
     showSideMenu();
     mobileChange();
