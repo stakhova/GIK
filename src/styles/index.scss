@@ -1948,6 +1948,9 @@ header {
       font: 500 1.8rem/150% 'Lato';
       color:var(--color-price)
     }
+    img{
+      width: max-content;
+    }
     &.open{
       display: flex;
       flex-direction: column;
@@ -2144,7 +2147,11 @@ header {
     }
   }
 }
-
+.content{
+  & > h2{
+    font: 700 1.6rem/2rem 'UA-BRAND';
+  }
+}
 
 .about{
   .container{
@@ -2261,7 +2268,7 @@ header {
       h2{
         font: 700 1.6rem/normal 'UA-BRAND';
       }
-      h2{
+      h3{
         font: 700 1.4rem/normal 'UA-BRAND';
       }
       p{
@@ -2305,6 +2312,8 @@ header {
   }
 }
 
+
+
 .team{
   .container{
     padding: 9rem 10rem 5rem;
@@ -2325,6 +2334,37 @@ header {
   }
 }
 
+
+.breadcrumbs{
+  display: flex;
+  gap:2.6rem;
+  margin-bottom: 1rem;
+  a{
+    text-transform: uppercase;
+    font:600 1.2rem/normal 'Lato';
+    position: relative;
+    color:#808080;
+    &:last-child{
+      color:#125A66;
+    }
+    &:not(:last-child){
+      &:before{
+        content: '/';
+        font:600 1.2rem/normal 'Lato';
+        color:#808080;
+        position: absolute;
+        top:50%;
+        right: -1.6rem;
+        transform: translateY(-50%);
+      }
+    }
+  }
+  &.white{
+    a:last-child{
+      color:white;
+    }
+  }
+}
 //.select2-container--default .select2-results__option--highlighted[aria-selected]{
 //  background-color: var(--color-grey);
 //  color:var(--color-black)

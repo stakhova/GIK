@@ -10,6 +10,10 @@
             </div>
             <div class="container">
                 <div class="products__banner">
+                    <div class="breadcrumbs white">
+                        <a href="#">Main</a>
+                        <a href="#">All Products</a>
+                    </div>
                     <div class="products__banner-title">
                         <h1>All Products</h1>
                     </div>
@@ -31,13 +35,17 @@
             <div class="container">
                 <div class="filter__block">
                     <h3 class="filter__title">Filter</h3>
-                    <div class="filter__item">
-                        <select name="sort" class="filter__select">
-                            <option value="default"><span>Sort by:</span>Default sorting</option>
-                            <option value="latest">Latest</option>
-                            <option value="low to high"><span>Price:</span> Low to high</option>
-                            <option value="high to low"><span>Price:</span> High to low</option>
-                        </select>
+                    <div class="filter__item-wrapper">
+                        <div class="filter__item">
+                            <span>Sort by:</span>
+                            <select name="sort" class="filter__select" >
+                                <option value="default">Default sorting</option>
+                                <option value="latest">Latest</option>
+                                <option value="low to high">Low to high</option>
+                                <option value="high to low">High to low</option>
+                            </select>
+                        </div>
+                        <div class="filter__dropdown"></div>
                     </div>
 
                 </div>
