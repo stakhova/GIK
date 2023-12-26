@@ -1605,7 +1605,7 @@ header {
 .products{
   position: relative;
   &__title{
-    font: 700 3.6rem/normal "UA-BRAND";
+    font: 700 3.6rem/normal "ua BRAND";
     margin-bottom: 5rem;
   }
   .container{
@@ -1626,7 +1626,7 @@ header {
     &-title{
       margin-bottom: 3rem;
       &>*{
-        font: 700 4.8rem/normal "UA-BRAND";
+        font: 700 4.8rem/normal "ua BRAND";
         color:var(--color-white);
       }
     }
@@ -1654,7 +1654,7 @@ header {
       gap:1.4rem;
       color:var(--color-white);
       h2{
-        font: 700 2rem/normal "UA-BRAND"
+        font: 700 2rem/normal "ua BRAND"
       }
       p{
         color:var(--color-banner);
@@ -1735,7 +1735,7 @@ header {
     flex-direction: column;
     gap:1rem;
     a{
-      font: 700 1.2rem/normal "UA-BRAND";
+      font: 700 1.2rem/normal "ua BRAND";
       color:#808080;
     }
     &-title {
@@ -1757,7 +1757,7 @@ header {
       }
       .category__link > * {
         padding: 1rem 2.9rem 1rem 0;
-        font: 700 1.4rem/normal "UA-BRAND";
+        font: 700 1.4rem/normal "ua BRAND";
         color:var(--color-black);
         &:after {
           width: 1.9rem;
@@ -1812,7 +1812,7 @@ header {
     display: none;
   }
   &__subtitle{
-    font: 400 1.5rem/normal "UA-BRAND";
+    font: 400 1.5rem/normal "ua BRAND";
     color:var(--color-text);
     margin-bottom: 1.4rem;
 
@@ -1834,7 +1834,7 @@ header {
     }
   }
   .category__link > *{
-    font: 700 2rem/150% "UA-BRAND";
+    font: 700 2rem/150% "ua BRAND";
   }
   .category__sublist-title:after{
    display: none;
@@ -1861,7 +1861,7 @@ header {
   }
   &__subtitle{
     color: #CDCFD4;
-    font: 700 1.4rem/2rem 'UA-BRAND';
+    font: 700 1.4rem/2rem 'ua BRAND';
   }
   .category__sublist-title .category__link > *{
     font-size: 2rem;
@@ -1932,7 +1932,7 @@ header {
       background: #CDCFD4;
     }
     & > *{
-      font: 700 2rem/normal 'UA-BRAND';
+      font: 700 2rem/normal 'ua BRAND';
     }
   }
   &__content{
@@ -2037,7 +2037,7 @@ header {
     }
   }
   &__subtitle > *{
-    font: 700 2rem/normal 'UA-BRAND';
+    font: 700 2rem/normal 'ua BRAND';
     margin-bottom: 1.2rem;
   }
   &__text > *{
@@ -2119,7 +2119,7 @@ header {
     align-items: center;
     margin-bottom: 5rem;
     &-item{
-      font: 700 2rem/normal 'UA-BRAND';
+      font: 700 2rem/normal 'ua BRAND';
       position: relative;
       color: var(--color-pagg);
       padding-bottom:0.4rem;
@@ -2148,8 +2148,41 @@ header {
   }
 }
 .content{
+  h2, h3, h4, h5, h6{
+    font: 700 1.4rem/2rem 'ua BRAND';
+  }
   & > h2{
-    font: 700 1.6rem/2rem 'UA-BRAND';
+    font: 700 1.6rem/2rem 'ua BRAND';
+  }
+  p, span{
+    font: 500 1.4rem/150% 'Gilroy';
+    color:var(--color-text);
+  }
+  ol, ul{
+    padding-left: 1.6rem;
+    display: flex;
+    gap:0.6rem;
+    flex-direction: column;
+  }
+  ul li{
+    position: relative;
+  }
+  ul li:after{
+    content: '';
+    position: absolute;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    top:0.8rem;
+    left: -1.6rem;
+    background-color: var(--color-black);
+  }
+
+  li{
+    font: 500 1.4rem/150% 'Gilroy';
+  }
+  a{
+    text-decoration: underline;
   }
 }
 
@@ -2188,7 +2221,7 @@ header {
       gap:1rem;
     }
     &-name{
-      font: 700 2rem/normal 'UA-BRAND';
+      font: 700 2rem/normal 'ua BRAND';
     }
     &-proff{
       font: 500 1.6rem/150% 'Gilroy';
@@ -2239,7 +2272,7 @@ header {
       flex-direction: column;
       gap:2rem;
       h3{
-        font: 700 2rem/normal 'UA-BRAND';
+        font: 700 2rem/normal 'ua BRAND';
       }
       p{
         font: 500 1.6rem/150% 'Gilroy';
@@ -2250,7 +2283,7 @@ header {
       flex-direction: column;
       gap:2rem;
       h2{
-        font: 700 3.6rem/normal 'UA-BRAND';
+        font: 700 3.6rem/normal 'ua BRAND';
       }
       p{
         font: 500 1.6rem/150% 'Gilroy';
@@ -2266,10 +2299,10 @@ header {
       gap:1rem;
       flex-direction: column;
       h2{
-        font: 700 1.6rem/normal 'UA-BRAND';
+        font: 700 1.6rem/normal 'ua BRAND';
       }
       h3{
-        font: 700 1.4rem/normal 'UA-BRAND';
+        font: 700 1.4rem/normal 'ua BRAND';
       }
       p{
         font: 500 1.6rem/150% 'Gilroy';
@@ -2285,7 +2318,7 @@ header {
   }
   &__story{
     &-title{
-      font: 700 3.6rem/normal 'UA-BRAND';
+      font: 700 3.6rem/normal 'ua BRAND';
       margin-bottom: 2rem;
     }
     &-text{
@@ -2330,7 +2363,7 @@ header {
     margin: 3rem 0 5rem;
   }
   &__title{
-    font: 700 3.6rem/normal 'UA-BRAND';
+    font: 700 3.6rem/normal 'ua BRAND';
   }
 }
 
