@@ -37,6 +37,41 @@
   color: var(--color-grey-ttl);
 }
 
+
+
+.form{
+  &__item{
+    display: flex;
+    gap:1rem;
+    align-items: center;
+    padding:2rem 1rem;
+    border: 0.1rem solid var(--color-black);
+    background-color: var(--color-white);
+    width:40rem ;
+    transition: 0.5s ease;
+    &.active{
+      border: 0.1rem solid #FED4B7;
+    }
+  }
+  &__icon{
+    width: 2.1rem;
+    height: 2.1rem;
+    &:hover{
+      path{
+        transition: 0.2s ease;
+        fill:var(--color-primary)
+      }
+    }
+  }
+  &__input{
+    font: 600 1.4rem/normal 'Gilroy';
+    width: 100%;
+    border: none;
+    &::placeholder{
+      color:var(--color-pagg);
+    }
+  }
+}
 .section__name {
   font: 700 2rem / normal 'Lato';
   color: var(--color-grey-ttl);
@@ -1599,6 +1634,7 @@ header {
   display: -ms-flexbox;
   display: flex;
   gap: 0.6rem;
+  width: max-content;
 }
 
 
@@ -1710,7 +1746,7 @@ header {
       height: 100%;
       top: 0;
       left: 0;
-      border: 1px solid #F0F1F2;
+      border: 0.1rem solid #F0F1F2;
     }
   }
   &__link {
@@ -1775,7 +1811,7 @@ header {
     padding: 10rem;
   }
   .category__img:after{
-    border: 1px solid var(--color-grey);
+    border: 0.1rem solid var(--color-grey);
   }
   .category__sublist-title:after{
     display: none;
@@ -1799,7 +1835,9 @@ header {
   &__tag{
     display: flex;
     gap:0.8rem;
+    flex-wrap: wrap;
     & > *{
+      white-space: nowrap;
       font: 600 1rem/normal "Gilroy";
       padding: 0.4rem 1rem;
       border: 0.1rem solid var(--color-black);
@@ -1914,11 +1952,11 @@ header {
     &:after{
       content: '';
       position: absolute;
-      top: 50%;
+      top: 0.3rem;
       right: 0;
-      transform: translateY(-50%);
       width: 1.9rem;
       height: 1.9rem;
+      transform: rotate(90deg);
       background: url(../img/arrow-black.svg) center/1.9rem 1.9rem no-repeat;
     }
     &:before{
@@ -1927,7 +1965,7 @@ header {
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 0.1rem;
+      height: 0.2rem;
       opacity: 0.3;
       background: #CDCFD4;
     }
@@ -1970,40 +2008,42 @@ header {
       margin-bottom: 3rem;
     }
   }
-  &__form{
-    display: flex;
-    gap:1rem;
-    align-items: center;
-    padding: 1.4rem 2rem;
-    border: 0.1rem solid var(--color-pagg);
-    width:20rem ;
+  .form{
     margin: 3rem 0 4.6rem;
-    transition: 0.5s ease;
-    &.big{
-      transition: 0.5s ease;
-      width:50rem ;
-      flex-direction: row-reverse;
-      border: 0.1rem solid #FED4B7;
+    &__item{
+      border: 0.1rem solid var(--color-pagg);
+      width:20rem ;
+      padding: 1.4rem 2rem;
+      max-width: 20rem;
+      &.big{
+        transition: 0.5s ease;
+        max-width:50rem ;
+        width: 100%;
+        flex-direction: row-reverse;
+        border: 0.1rem solid #FED4B7;
+      }
     }
-  }
-  button{
-    width: 2.1rem;
-    height: 2.1rem;
-    &:hover{
-     path{
-       transition: 0.2s ease;
-        fill:var(--color-primary)
+
+    &__icon{
+      width: 2.1rem;
+      height: 2.1rem;
+      &:hover{
+        path{
+          transition: 0.2s ease;
+          fill:var(--color-primary)
+        }
+      }
+    }
+    &__input{
+      font: 600 1.4rem/normal 'Gilroy';
+      width: 100%;
+      border: none;
+      &::placeholder{
+        color:#808080;
       }
     }
   }
-  input{
-    font: 600 1.4rem/normal 'Gilroy';
-    width: 100%;
-    border: none;
-    &::placeholder{
-      color:#808080;
-    }
-  }
+
 }
 
 .articles{
@@ -2062,6 +2102,9 @@ header {
 
 
 .filter {
+  &__mob{
+    display: none;
+  }
   &__block {
     display: flex;
     gap: 1rem;
@@ -2195,6 +2238,7 @@ header {
   }
   &__team{
     display: flex;
+    flex-wrap: wrap;
     gap:3rem;
     margin: 3rem 0 10rem;
     & > *{
@@ -2325,8 +2369,10 @@ header {
       display: flex;
       flex-direction: column;
       gap:1rem;
-      font: 500 1.6rem/150% 'Gilroy';
       width: calc(56% - 3rem);
+      & > *{
+        font: 500 1.6rem/150% 'Gilroy';
+      }
     }
     &-flex{
       display: flex;
@@ -2446,6 +2492,9 @@ header {
     transform: translate(-50%, -50%) rotate(-180deg);
   }
 }
+
+
+
 
 @media only screen and (min-width: 1025px) {
   .head .header__drop-content{
@@ -3523,6 +3572,10 @@ header {
 }
 
 @media only screen and (max-width: 890px) {
+
+  .popular .category__sublist-title .category__link > *{
+    font-size: 1.4rem;
+  }
   /*.header__item > a {*/
   /*   padding: 3rem 1.6rem;*/
   /* }*/
@@ -3549,7 +3602,18 @@ header {
     min-width: 30vw;
     max-width: 30vw;
   }
-
+  .products__banner-list{
+    flex-direction: column;
+  }
+  .products__banner-list .products__banner-text{
+    max-width: 100%;
+  }
+  .products__text .products__banner-list li {
+    width: 100%!important;
+  }
+  .about__team a{
+    font-size: 1.4rem;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -3558,6 +3622,12 @@ header {
   }
   .categories__img {
     height: 30.3vw;
+  }
+  .about__team-text{
+   font-size: 1.4rem;
+  }
+  .about__team a{
+    font-size: 1.2rem;
   }
 }
 @media only screen and (max-width: 666px) {
@@ -4326,9 +4396,294 @@ header {
     padding: 0 1.4rem 1.4rem;
     font-size: 1rem;
   }
+  .popular__subtitle{
+   margin-bottom: 1rem;
+  }
+  .popular .category__sublist-title{
+    margin: 0;
+  }
+
+  .products__title{
+    font-size: 2rem;
+    margin-bottom: 4rem;
+  }
+  .popular .container{
+    padding: 2rem 1.6rem 8rem;
+  }
+  .popular .products__title{
+    margin: 0 auto 4rem;
+  }
+  .lines{
+    background-color: var(--color-white);
+  }
+  .lines .container{
+    padding: 2rem 1.6rem;
+  }
+  .lines .products__title{
+    text-align: center;
+  }
+  .category__list{
+    gap: 2rem 0.8rem;
+  }
+  .category__item{
+    width: calc(50% - 0.4rem);
+  }
+  .lines .category__sublist-title .category__link > *{
+   padding: 0.6rem 3.2rem 0.6rem  0.6rem;
+  }
+  .lines .category__link{
+    position: relative;
+    width: 100%;
+    &:after{
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border: 0.1rem solid var(--color-black);
+      pointer-events: none;
+    }
+  }
+  .lines .category__img:after{
+    border-bottom: none;
+  }
+  .lines .category__sublist-title{
+    margin: 0;
+  }
+  .category .container{
+    padding: 4rem 1.6rem 2rem;
+
+  }
+
+  .category .products__title{
+    margin-bottom: 2rem;
+  }
+  .filter__block{
+    margin-bottom: 0;
+    position: relative;
+  }
+  .filter__item-wrapper, .filter__title{
+    display: none;
+  }
+  .filter__mob{
+    display: block;
+    position: absolute;
+    bottom: -2.3rem;
+    width: 2rem;
+    height: 2rem;
+    right: 0;
+  }
+  .category__img{
+    aspect-ratio: 1/1;
+  }
+  .category .category__sublist-title .category__link > *{
+    padding: 1rem 2.9rem 1rem 0;
+  }
+  .category__sublist-title:after{
+    width: 100%;
+  }
+  .products__banner-title > *{
+    font-size: 2rem;
+  }
+  .products__banner-title{
+    margin-bottom: 2rem;
+  }
+  .products .container{
+    padding: 4rem 1.6rem 10rem;
+  }
+  .products__banner-img{
+    width: 2.4rem;
+    min-width: 2.4rem;
+    height: 2.4rem;
+  }
+  .products__banner-block{
+    gap:1rem;
+  }
+  .products .products__banner-text > *{
+    font-size: 1.4rem;
+  }
+  .products  .breadcrumbs{
+    display: none;
+  }
+  .popular__nav{
+    margin: 3rem auto 0;
+  }
+  .products__banner-list{
+   gap:2rem;
+  }
+  .shop .container {
+    padding: 4rem 1.6rem 3rem;
+  }
+  .shop .products__title{
+    margin-bottom: 2rem;
+  }
+  .shop .category__list{
+    gap:2rem 0.8rem;
+  }
+  .shop .category__list > *{
+    width: calc(50% - 0.4rem);
+  }
+  .category__sublist-title .category__link > *{
+    font-size: 1.4rem;
+  }
+  .shop .category__sublist-title{
+    margin-bottom: 0;
+  }
+  .products__text .container{
+  padding: 2rem 1.6rem;
+  }
+  .video .category__sublist-title .category__link > *{
+    font-size: 1.4rem;
+  }
+  .video__img{
+    margin-bottom: 1rem;
+  }
+  .category__sublist-title{
+    margin-bottom:0rem;
+  }
+  .category__sublist{
+    margin-top: 1rem;
+  }
+  .video__list{
+    flex-direction: column;
+  }
+  .video__item{
+    width: 100%;
+  }
+  .video .products__title{
+    margin-bottom: 2rem;
+  }
+  .faq{
+   background-color: var(--color-white);
+  }
+  .faq__header > *{
+    font-size: 1.6rem;
+  }
+  .faq__content{
+    padding: 1.6rem 2rem;
+  }
+  .faq__content > p{
+    font-size: 1.4rem;
+  }
+  .faq .container{
+    padding: 3rem 1.6rem 8rem;
+  }
+  .video .container{
+    padding: 4rem 1.6rem 3rem;
+  }
+  .faq__page .section__title{
+    margin-bottom: 2rem;
+  }
+  .faq__form{
+    margin: 2rem 0 4rem ;
+    width: 100%;
+  }
+  .faq__header{
+   padding-bottom: 2rem;
+  }
+  .faq__page .faq__content{
+    padding: 3rem 0 0 0 ;
+  }
+  .faq__form{
+   padding: 0.8rem 2rem;
+  }
+  .articles .container{
+    padding: 4rem 1.6rem 8rem;
+  }
+  .articles__subtitle > *{
+   font-size: 1.6rem;
+  }
+  .articles__text > *{
+    font-size: 1.4rem;
+  }
+  .articles .video__item{
+    width: 100%;
+  }
+  .about .container{
+    padding: 2rem 1.6rem 8rem;
+  }
+  .breadcrumbs a{
+   font-size: 1rem;
+  }
+  .tab__header-item{
+   font-size: 1.2rem;
+  }
+  .about .section__title{
+    margin-bottom: 2rem;
+  }
+  .tab__header{
+    margin-bottom: 4rem;
+  }
+  .about__story-title{
+   font-size: 2rem;
+  }
+  .about__story-flex{
+    flex-direction: column-reverse;
+    margin-bottom: 4rem;
+  }
+  .about__story-flex > *{
+    width: 100%;
+  }
+  .about__story-text{
+    gap:2rem;
+  }
+  .about__story-flex.reverse{
+    flex-direction: column-reverse;
+  }
+  .about__team-top h2{
+   font-size: 2rem;
+
+  }
+  .about__team{
+    gap:2rem;
+  }
+
+  .about__team > *{
+    width: calc(50% - 1rem);
+  }
+  .about__team-text{
+    font-size: 1.6rem;
+  }
+  .about__team a{
+    font-size: 1.6rem;
+  }
+  .about__team{
+    margin-bottom: 8rem;
+  }
+  .about__policy{
+    gap:4rem;
+  }
+  .team .container{
+    padding:2rem 1.6rem 8rem;
+  }
+  .team__subtitle{
+    font-size: 1.6rem;
+    margin-bottom: 4rem;
+  }
+  .team .section__title{
+    margin-bottom: 4rem;
+  }
+  .team .about__team{
+    margin: 4rem 0;
+  }
+  .team__title{
+    font-size: 2rem;
+  }
 }
 
 @media only screen and (max-width: 480px) {
+  .about__team{
+    gap:4rem;
+  }
+  .about__team > *{
+    width: 100%;
+  }
+  .about__team-img .img{
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+  }
   .acoustics__list {
     -ms-flex-direction: column;
     flex-direction: column;
@@ -4358,6 +4713,9 @@ header {
 @media only screen and (max-width: 375px) {
   .header__hide-btn {
     right: calc(10vw - 4rem);
+  }
+  .side__item > *{
+    padding: 0 0.4rem 1.4rem;
   }
 }
 

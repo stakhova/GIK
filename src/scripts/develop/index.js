@@ -44,6 +44,19 @@ function initSliders() {
         navigation: {
             nextEl: ".popular__next",
             prevEl: ".popular__prev"
+        },
+        breakpoints: {
+            0:{
+                slidesPerView: 2,
+                spaceBetween: 8,
+            },
+            666: {
+                slidesPerView: 3,
+            },
+            800:  {
+                slidesPerView: 4,
+            },
+
         }
     });
 }
@@ -144,6 +157,9 @@ function mobileChange() {
         });
         let slidersCount = $('.feedback .swiper-pagination-bullet').length;
         $('.feedback .swiper-pagination-bullet').css('width', `calc(100%/${slidersCount})`);
+
+        $('.popular .container').append($('.slider__nav'))
+
     }
     if (INNER_WIDTH <= 1024) {
         $('.header__drop-item').each(function () {
@@ -228,12 +244,12 @@ function sendForm(form, url, funcSuccess, funcError) {
 }
 
 function searchActive(){
-    $('.faq__form input').focus(function() {
-        $(this).closest('.faq__form').addClass('big');
+    $('.form__input').focus(function() {
+        $(this).closest('.form__item').addClass('big active');
         $(this).removeAttr('placeholder')
     });
-    $('.faq__form input').blur(function() {
-        $(this).closest('.faq__form').removeClass('big');
+    $('.form__input').blur(function() {
+        $(this).closest('.form__item').removeClass('big active');
         $(this).attr('placeholder','Search')
     });
     $(document).on('submit', '.faq__form', function (e) {
