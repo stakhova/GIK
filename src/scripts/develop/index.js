@@ -85,6 +85,169 @@ function playVideo() {
     });
 }
 
+
+const validateForm = (form, func) => {
+    form.on("submit", function (e) {
+        e.preventDefault();
+    });
+    $.validator.addMethod("goodName", function (value, element) {
+        return this.optional(element) || /^[\sаА-яЯіІєЄїЇґҐa-zA-Z0-9._-]{2,30}$/i.test(value);
+    }, "Please enter correct");
+
+    $.validator.addMethod("goodEmail", function (value, element) {
+        return this.optional(element) || /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,62}$/i.test(value);
+    }, "Please enter correct email");
+
+    $.validator.addMethod("goodPhone", function (value, element) {
+        // return this.optional(element) || /^((\+[1-9]{1,4}[ \-]*)|(\([0-9]{2,3}\)[ \-]*)|([0-9]{2,4})[ \-]*)*?[0-9]{3,4}?[ \-]*[0-9]{3,4}?$/i.test(value);
+        return this.optional(element) || /^[+]*[0-9]{10,20}$/g.test(value);
+    }, "Please enter correct phone number");
+
+    form.validate({
+        rules: {
+            name: {
+                required: true,
+                goodName: true,
+                // minlength:2,
+                // maxLength: 30
+            },
+
+            lastname: {
+                required: true,
+                goodName: true,
+                // minlength:2,
+                // maxLength: 30
+            },
+            phone: {
+                required: true,
+                goodPhone: true
+
+            },
+            phoneAccount:{
+                goodPhone: true
+            },
+            email: {
+                required: true,
+                goodEmail: true,
+                email: true
+            },
+            password: {
+                required: true,
+                minlength: 8
+            },
+            password_confirm: {
+                required: true,
+                minlength: 8,
+                equalTo: "#password"
+            },
+            passwordNew: {
+                required: true,
+                minlength: 8
+            },
+            passwordNewRepeat: {
+                required: true,
+                minlength: 8,
+                equalTo: "#passwordNew"
+            },
+            band_name: {
+                required: true,
+                goodName: true
+                // minlength:2,
+                // maxLength: 25
+            },
+            contact_name: {
+                required: true,
+                goodName: true
+                // minlength:2,
+                // maxLength: 25
+            },
+        },
+        messages: {
+            name: {
+                required: "This field is required",
+                minlength: "First name can't be shorter than 2 characters",
+                maxLength: "First name can't be longer than 30 characters "
+            },
+            lastname: {
+                required: "This field is required",
+                minlength: "Last name can't be shorter than 2 characters",
+                maxLength: "Last name can't be longer than 30 characters "
+            },
+            phone: {
+                required: "This field is required",
+                phone: "Please enter correct phone number"
+            },
+            phoneAccount:{
+                phone: "Please enter correct phone number"
+            },
+            email: {
+                required: "This field is required",
+                email: "Email invalid"
+            },
+            password: {
+                required: "This field is required",
+                minlength: "Password can't be shorter than 8 characters"
+            },
+            password_confirm: {
+                required: "Це поле є обов’язкове",
+                equalTo: "Passwords not equal",
+                minlength: "Password can't be shorter than 8 characters"
+            },
+            passwordNew: {
+                required: "This field is required",
+                minlength: "Last name can't be shorter than 8 characters"
+            },
+            passwordNewRepeat: {
+                required: "This field is required",
+                equalTo: "Passwords do not match"
+            },
+            band_name: {
+                required: "This field is required",
+                minlength: "Band name can't be shorter than 2 characters",
+                maxLength: "Band name can't be longer than 30 characters "
+            },
+            contact_name: {
+                required: "This field is required",
+                minlength: "Contact name can't be shorter than 2 characters",
+                maxLength: "Contact name can't be longer than 30 characters "
+            },
+
+        },
+        submitHandler: function () {
+            func();
+            form[0].reset();
+
+        }
+    });
+};
+
+// create ajax
+function ajaxSend(date, url, funcSuccess, funcError) {
+    $.ajax({
+        url: url,
+        data: date,
+        method: 'POST',
+        success: function (res) {
+            console.log('success ajax');
+            funcSuccess(res);
+        },
+        error: function (error) {
+            funcError(error);
+        },
+        complete: function (){
+
+        }
+    });
+}
+
+// send form
+function sendForm(form, url, funcSuccess, funcError) {
+    form = form.serialize();
+    ajaxSend(form, url, funcSuccess, funcError);
+}
+
+
+
 function dropMenuHeader() {
     let dropMenu = $('.header__drop-menu .header__drop-btn');
     let dropSubmenu = '.header__drop-btn-wrap .header__drop-btn';
@@ -351,6 +514,20 @@ $(document).ready(function () {
             dropdownParent: currentSelectDropdown,
         });
     })
+    $('.form__select').select2({});
+
+    $('.form__select').on('select2:select', function (e) {
+        console.log(4444,$(this))
+        let rendered = $(this).closest('.form__item-wrap').find('.select2-selection__rendered')
+        let renderedText = rendered.text()
+        if( renderedText !== 'Choose from the list' ){
+            rendered.addClass('black')
+        }
+        else{
+            rendered.removeClass('black')
+        }
+
+    });
     tab();
     searchActive();
     openReadMore();
@@ -364,6 +541,21 @@ $(document).ready(function () {
     accordion();
     setActiveArticle();
     $(document).on('click', '.header__burger,.header__hide', openMenu);
+
+
+    let formSign = $('.sign__form');
+    validateForm(formSign, function () {
+        sendForm(formSign, '/wp-admin/admin-ajax.php');
+    });
+
+    let formReg = $('.sign__form-reg');
+    validateForm(formReg, function () {
+        sendForm(formReg, '/wp-admin/admin-ajax.php');
+    });
+    let formContact = $('.contact__form');
+    validateForm(formContact, function () {
+        sendForm(formContact, '/wp-admin/admin-ajax.php');
+    });
 });
 
 $(window).load(function () {});

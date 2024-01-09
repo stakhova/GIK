@@ -40,6 +40,15 @@
 
 
 .form{
+
+
+  &__row{
+    display: flex;
+    gap:1rem;
+    & > *{
+      width: calc(50% - 0.5rem);
+    }
+  }
   &__item{
     display: flex;
     gap:1rem;
@@ -47,8 +56,10 @@
     padding:2rem 1rem;
     border: 0.1rem solid var(--color-black);
     background-color: var(--color-white);
-    width:40rem ;
+    max-width:40rem ;
+    width: 100%;
     transition: 0.5s ease;
+    position: relative;
     &.active{
       border: 0.1rem solid #FED4B7;
     }
@@ -71,7 +82,97 @@
       color:var(--color-pagg);
     }
   }
+  &__label{
+    font: 600 1.4rem / normal 'Gilroy';
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  &__button{
+    margin-top:3rem ;
+  }
+  &__button > *{
+    width: 100%;
+    background-color: var(--color-primary);
+    text-align: center;
+    padding: 2rem;
+    font: 500 1.6rem / normal 'Lato';
+
+    color:var(--color-white)
+  }
+  &__checkbox {
+    input {
+      padding: 0;
+      height: initial;
+      width: initial;
+      margin-bottom: 0;
+      display: none;
+      cursor: pointer;
+      &:checked + label:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 2px;
+        left: 9px;
+        width: 6px;
+        height: 14px;
+        border: solid var(--color-black);
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+    }
+    label {
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      font: 600 1.4rem / normal 'Gilroy';
+      &:before {
+        content:'';
+        -webkit-appearance: none;
+        background-color: transparent;
+        border: 0.1rem solid  var(--color-black);
+        padding: 1.2rem;
+        display: inline-block;
+        position: relative;
+        vertical-align: middle;
+        cursor: pointer;
+        margin-right: 1rem;
+        max-height: 2.6rem;
+      }
+    }
+  }
+  &__text{
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    & > *{
+      font: 500 1.4rem / normal 'Lato';
+    }
+    a{
+      text-decoration: underline;
+    }
+  }
+  .select2{
+    width: 100%!important;
+    border: 0.1rem solid var(--color-subtitle);
+    background-color: transparent;
+  }
+  .select2-container--default .select2-selection--single{
+      background-color: transparent;
+    padding: 1.5rem 1rem;
+  }
+  .select2-container--default .select2-selection--single .select2-selection__rendered{
+    color:var(--color-pagg)
+  }
+
+  .select2-container--default .select2-selection--single .select2-selection__rendered.black{
+    color:var(--color-black)
+  }
+  .select2-container--default .select2-selection--single .select2-selection__arrow{
+    right: 1rem;
+  }
 }
+
+
 .section__name {
   font: 700 2rem / normal 'Lato';
   color: var(--color-grey-ttl);
@@ -1772,7 +1873,7 @@ header {
     gap:1rem;
     a{
       font: 700 1.2rem/normal "ua BRAND";
-      color:#808080;
+      color:var(--color-subtitle);
     }
     &-title {
       color: var(--color-black);
@@ -2039,7 +2140,7 @@ header {
       width: 100%;
       border: none;
       &::placeholder{
-        color:#808080;
+        color:var(--color-subtitle);
       }
     }
   }
@@ -2131,7 +2232,7 @@ header {
     padding: 1.4rem 2rem;
    & > span{
      font: 600 1.4rem/normal 'Gilroy';
-     color:#808080;
+     color:var(--color-subtitle);
      white-space: nowrap;
    }
    .select2 {
@@ -2153,9 +2254,6 @@ header {
 }
 
 .tab{
-  .active{
-    color: red;
-  }
   &__header{
     display: flex;
     gap:2rem;
@@ -2269,7 +2367,7 @@ header {
     }
     &-proff{
       font: 500 1.6rem/150% 'Gilroy';
-      color:#808080;
+      color:var(--color-subtitle);
     }
     &-text{
       color:var(--color-text);
@@ -2422,7 +2520,7 @@ header {
     text-transform: uppercase;
     font:600 1.2rem/normal 'Lato';
     position: relative;
-    color:#808080;
+    color:var(--color-subtitle);
     &:last-child{
       color:#125A66;
     }
@@ -2430,7 +2528,7 @@ header {
       &:before{
         content: '/';
         font:600 1.2rem/normal 'Lato';
-        color:#808080;
+        color:var(--color-subtitle);
         position: absolute;
         top:50%;
         right: -1.6rem;
@@ -2492,7 +2590,179 @@ header {
     transform: translate(-50%, -50%) rotate(-180deg);
   }
 }
+.select2-search--dropdown{
+  display: none;
+}
 
+
+.sign{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: calc(100vh - 11.9rem);
+  &__block{
+    width: 50%;
+    min-height: 58.5rem ;
+  }
+  &__img{
+    width: 50%;
+    height: 100%;
+  }
+  &__title{
+    font: 700 3.6rem / normal 'ua BRAND';
+    margin-bottom: 1rem;
+    text-align: center;
+
+  }
+  &__subtitle{
+    font: 500 1.6rem / normal 'Lato';
+    margin-bottom: 3rem;
+    text-align: center;
+    color:var(--color-subtitle);
+  }
+  .tab__header{
+    justify-content: center;
+  }
+  .tab{
+    max-width: 40rem;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .form__item-wrap{
+    margin-bottom: 2.8rem;
+  }
+  .tab__header-item{
+    font-size: 1.6rem;
+    width: 12.8rem;
+    padding: 1.4rem;
+    border: 0.1rem solid var(--color-black);
+    color:var(--color-black);
+    background-color:var(--color-white);
+    &.active{
+      background-color: var(--color-black);
+      color:white;
+      &:after{
+        display: none;
+      }
+    }
+  }
+  .tab__header{
+    gap:0;
+
+  }
+  &__forgot{
+    display: block;
+    text-align: center;
+    margin: 1.6rem auto 0;
+    color:var(--color-subtitle);
+    font: 500 1.4rem / normal 'Lato';
+    text-decoration-line: underline;
+  }
+}
+
+
+.contact{
+  &__submit{
+    margin: 0 auto;
+    & > *{
+      background-color: var(--color-black);
+      padding: 2rem 5rem;
+      color:var(--color-white);
+      font: 700 1.4rem/2rem 'ua BRAND';
+
+    }
+  }
+  .form__item{
+   padding: 1.4rem 1rem;
+   max-width: 100%;
+   background-color: transparent;
+    border: 0.1rem solid var(--color-subtitle);
+    input{
+      background-color: transparent;
+    }
+  }
+  &__form{
+    padding: 7rem 5rem ;
+    display: flex;
+    flex-direction: column;
+    gap:3rem;
+    background-color: var(--color-footer-bottom);
+    &-title{
+      font: 700 3.6rem/normal 'ua BRAND';
+      text-align: center;
+    }
+    &-subtitle{
+      font: 500 2rem/150% 'Lato';
+      text-align: center;
+      margin-top: -1rem;
+    }
+  }
+
+  &__head{
+    display: flex;
+    gap:3rem;
+    margin-bottom: 7rem;
+    &-item{
+      width: calc((100% - 6rem)/3);
+    }
+    &-title{
+      font: 700 2rem / normal 'ua BRAND';
+      margin-bottom: 1.4rem;
+    }
+    p{
+      font: 500 1.6rem / 150% 'Gilroy';
+      margin-bottom: 1.4rem;
+    }
+    a{
+      margin-top: 1rem;
+      display: block;
+    }
+    &-icon{
+      padding-left: 2.6rem;
+      position: relative;
+      font: 500 1.6rem / 150% 'Gilroy';
+      &:after{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left:0;
+        transform: translateY(-50%);
+        width: 1.6rem;
+        height: 1.6rem;
+
+      }
+    }
+    &-email{
+      &:after{
+        background: url("../img/email.svg") center/1.6rem 1.6rem no-repeat;
+      }
+    }
+    &-phone{
+      &:after{
+        background: url("../img/mobile.svg") center/1.6rem 1.6rem no-repeat;
+      }
+    }
+  }
+  .section__title{
+    margin-bottom: 5rem;
+  }
+  &__title{
+    font: 700 3.6rem / normal 'ua BRAND';
+    margin-bottom: 3rem;
+  }
+  .container{
+    padding: 10rem;
+  }
+}
+
+
+label.error{
+  position: absolute;
+  bottom: -1.8rem;
+  right: 0;
+  color:#FD1111;
+  font: 500 1.2rem / normal 'Gilroy';
+}
 
 
 
@@ -2962,6 +3232,9 @@ header {
   }
   .flexrange__title{
     font-size: 2.6rem;
+  }
+  .sign__block{
+    width: 70%;
   }
 
 }
@@ -3569,6 +3842,40 @@ header {
     height: 2.1rem;
     background: url(../img/customer-support.svg) center/2.1rem 2.1rem no-repeat;
   }
+  .sign__img{
+    display: none;
+  }
+  .sign__block{
+    width: 100%;
+  }
+  .sign .tab__header-item{
+   padding: 0.8rem;
+  }
+  .sign .form__item-wrap{
+    margin-bottom: 2rem;
+  }
+  .form__checkbox label:before{
+    padding: 0.9rem;
+    max-height: 2rem;
+  }
+  .form__button{
+    margin-top: 2rem;
+  }
+  .form__button > *{
+    padding: 1.2rem;
+  }
+  .sign__forgot{
+  margin-top: 2rem;
+  }
+  .sign__block{
+    min-height: 53.9rem;
+
+  }
+  .form__text > *{
+    font-size: 1.2rem;
+  }
+
+
 }
 
 @media only screen and (max-width: 890px) {
@@ -4669,6 +4976,78 @@ header {
   }
   .team__title{
     font-size: 2rem;
+  }
+  .sign__block{
+    width: 100%;
+    padding: 4rem 1.6rem;
+  }
+  .sign__img{
+    display: none;
+  }
+  .sign__title{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .sign__subtitle{
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+  }
+  .sign .tab__header{
+    margin-bottom: 5.2rem;
+  }
+  .form__label{
+    font-size: 1.2rem;
+  }
+  .sign .form__item{
+    padding: 1.2rem 1rem;
+    input{
+      font-size: 1.4rem;
+    }
+  }
+  .contact__head{
+    flex-direction: column;
+  }
+  .contact__head-item{
+    width: 100%;
+    gap:4rem;
+  }
+  .contact__title{
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  .contact .section__title{
+    margin-bottom: 4rem;
+  }
+  .contact__head-title{
+    font-size: 1.6rem;
+  }
+  .contact .container{
+    padding: 2rem 1.6rem 8rem;
+  }
+  .contact__form{
+    padding: 4rem 1.6rem;
+    gap:4rem;
+  }
+  .contact__form-title{
+    font-size: 2rem;
+  }
+  .contact__form-subtitle{
+    margin-top: -3rem;
+    font-size: 1.6rem;
+  }
+  .form__row{
+    flex-direction: column;
+    & > *{
+      width: 100%;
+    }
+  }
+  .contact .form__label{
+    font-size: 1.4rem;
+  }
+  .contact__submit > *{
+    padding: 1rem;
+    min-width: 25.6rem;
+    width: 100%;
   }
 }
 
