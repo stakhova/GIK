@@ -2754,6 +2754,15 @@ header {
     padding: 10rem;
   }
 }
+.affiliate{
+  &__list{
+    display: flex;
+    gap:3rem;
+    &-item{
+      width: calc((100% - 6rem)/3);
+    }
+  }
+}
 
 
 label.error{
