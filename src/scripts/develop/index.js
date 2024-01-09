@@ -323,6 +323,11 @@ function mobileChange() {
 
         $('.popular .container').append($('.slider__nav'))
 
+
+        $('.dealers__country').each(function (){
+            $(this).closest('.dealers__item').find('.dealers__img').after($(this))
+        })
+
     }
     if (INNER_WIDTH <= 1024) {
         $('.header__drop-item').each(function () {
@@ -358,7 +363,6 @@ function showSideMenu() {
                 }
             });
         }
-
         $(this).toggleClass('active');
         $(this).prevAll().removeClass('active');
         $(this).nextAll().removeClass('active');
