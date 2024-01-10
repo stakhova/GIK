@@ -10,6 +10,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   overflow: hidden;
+  min-height: 100vh;
 }
 
 .hidden {
@@ -55,6 +56,20 @@
       width: calc(50% - 0.5rem);
     }
   }
+  &__eye {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1.4rem;
+    width: 1.7rem;
+    height: 1.7rem;
+    background: url("../img/closed-eye.svg") center/1.7rem 1.7rem no-repeat;
+    &.active {
+      background: url("../img/eye.svg") center/1.7rem 1.7rem no-repeat;
+    }
+  }
+
   &__item{
     display: flex;
     gap:1rem;
@@ -68,6 +83,15 @@
     position: relative;
     &.active{
       border: 0.1rem solid #FED4B7;
+    }
+    &-desc{
+      position: absolute;
+      font: 500 1.2rem/normal 'Gilroy';
+      left: 0;
+      top: 8.2rem;
+    }
+    &-wrap{
+      position: relative;
     }
   }
   &__icon{
@@ -238,7 +262,7 @@
   display: block;
   position: relative;
   padding: .9rem 4.8rem .9rem 2.4rem;
-  font: 700 1.6rem / normal 'Lato';
+  font: 700 1.4rem / normal 'ua BRAND';
   border: 0.1rem solid var(--color-primary);
   border-radius: 5rem;
   transition: .2s ease;
@@ -2293,7 +2317,198 @@ header {
       }
     }
   }
+  &__account{
+    display: flex;
+    .tab__header{
+      flex-direction: column;
+      align-items: flex-start;
+      gap:3rem;
+    }
+    .tab__header-item{
+      padding: 0;
+    }
+    .tab__header-item.active{
+      padding-left: 3rem;
+    }
+    .tab__header-item.active:after{
+      display: none;
+    }
+    .tab__header-item.active:before{
+      content: '';
+      position: absolute;
+      left: 0;
+      top:50%;
+      width: 2rem;
+      height: 0.1rem;
+      background-color: var(--color-black);
+      transform: translateY(-50%);
+    }
+    &-header{
+      max-width:39%;
+      min-width: 34.3rem;
+      background-color: var(--color-footer-bottom);
+      height: auto;
+      margin: 0 ;
+      padding: 4rem ;
+    }
+  }
 }
+
+.account{
+  display: flex;
+  flex-direction: column;
+  &__subtitle{
+    font: 500 1.6rem/normal 'Lato';
+    margin-top: 1rem;
+    color:var(--color-subtitle)
+  }
+  &__header{
+    padding:  1.4rem 2rem 2rem 10rem;
+    background-color: var(--color-footer-bottom);
+  }
+  &__block{
+      padding: 1rem 0 0 5.9rem ;
+    flex-grow: 1;
+  }
+  .container{
+    padding: 1.7rem 4rem;
+  }
+  &__user{
+    margin-bottom: 4rem;
+    &-img{
+      width: 6rem;
+      height: 6rem;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+    &-name{
+      font: 700 1.4rem/normal 'ua BRAND';
+      color:var(--color-text);
+    }
+  }
+  .tab__content-item{
+    padding: 4rem 3rem;
+  }
+  .form{
+   display: flex;
+    flex-direction: column;
+    gap:4.8rem;
+    .form__row{
+     max-width: 82rem;
+      width: 100%;
+    }
+  }
+  .tab__content{
+    width: 66%;
+  }
+  .section__button{
+    background-color: var(--color-primary);
+  }
+  .contact__submit{
+    margin-left: 0;
+  }
+
+}
+
+
+.modal {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  &__close{
+    position: absolute;
+    top: -3rem;
+    right: -3rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    z-index: 6;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 2rem;
+      height: 2rem;
+      background: url("../img/close__modal.svg") center/2rem 2rem no-repeat;
+    }
+  }
+  &__title{
+    text-align: center;
+    font: 700 2rem/normal 'ua BRAND';
+    margin-bottom: 5rem;
+  }
+  &__btn{
+    display: flex;
+    gap:1.6rem;
+    justify-content: center;
+    &-active{
+      background-color: var(--color-primary);
+      color: white;
+    }
+    button{
+      color: var(--color-primary);
+    }
+    & > *{
+      padding: 2rem 6rem;
+      position: relative;
+      min-width: 14.4rem;
+      font: 500 1.6rem/normal 'Lato';
+      &:after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0.1rem solid var(--color-primary);
+      }
+
+    }
+  }
+  &__wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    &:after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: var(--color-black);
+      opacity: 0.5;
+      top: 0;
+      left: 0;
+    }
+  }
+  &__content {
+    max-width: 113.6rem;
+    width: 100%;
+    background: var(--color-white);
+    position: absolute;
+    padding: 8rem 2rem;
+    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+    max-height: 90vh;
+    transform: translate(-50%, -50%);
+    z-index: 6;
+    &::-webkit-scrollbar {
+      background-color: transparent;
+      width: 0.4rem;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--color-grey);
+    }
+  }
+
+}
+
+
 .content{
   h2, h3, h4, h5, h6{
     font: 700 1.4rem/2rem 'ua BRAND';
@@ -2900,6 +3115,9 @@ label.error{
   .container{
     padding: 8.9rem 10rem 10rem;
   }
+  .section__title{
+    margin-bottom: 3rem;
+  }
   &__list{
     display: flex;
     flex-wrap: wrap;
@@ -2907,12 +3125,16 @@ label.error{
   }
   &__item{
     width: calc((100% - 6rem )/3);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap:2rem
 
   }
   &__img{
     aspect-ratio: 16/9;
     width: 100%;
-    margin-bottom: 1.4rem;
+    margin-bottom: 0.4rem;
   }
   &__title{
     font: 700 2rem / normal 'ua BRAND';
@@ -2930,11 +3152,125 @@ label.error{
     flex-direction: column;
     gap:1rem;
   }
-  &__block{
+
+  //&__link{
+  //  color: var(--color-primary);
+  //  display: block;
+  //  position: relative;
+  //  padding: 1rem 4.8rem 1rem 2rem;
+  //  width: max-content;
+  //  font: 700 1.4rem / 2rem 'ua BRAND';
+  //  transition: 0.2s ease;
+  //  border-radius: 2rem;
+  //  &:hover{
+  //    color:var(--color-white);
+  //    background-color: var(--color-primary);
+  //    transition: 0.2s ease;
+  //  }
+  //  &:after{
+  //    content: '';
+  //    position: absolute;
+  //    right: 2rem;
+  //    top:50%;
+  //    transform: translateY(-50%);
+  //    width: 1.8rem;
+  //    height: 1.8rem;
+  //    background: url("../img/arrow-orange.svg") center / contain no-repeat;
+  //    transition: .2s ease;
+  //  }
+  //  &:hover{
+  //    color:var(--color-white);
+  //    background-color: var(--color-primary);
+  //    transition: 0.2s ease;
+  //    &:after{
+  //      filter: brightness(0) invert(1);
+  //    }
+  //  }
+  //  &:before{
+  //    content: '';
+  //    position: absolute;
+  //    right: 0;
+  //    top:0;
+  //    pointer-events: none;
+  //    width: 100%;
+  //    height: 100%;
+  //    border-radius: 2rem;
+  //    border: 0.1rem solid var(--color-primary);
+  //  }
+  //}
+  .section__link{
+    position: relative;
+  }
+  &__category{
     display: flex;
-    justify-content: space-between;
+    gap:1rem;
+    flex-wrap: wrap;
+    & > *{
+      text-transform: uppercase;
+      display: block;
+      background-color: var(--color-pagg);
+      padding: 0.8rem 1.2rem;
+      font: 600 1.2rem / normal 'Lato';
+      color: var(--color-white);
+    }
+  }
+  .articles__category {
+    margin: -3rem 0 5rem;
+  }
+  &__send{
+    display: flex;
     flex-direction: column;
-    gap:2rem
+    gap:2rem;
+    background-color: var(--color-grey-section);
+    justify-content: center;
+    align-items: center;
+    padding: 10rem 2rem;
+    margin-top: 8rem;
+    & > *{
+      max-width: 84.5rem ;
+      margin: 0 auto;
+      text-align: center;
+    }
+    &-title{
+      font: 700 3.6rem / normal 'ua BRAND';
+    }
+    &-subtitle{
+      font: 500 2rem / 150% 'Lato';
+    }
+    &-contact{
+
+      font: 700 1.6rem / 150% 'ua BRAND';
+      a{
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+
+.article{
+  .container{
+    padding: 8.9rem 10rem 10rem;
+  }
+  &__category{
+    margin:1.2rem 0 4rem ;
+    & > *{
+      background-color: var(--color-primary);
+    }
+  }
+  .section__title{
+    margin-bottom: 1.2rem;
+  }
+  &__video{
+
+    &-wrap{
+      max-width: 71% ;
+      margin: 5rem auto;
+      & > *{
+        width: 100%;
+        aspect-ratio: 16/9;
+      }
+    }
   }
 }
 
@@ -3430,6 +3766,9 @@ label.error{
   .header__menu{
     margin: 0;
   }
+  .modal__content{
+    max-width: 90vw;
+  }
 
 }
 @media only screen and (max-width: 1170px){
@@ -3460,6 +3799,26 @@ label.error{
   .header__drop-link{
     padding-right: 1.6rem;
   }
+  .tab__account{
+    flex-direction: column;
+    & > *{
+      max-width: 100%;
+    }
+  }
+  .tab__account .tab__header{
+    gap:2rem
+  }
+  .tab__header{
+    margin-bottom: 0;
+  }
+  .account__user{
+    margin-bottom: 2rem;
+  }
+  .tab__account .tab__header-item{
+    font-size: 1.8rem;
+  }
+
+
 }
 
 @media only screen and (max-width: 1024px) {
@@ -3795,6 +4154,9 @@ label.error{
     background: url(../img/search-black.svg) center/2rem 2rem no-repeat;
     z-index: 3;
   }
+  .articles__category-item{
+    font-size: 1rem;
+  }
 
   .delivery__text h2 {
     font-size: 1.2rem;
@@ -4050,7 +4412,28 @@ label.error{
   .dealers__item{
     grid-template-columns: 17% 22% 21% 21%;
   }
-
+  .reviews__title{
+    font-size: 1.7rem;
+  }
+  .reviews__item{
+    gap:1rem;
+    width: calc((100% - 4rem )/3);
+  }
+  .reviews__list{
+    gap:2rem;
+  }
+  .reviews__category > *{
+    font-size: 1rem;
+  }
+  .account__block{
+    padding-left: 3.7rem;
+  }
+  .account .tab__content{
+    width: 100%;
+  }
+  .account__header{
+  padding-left: 7.7rem;
+  }
 
 }
 
@@ -5311,9 +5694,130 @@ label.error{
   .dealers .filter__mob{
     bottom:3rem;
   }
+  .reviews__title{
+    font-size: 2rem;
+  }
+  .reviews__item{
+    gap:2rem;
+    width: calc((100% - 1rem )/2);
+  }
+  .reviews__list{
+    gap:3rem 1rem;
+  }
+  .reviews .articles__category{
+    margin: -0.6rem 0 2rem;
+  }
+  .articles__category-item{
+    font-size: 1rem;
+  }
+  .reviews__desc{
+    gap:0.6rem
+  }
+  .reviews__img{
+    margin-bottom: 0.8rem;
+  }
+  .reviews .section__title{
+    margin-bottom: 4rem;
+  }
+  .tab__header{
+    margin-bottom: 2rem;
+  }
+  .reviews .container{
+      padding: 2rem 1.6rem 8rem;
+  }
+  .article .container{
+    padding: 2rem 1.6rem 8rem;
+  }
+  .article__video-wrap{
+    max-width: 100%;
+    margin: 2rem 0 4rem;
+  }
+  .account__subtitle{
+    font-size: 1.4rem;
+  }
+  .account__block{
+    padding: 1rem 0 8rem ;
+  }
+  .tab__account-header{
+    padding: 2rem 1.6rem;
+  }
+  .account__header{
+    padding: 2rem 1.6rem;
+    background-color: white;
+  }
+  .tab__account .tab__header{
+    gap:1.5rem;
+  }
+  .tab__account .tab__header-item{
+    font-size: 1.4rem;
+  }
+  .account .tab__header{
+    margin: 0;
+  }
+  .account .tab__content-item{
+    padding: 2rem 1.6rem;
+  }
+  .form__item{
+    padding: 1.2rem 1rem;
+  }
+  .account .form{
+    gap:2rem;
+  }
+  .account .form .form__row{
+    gap:2rem;
+  }
+  .form__item-desc{
+    position: relative;
+    top: unset;
+    margin-top: 0.4rem;
+    font-size: 1rem;
+  }
+  .account .section__button{
+    padding: 1.2rem;
+    width: 100%;
+    max-width: 40rem;
+  }
+  .account .contact__submit{
+    width: 100%;
+  }
+  .modal__close{
+    top:2rem;
+    right: 2rem;
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+  .modal__close:after{
+    width: 1.6rem;
+    height: 1.6rem;
+    background: url(../img/close-grey.svg) center/1.6rem 1.6rem no-repeat;
+  }
+  .modal__title{
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+  }
+  .modal__btn > *{
+    padding: 1.2rem 4rem;
+    min-width: 12.8rem;
+    text-align: center;
+  }
+  .modal__content{
+    padding: 6rem 1rem;
+  }
+  .tab__account .tab__header-item.active:before{
+    width: 1.6rem;
+  }
+  .tab__account .tab__header-item.active{
+    padding-left: 2.6rem;
+  }
 }
 
 @media only screen and (max-width: 480px) {
+  .reviews__item{
+    width: 100%;
+  }
+  .reviews__list{
+    gap:4rem
+  }
   .about__team{
     gap:4rem;
   }
@@ -5352,6 +5856,7 @@ label.error{
   .dealers__item{
     width: calc(50% - 0.4rem);
   }
+
 }
 
 @media only screen and (max-width: 375px) {

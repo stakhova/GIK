@@ -86,6 +86,47 @@ function playVideo() {
 }
 
 
+function toggleModal(btn, modal) {
+    btn.click(function () {
+        modal.show();
+        $('body').css('overflow', 'hidden');
+        return false;
+    });
+    $('.modal__close').click(function () {
+        $(this).closest(modal).hide();
+        $('body').css('overflow', 'visible');
+        return false;
+    });
+    $('.modal__btn-close').click(function () {
+        $(this).closest(modal).hide();
+        $('body').css('overflow', 'visible');
+        return false;
+    });
+
+
+
+    $(document).keydown(function (e) {
+        if (e.keyCode === 27) {
+            e.stopPropagation();
+            modal.hide();
+            $('body').css('overflow', 'visible');
+        }
+    });
+    modal.click(function (e) {
+        if ($(e.target).closest('.modal__content').length == 0) {
+            $(this).hide();
+            $('body').css('overflow', 'visible');
+        }
+    });
+}
+
+function showPassword() {
+    $('.form__eye').click(function (e) {
+        $(this).toggleClass('active');
+        $(this).hasClass('active') ? $(this).closest('.form__item').find('input').attr('type', 'text') : $(this).closest('.form__item').find('input').attr('type', 'password');
+    });
+}
+
 const validateForm = (form, func) => {
     form.on("submit", function (e) {
         e.preventDefault();
@@ -111,7 +152,12 @@ const validateForm = (form, func) => {
                 // minlength:2,
                 // maxLength: 30
             },
-
+            displayName: {
+                required: true,
+                goodName: true,
+                // minlength:2,
+                // maxLength: 30
+            },
             lastname: {
                 required: true,
                 goodName: true,
@@ -123,6 +169,9 @@ const validateForm = (form, func) => {
                 goodPhone: true
 
             },
+            VAT:{
+                required: true,
+            },
             phoneAccount:{
                 goodPhone: true
             },
@@ -132,6 +181,10 @@ const validateForm = (form, func) => {
                 email: true
             },
             password: {
+                required: true,
+                minlength: 8
+            },
+            currentPassword: {
                 required: true,
                 minlength: 8
             },
@@ -188,10 +241,17 @@ const validateForm = (form, func) => {
                 required: "This field is required",
                 minlength: "Password can't be shorter than 8 characters"
             },
+            currentPassword: {
+                required: "This field is required",
+                minlength: "Password can't be shorter than 8 characters"
+            },
             password_confirm: {
                 required: "Це поле є обов’язкове",
                 equalTo: "Passwords not equal",
                 minlength: "Password can't be shorter than 8 characters"
+            },
+            VAT:{
+                required: "This field is required",
             },
             passwordNew: {
                 required: "This field is required",
@@ -543,7 +603,11 @@ $(document).ready(function () {
     headerSubmenu();
     playVideo();
     accordion();
+    showPassword()
     setActiveArticle();
+
+    toggleModal($('.account__logout'), $('.modal__logout'))
+
     $(document).on('click', '.header__burger,.header__hide', openMenu);
 
 
@@ -559,6 +623,20 @@ $(document).ready(function () {
     let formContact = $('.contact__form');
     validateForm(formContact, function () {
         sendForm(formContact, '/wp-admin/admin-ajax.php');
+    });
+
+
+    let formAccount = $('.account__form');
+    validateForm(formAccount, function () {
+        sendForm(formAccount, '/wp-admin/admin-ajax.php');
+    });
+    let formChangePassword = $('.account__form-password');
+    validateForm(formChangePassword, function () {
+        sendForm(formChangePassword, '/wp-admin/admin-ajax.php');
+    });
+    let formVat = $('.account__vat');
+    validateForm(formVat, function () {
+        sendForm(formVat, '/wp-admin/admin-ajax.php');
     });
 });
 
