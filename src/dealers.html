@@ -11,7 +11,8 @@
                     <a href="#">Dealers</a>
                 </div>
                 <h3 class="section__title">Dealers</h3>
-                <div class="filter__block">
+                <form class="filter__block">
+                    <input type="text" hidden name="action" value="filter-dealers">
                     <button class ="filter__mob img">
                         <img src="./img/Filter.svg" alt="">
                     </button>
@@ -31,7 +32,7 @@
                     <div class="filter__item-wrapper">
                         <div class="filter__item">
                             <span>Sort by price:</span>
-                            <select name="sort" class="filter__select" >
+                            <select name="sort-by-price" class="filter__select" >
                                 <option value="default">Default sorting</option>
                                 <option value="latest">Latest</option>
                                 <option value="low to high">Low to high</option>
@@ -41,7 +42,7 @@
                         <div class="filter__dropdown"></div>
                     </div>
 
-                </div>
+                </form>
                 <ul class="dealers__list">
                     <li class="dealers__item">
                         <h3 class="dealers__country">Israel</h3>
@@ -101,6 +102,9 @@
                         </div>
                     </li>
                 </ul>
+                <div class="dealers__map img">
+                    <img src="./img/World_Map.svg" alt="">
+                </div>
             </div>
         </section>
     </div>

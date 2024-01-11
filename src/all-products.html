@@ -33,7 +33,8 @@
         </section>
         <section class="category">
             <div class="container">
-                <div class="filter__block">
+                <form class="filter__block">
+                    <input type="text" hidden name="action" value="filter-all-products">
                     <button class ="filter__mob img">
                         <img src="./img/Filter.svg" alt="">
                     </button>
@@ -50,8 +51,7 @@
                         </div>
                         <div class="filter__dropdown"></div>
                     </div>
-
-                </div>
+                </form>
                 <div class="category__block">
                     <h3 class="products__title">Category</h3>
                     <ul class="category__list">

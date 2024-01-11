@@ -57,10 +57,12 @@
 
     <section class="shop">
       <div class="container">
-        <div class="filter__block">
+        <form class="filter__block">
+          <input type="text" hidden name="action" value="filter-category">
           <button class ="filter__mob img">
             <img src="./img/Filter.svg" alt="">
           </button>
+
           <h3 class="filter__title">Filter</h3>
           <div class="filter__item-wrapper">
             <div class="filter__item">
@@ -76,8 +78,8 @@
           </div>
           <div class="filter__item-wrapper">
             <div class="filter__item">
-              <span>Sort by:</span>
-              <select name="sort" class="filter__select" >
+              <span>Sort by price:</span>
+              <select name="sort-by-price" class="filter__select" >
                 <option value="default">Default sorting</option>
                 <option value="latest">Latest</option>
                 <option value="low to high">Low to high</option>
@@ -86,9 +88,8 @@
             </div>
             <div class="filter__dropdown"></div>
           </div>
-        </div>
+        </form>
         <div class="category__block">
-          <h3 class="products__title">Acoustic Panels</h3>
           <ul class="category__list">
             <li class="category__item">
               <div class="category__img img">
@@ -201,7 +202,6 @@
       <div class="container">
         <h3 class="products__title">Our videos about it</h3>
         <div class="popular__slider swiper-container">
-          
           <ul class="video__list">
             <li class="video__item">
               <div class="video__img img" data-video="//www.youtube.com/embed/Kd15Z0wJ1jM?autoplay=1&mute=1">

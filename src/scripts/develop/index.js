@@ -1,4 +1,7 @@
 const INNER_WIDTH = window.innerWidth;
+
+
+
 function openReadMore() {
     $(document).on('click', '.section__drop', function () {
         $(this).next().toggle(300);
@@ -130,6 +133,21 @@ function showPassword() {
 const validateForm = (form, func) => {
     form.on("submit", function (e) {
         e.preventDefault();
+        setTimeout(function (){
+            $(this).find('.form__item').each(function (){
+                console.log(333333, $(this))
+                console.log(7777, $(this).find('input'))
+                if($(this).find('input').hasClass('error')){
+                    console.log(2222)
+                    $(this).addClass('error')
+                } else{
+                    console.log(1111)
+                    $(this).removeClass('error')
+                }
+            })
+        },500)
+
+
     });
     $.validator.addMethod("goodName", function (value, element) {
         return this.optional(element) || /^[\sаА-яЯіІєЄїЇґҐa-zA-Z0-9._-]{2,30}$/i.test(value);
@@ -273,14 +291,37 @@ const validateForm = (form, func) => {
             },
 
         },
+
         submitHandler: function () {
             func();
+
             form[0].reset();
 
         }
     });
 };
 
+
+// function checkInput(){
+//     $(document).on("submit", '.form', function (e) {
+//         e.preventDefault();
+//         setTimeout(function (){
+//             $(this).find('.form__item').each(function (){
+//                 console.log(333333, $(this))
+//                 console.log(7777, $(this).find('input'))
+//                 if($(this).find('input').hasClass('error')){
+//                     console.log(2222)
+//                     $(this).addClass('error')
+//                 } else{
+//                     console.log(1111)
+//                     $(this).removeClass('error')
+//                 }
+//             })
+//         },500)
+//
+//
+//     });
+// }
 // create ajax
 function ajaxSend(date, url, funcSuccess, funcError) {
     $.ajax({
@@ -378,6 +419,26 @@ function mobileChange() {
                 clickable: true
             }
         });
+
+        const gallery = new Swiper('.gallery__slider', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            centeredSlides: false,
+            loop: true,
+            pagination: {
+                el: '.gallery__pagination',
+                clickable: true
+            },
+            navigation: {
+                nextEl: ".gallery__next",
+                prevEl: ".gallery__prev"
+            },
+        });
+
+
+
+
+
         let slidersCount = $('.feedback .swiper-pagination-bullet').length;
         $('.feedback .swiper-pagination-bullet').css('width', `calc(100%/${slidersCount})`);
 
@@ -485,6 +546,14 @@ function searchActive(){
     });
 }
 
+// function addValid(){
+//     $(document).on('submit', '.form', function (){
+//         let error = $(this).find('.error')
+//         console.log(2222, )
+//         error.closest('.form__item').addClass('form__item-error')
+//     })
+// }
+
 
 function tab(){
     $(".tab__header-item").click(function() {
@@ -503,8 +572,6 @@ function searchSuccess() {
     $('.header__search').show(300);
     $('.header__search-form')[0].reset();
     $('.header__phone').show(300)
-
-
 }
 function openSearch() {
     $(document).on('click', '.header__search', function () {
@@ -512,7 +579,6 @@ function openSearch() {
             $('.header__phone').hide()
         }
         $(this).hide();
-
         $('.header__search-form').show(300);
     });
     $(document).on('click', '.header__search-btn', function (e) {
@@ -563,13 +629,13 @@ function setActiveArticle(){
         $(this).nextAll().removeClass('active')
         let val = $(this).text()
         $('.articles__input').val(val)
-        console.log(33333, $('.articles__input').val())
         sendForm($('.articles__category'), '/wp-admin/admin-ajax.php', function (){
 
         });
     })
 }
 $(document).ready(function () {
+    let formFilter = $('.filter__block')
     $('.filter__select').each(function() {
         const currentSelect = $(this);
         const currentSelectDropdown = currentSelect.closest('.filter__item-wrapper').find('.filter__dropdown');
@@ -578,10 +644,13 @@ $(document).ready(function () {
             dropdownParent: currentSelectDropdown,
         });
     })
+
+    $('.filter__select').on('select2:select', function (e) {
+        sendForm(formFilter, '/wp-admin/admin-ajax.php');
+    })
     $('.form__select').select2({});
 
     $('.form__select').on('select2:select', function (e) {
-        console.log(4444,$(this))
         let rendered = $(this).closest('.form__item-wrap').find('.select2-selection__rendered')
         let renderedText = rendered.text()
         if( renderedText !== 'Choose from the list' ){
@@ -590,7 +659,6 @@ $(document).ready(function () {
         else{
             rendered.removeClass('black')
         }
-
     });
     tab();
     searchActive();
@@ -638,6 +706,7 @@ $(document).ready(function () {
     validateForm(formVat, function () {
         sendForm(formVat, '/wp-admin/admin-ajax.php');
     });
+    // checkInput()
 });
 
 $(window).load(function () {});

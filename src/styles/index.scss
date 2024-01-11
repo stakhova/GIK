@@ -81,8 +81,12 @@
     width: 100%;
     transition: 0.5s ease;
     position: relative;
+
     &.active{
       border: 0.1rem solid #FED4B7;
+    }
+    &.error{
+      border: 0.1rem solid #FEB8B8  ;
     }
     &-desc{
       position: absolute;
@@ -126,7 +130,6 @@
     text-align: center;
     padding: 2rem;
     font: 500 1.6rem / normal 'Lato';
-
     color:var(--color-white)
   }
   &__checkbox {
@@ -161,6 +164,7 @@
         background-color: transparent;
         border: 0.1rem solid  var(--color-black);
         padding: 1.2rem;
+        top:-0.4rem;
         display: inline-block;
         position: relative;
         vertical-align: middle;
@@ -1036,6 +1040,7 @@ header {
   -ms-flex-align: center;
   align-items: center;
   padding: 1.1rem;
+  z-index: 2;
 }
 
 .slider__pagination .swiper-pagination-bullet {
@@ -1825,7 +1830,7 @@ header {
       }
       p{
         color:var(--color-banner);
-        font: 500 2rem/normal "Gilroy";
+        font: 500 2rem/150% "Gilroy";
       }
     }
     &-list{
@@ -1974,6 +1979,9 @@ header {
       border: 0.1rem solid var(--color-black);
     }
   }
+  .category__img{
+    margin-bottom: 1rem;
+  }
   .category__sublist-title{
    margin-bottom: 0.4rem;
   }
@@ -1988,6 +1996,7 @@ header {
   }
   .category__sublist-title .category__link > *{
     font-size: 2rem;
+    line-height: 150%;
   }
 
 }
@@ -2001,6 +2010,9 @@ header {
     & > *{
       width: calc((100% - 9rem)/4);
     }
+  }
+  .category__img{
+    margin-bottom: 1rem;
   }
   .category__link > *{
     font: 700 2rem/150% "ua BRAND";
@@ -2057,6 +2069,9 @@ header {
       width: 100%;
       margin-bottom: 2rem;
     }
+  }
+  .products__title{
+    margin-bottom: 3rem;
   }
 }
 
@@ -2218,10 +2233,7 @@ header {
     margin-top: 5rem;
     gap: 4rem 3rem;
   }
-  &__block{
-    max-width: 128.4rem;
-    margin: 0 auto;
-  }
+
   .category__sublist-title .category__link > *{
     font-size: 2rem;
   }
@@ -2239,7 +2251,7 @@ header {
   &__block {
     display: flex;
     gap: 1rem;
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
     align-items: center;
   }
   &__title{
@@ -2386,6 +2398,9 @@ header {
       color:var(--color-text);
     }
   }
+  .tab__header-item{
+    font-size: 1.4rem;
+  }
   .tab__content-item{
     padding: 4rem 3rem;
   }
@@ -2403,11 +2418,15 @@ header {
   }
   .section__button{
     background-color: var(--color-primary);
+    padding: 2rem 6rem;
   }
   .contact__submit{
     margin-left: 0;
   }
-
+  .section__title{
+    margin: 2rem 0 1rem ;
+    font-size: 3.6rem;
+  }
 }
 
 
@@ -2508,7 +2527,6 @@ header {
 
 }
 
-
 .content{
   h2, h3, h4, h5, h6{
     font: 700 1.4rem/2rem 'ua BRAND';
@@ -2519,6 +2537,9 @@ header {
   p, span{
     font: 500 1.4rem/150% 'Gilroy';
     color:var(--color-text);
+  }
+  p{
+    margin-bottom: 1rem;
   }
   ol, ul{
     padding-left: 1.6rem;
@@ -2539,14 +2560,150 @@ header {
     left: -1.6rem;
     background-color: var(--color-black);
   }
-
   li{
     font: 500 1.4rem/150% 'Gilroy';
   }
   a{
     text-decoration: underline;
   }
+  &__blockquote{
+    margin: 3rem 0;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+    background-color: var(--color-footer-bottom);
+    blockquote{
+      font: 700 1.6rem/150% 'ua BRAND';
+    }
+    h3{
+      font: 500 1.6rem/150% 'Gilroy';
+    }
+  }
+  a {
+    font: 500 1.6rem/150% 'ua BRAND';
+  }
+  &__flex{
+    display: flex;
+    gap: 3rem;
+    margin: 4rem 0;
+    &.reverse{
+      flex-direction: row-reverse;
+    }
+    &-block{
+      display: flex;
+      flex-direction: column;
+    }
+    &-img{
+      width: 100%;
+      max-width: 40.7rem;
+      aspect-ratio: 1/1;
+    }
+  }
+  &__img{
+    &-flex{
+      display: flex;
+      gap:3rem;
+      margin: 4rem 0;
+    }
+    &-wrap{
+      display: flex;
+      flex-direction: column;
+      gap:1rem;
+      align-items: center;
+      width: calc(50% - 1.5rem);
+      span{
+        text-align: center;
+      }
+    }
+  }
+  &__dialog{
+    display: flex;
+    gap:2rem;
+    align-items: flex-start;
+    margin: 4rem 0;
+
+    &-block{
+      display: flex;
+      flex-direction: column;
+      gap:2rem
+    }
+    &-item{
+      display: flex;
+      gap:1rem;
+      &:nth-child(odd){
+        span{
+          color:var(--color-primary-second)
+        }
+      }
+    }
+    span{
+      display: block;
+      min-width: 3.1rem;
+    }
+    p{
+      margin: 0;
+      font-style:italic;
+      color:var(--color-subtitle)
+    }
+    &-img{
+      max-width: 26.1rem;
+      width: 100%;
+      height:auto;
+    }
+  }
+  strong{
+    font-weight: 700;
+  }
+  .gallery{
+    margin: 4rem 0;
+    display: grid;
+    grid-template-columns: repeat(8, 2fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 3rem;
+    figure{
+      margin: 0;
+    }
+    &__nav{
+      display: none;
+    }
+  }
+  .gallery__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .gallery__item:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  .gallery__item:nth-child(2) {
+    grid-column-start: 3;
+    grid-column-end: 5;
+  }
+  .gallery__item:nth-child(3) {
+    grid-column-start: 5;
+    grid-column-end: 7;
+  }
+  .gallery__item:nth-child(4) {
+    grid-column-start: 7;
+    grid-column-end: 9;
+  }
+  .gallery__item:nth-child(5) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  .gallery__item:nth-child(6) {
+    grid-column-start: 3;
+    grid-column-end: 6;
+
+  }
+  .gallery__item:nth-child(7) {
+    grid-column-start: 6;
+    grid-column-end: 9;
+  }
 }
+
 
 .about{
   .container{
@@ -2967,6 +3124,17 @@ header {
   .container{
     padding: 10rem;
   }
+  &__map{
+    width: 100%;
+    height: 30rem;
+  }
+  &__map{
+    min-height: 66.7rem;
+    margin-top: 7rem;
+    iframe{
+      height: 100%;
+    }
+  }
 }
 
 
@@ -3108,6 +3276,11 @@ label.error{
   .section__title{
     margin-bottom: 3rem;
   }
+  &__map{
+    max-width: 79%;
+    width: 100%;
+    margin: 10rem auto 0;
+  }
 }
 
 
@@ -3246,7 +3419,25 @@ label.error{
     }
   }
 }
+.review{
+  &__header{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  &__posted{
+    & > *{
+      font: 600 1.2rem / normal 'Lato';
+      color:var(--color-subtitle);
+      span{
+        color:var(--color-primary-second);
+        text-decoration: underline;
+      }
+    }
 
+
+  }
+}
 
 .article{
   .container{
@@ -3814,11 +4005,9 @@ label.error{
   .account__user{
     margin-bottom: 2rem;
   }
-  .tab__account .tab__header-item{
-    font-size: 1.8rem;
+  .account .section__title{
+    font-size: 2rem;
   }
-
-
 }
 
 @media only screen and (max-width: 1024px) {
@@ -4391,6 +4580,7 @@ label.error{
   .form__checkbox label:before{
     padding: 0.9rem;
     max-height: 2rem;
+    top: 0.3rem;
   }
   .form__button{
     margin-top: 2rem;
@@ -5808,6 +5998,46 @@ label.error{
   }
   .tab__account .tab__header-item.active{
     padding-left: 2.6rem;
+  }
+  .content__blockquote{
+    padding: 1rem ;
+  }
+  .content__blockquote > * {
+    text-align: center;
+  }
+  .content__flex{
+    flex-direction: column;
+  }
+  .content__flex-img{
+    max-width: 100%;
+  }
+  .content__flex-block{
+    gap:1rem;
+  }
+  .content__flex.reverse{
+    flex-direction: column;
+  }
+  .content__dialog{
+    flex-direction: column-reverse;
+    gap:4rem;
+  }
+  .content__img-wrap{
+    width: 100%;
+  }
+  .content__img-flex{
+    flex-wrap: wrap;
+  }
+  .content a{
+    font-size: 1.4rem;
+  }
+  .content .gallery{
+    display: flex;
+    grid-gap: 0;
+    margin: 4rem 0 0;
+  }
+  .content .gallery__nav{
+    display: flex;
+    margin: -3.1rem auto 0;
   }
 }
 
