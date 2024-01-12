@@ -1882,7 +1882,7 @@ header {
       height: 100%;
       top: 0;
       left: 0;
-      border: 0.1rem solid #F0F1F2;
+      border: 0.1rem solid var(--color-grey);
     }
   }
   &__link {
@@ -2923,7 +2923,7 @@ header {
     position: relative;
     color:var(--color-subtitle);
     &:last-child{
-      color:#125A66;
+      color:var(--color-primary-second);
     }
     &:not(:last-child){
       &:before{
@@ -3529,11 +3529,6 @@ label.error{
 
 
 }
-//.spline-container {
-//  width: 100%;
-//  height: 200px; /* Set the height of your spline container */
-//  background-color: #f0f0f0; /* Set the background color */
-//}
 
 @media only screen and (min-width: 1025px) {
   .head .header__drop-content{
@@ -3604,7 +3599,7 @@ label.error{
   .head .header__drop-title > p{
     font:500 1.4rem/150% 'Lato';
     padding-bottom: 0.6rem;
-    color: #323232;
+    color: var(--color-text-main);
     max-width: 11.8rem;
     white-space: normal;
   }
@@ -3732,13 +3727,13 @@ label.error{
 
   }
   .header__drop-list-title{
-    color:#000;
+    color:var(--color-black-black);
     font:900 2.4rem/normal 'Lato';
     text-transform: uppercase;
     text-align: center;
   }
   .header__drop-list-subtitle{
-    color:#000;
+    color:var(--color-black-black);
     font:400 1.4rem/normal 'Lato';
     text-transform: uppercase;
     text-align: center;
@@ -4125,7 +4120,7 @@ label.error{
     font: 900 2rem/normal 'Lato';
   }
   .header__drop-list-subtitle {
-    color: #000;
+    color: var(--color-black-black);
     font: 400 1.6rem/normal 'Lato';
   }
   .header__drop-title > p{
@@ -5546,6 +5541,7 @@ label.error{
   }
   .popular__subtitle{
    margin-bottom: 1rem;
+    font-size: 1.2rem;
   }
   .popular .category__sublist-title{
     margin: 0;
@@ -5895,7 +5891,7 @@ label.error{
   }
   .section__button{
     padding: 1rem;
-    max-width: 25.6rem;
+    min-width: 25.6rem;
     width: 100%;
   }
   .affiliate .container{
@@ -5999,6 +5995,7 @@ label.error{
   }
   .articles__category-item{
     font-size: 1rem;
+    padding: 0.6rem 1.2rem;
   }
   .reviews__desc{
     gap:0.6rem
@@ -6150,6 +6147,12 @@ label.error{
   }
   .spline__flex > *{
     width: 100%;
+  }
+  .contact .form__item{
+    padding: 1.2rem 1rem;
+  }
+  .form .select2-container--default .select2-selection--single{
+    padding: 1.3rem 1rem;
   }
 }
 

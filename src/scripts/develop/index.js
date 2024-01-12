@@ -280,7 +280,26 @@ const validateForm = (form, func) => {
 
         submitHandler: function () {
             func();
+            // let selectElement = $(".form__select");
+            // selectElement.each(function () {
+            //     $(this).val(selectElement.find("option:first").val());
+            // })
 
+            // $('.form__select').select2({});
+            //
+            // $('.form__select').on('select2:select', function (e) {
+            //     let rendered = $(this).closest('.form__item-wrap').find('.select2-selection__rendered')
+            //     let renderedText = rendered.text()
+            //     if( renderedText !== 'Choose from the list' ){
+            //         rendered.addClass('black')
+            //     }
+            //     else{
+            //         rendered.removeClass('black')
+            //     }
+            // });
+            // Скидаємо значення select на перший елемент
+            // selectElement.val(selectElement.find("option:first").val());
+            // $('.form__select option:first-child').prop('selected', true);
             form[0].reset();
 
         }
@@ -362,31 +381,6 @@ function checkInput(){
 
     });
 }
-
-function ajaxSend(date, url, funcSuccess, funcError) {
-    $.ajax({
-        url: url,
-        data: date,
-        method: 'POST',
-        success: function (res) {
-            console.log('success ajax');
-            funcSuccess(res);
-        },
-        error: function (error) {
-            funcError(error);
-        },
-        complete: function (){
-
-        }
-    });
-}
-
-// send form
-function sendForm(form, url, funcSuccess, funcError) {
-    form = form.serialize();
-    ajaxSend(form, url, funcSuccess, funcError);
-}
-
 
 
 function dropMenuHeader() {
@@ -586,14 +580,6 @@ function searchActive(){
     });
 }
 
-// function addValid(){
-//     $(document).on('submit', '.form', function (){
-//         let error = $(this).find('.error')
-//         console.log(2222, )
-//         error.closest('.form__item').addClass('form__item-error')
-//     })
-// }
-
 
 function tab(){
     $(".tab__header-item").click(function() {
@@ -719,7 +705,6 @@ $(document).ready(function () {
 
     $(document).on('click', '.header__burger,.header__hide', openMenu);
 
-
     let formSign = $('.sign__form');
     validateForm(formSign, function () {
         sendForm(formSign, '/wp-admin/admin-ajax.php');
@@ -729,20 +714,22 @@ $(document).ready(function () {
     validateForm(formReg, function () {
         sendForm(formReg, '/wp-admin/admin-ajax.php');
     });
+
     let formContact = $('.contact__form');
     validateForm(formContact, function () {
         sendForm(formContact, '/wp-admin/admin-ajax.php');
     });
 
-
     let formAccount = $('.account__form');
     validateForm(formAccount, function () {
         sendForm(formAccount, '/wp-admin/admin-ajax.php');
     });
+
     let formChangePassword = $('.account__form-password');
     validateForm(formChangePassword, function () {
         sendForm(formChangePassword, '/wp-admin/admin-ajax.php');
     });
+
     let formVat = $('.account__vat');
     validateForm(formVat, function () {
         sendForm(formVat, '/wp-admin/admin-ajax.php');
