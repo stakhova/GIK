@@ -132,22 +132,8 @@ function showPassword() {
 
 const validateForm = (form, func) => {
     form.on("submit", function (e) {
+        checkInput()
         e.preventDefault();
-        setTimeout(function (){
-            $(this).find('.form__item').each(function (){
-                console.log(333333, $(this))
-                console.log(7777, $(this).find('input'))
-                if($(this).find('input').hasClass('error')){
-                    console.log(2222)
-                    $(this).addClass('error')
-                } else{
-                    console.log(1111)
-                    $(this).removeClass('error')
-                }
-            })
-        },500)
-
-
     });
     $.validator.addMethod("goodName", function (value, element) {
         return this.optional(element) || /^[\sаА-яЯіІєЄїЇґҐa-zA-Z0-9._-]{2,30}$/i.test(value);
@@ -302,27 +288,81 @@ const validateForm = (form, func) => {
 };
 
 
-// function checkInput(){
-//     $(document).on("submit", '.form', function (e) {
-//         e.preventDefault();
-//         setTimeout(function (){
-//             $(this).find('.form__item').each(function (){
-//                 console.log(333333, $(this))
-//                 console.log(7777, $(this).find('input'))
-//                 if($(this).find('input').hasClass('error')){
-//                     console.log(2222)
-//                     $(this).addClass('error')
-//                 } else{
-//                     console.log(1111)
-//                     $(this).removeClass('error')
-//                 }
-//             })
-//         },500)
-//
-//
-//     });
-// }
-// create ajax
+
+function filterMob(){
+    // $('.filter__mob').click(function (){
+    //     $(this).closest('.filter__block').find('.filter__item-wrapper').toggleClass('show')
+    // })
+}
+
+
+function spline(){
+    var options = {
+        series: [{
+            name: "242 Acoustic Panel ",
+            data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+        }, {
+            name: "2A Alpha Panel",
+            data: [15, 55, 60, 70, 40, 77, 88, 99, 120]
+        },  {
+            name: "Freestanding Acoustic Panel",
+            data: [33, 22, 55, 99, 40, 22, 55, 77, 130]
+        }],
+        chart: {
+            height: 350,
+            type: 'line',
+            zoom: {
+                enabled: false
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            curve: 'straight'
+        },
+        title: {
+            text: 'Acoustic Panels Comparison',
+            align: 'left'
+        },
+        grid: {
+            row: {
+                colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                opacity: 0.5
+            },
+        },
+        xaxis: {
+            categories: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+        }
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
+
+
+    let arr=[]
+    let i=0
+    $('.apexcharts-legend-marker').each(function (){
+        arr.push($(this).css("background-color"))
+    })
+    $('.spline__desc-title span').each(function (){
+        $(this).css("background-color", `${arr[i]}`)
+        i++
+    })
+}
+function checkInput(){
+    $(document).on("click", '.form button', function (e) {
+        $(this).closest('.form').find('.form__item').each(function (){
+            if($(this).find('.form__input').hasClass('error')){
+                $(this).addClass('error')
+            } else{
+                $(this).removeClass('error')
+            }
+        })
+
+    });
+}
+
 function ajaxSend(date, url, funcSuccess, funcError) {
     $.ajax({
         url: url,
@@ -673,7 +713,8 @@ $(document).ready(function () {
     accordion();
     showPassword()
     setActiveArticle();
-
+    filterMob();
+    spline();
     toggleModal($('.account__logout'), $('.modal__logout'))
 
     $(document).on('click', '.header__burger,.header__hide', openMenu);
@@ -706,7 +747,6 @@ $(document).ready(function () {
     validateForm(formVat, function () {
         sendForm(formVat, '/wp-admin/admin-ajax.php');
     });
-    // checkInput()
 });
 
 $(window).load(function () {});

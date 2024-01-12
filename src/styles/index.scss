@@ -2264,6 +2264,16 @@ header {
   &__item-wrapper {
     display: flex;
     flex-direction: column;
+    //&.show{
+    //  display: block;
+    //  background-color: white;
+    //  height: max-content;
+    //  position: absolute;
+    //  width: 100vw;
+    //  top: 3rem;
+    //  padding: 2rem 0;
+    //  z-index: 1;
+    //}
   }
   &__item{
    display: flex;
@@ -2426,6 +2436,19 @@ header {
   .section__title{
     margin: 2rem 0 1rem ;
     font-size: 3.6rem;
+  }
+  &__error{
+    //margin-bottom: 3rem;
+    margin: -4rem 0 -1.8rem;
+    & > *{
+      padding: 1.4rem 2rem;
+      background-color:#FFE7E7;
+      color:#FD1111;
+      font: 600 1.4rem/normal 'Gilroy';
+      display: block;
+    }
+
+
   }
 }
 
@@ -3465,6 +3488,53 @@ label.error{
   }
 }
 
+
+.spline{
+    .container{
+      padding: 0 10rem 10rem ;
+    }
+  &__flex{
+    display: flex;
+    gap:3rem;
+    & > *{
+     width: calc(50% - 1.5rem);
+    }
+  }
+  &__desc{
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+    &-item{
+      display: flex;
+      flex-direction: column;
+      gap:1.4rem;
+      p{
+        color:var(--color-text);
+        font: 500 1.4rem / 140% 'Gilroy';
+      }
+    }
+    &-title{
+      display: flex;
+      gap:0.4rem;
+      font: 700 1.2rem / normal 'Gilroy';
+      color:var(--color-text);
+      align-items: center;
+      span{
+        width: 0.9rem ;
+        height: 0.9rem;
+      }
+    }
+
+  }
+
+
+}
+//.spline-container {
+//  width: 100%;
+//  height: 200px; /* Set the height of your spline container */
+//  background-color: #f0f0f0; /* Set the background color */
+//}
+
 @media only screen and (min-width: 1025px) {
   .head .header__drop-content{
     flex-direction: column;
@@ -4008,6 +4078,28 @@ label.error{
   .account .section__title{
     font-size: 2rem;
   }
+  .account__error{
+    margin: 0;
+  }
+  .account .tab__content{
+    width: 100%;
+  }
+  .shop .category__link > *{
+    font-size: 1.6rem;
+  }
+  .popular__subtitle{
+    font-size: 1.4rem;
+  }
+  .products__text .products__banner-list li:first-child{
+    width: 50%;
+  }
+  .products__text .products__banner-list li:nth-child(2){
+    width: 50%;
+  }
+  .video .category__sublist-title .category__link > *{
+    font-size: 1.6rem;
+  }
+
 }
 
 @media only screen and (max-width: 1024px) {
@@ -5519,8 +5611,15 @@ label.error{
     margin-bottom: 0;
     position: relative;
   }
-  .filter__item-wrapper, .filter__title{
+  .filter__title{
     display: none;
+  }
+  .filter__block{
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .filter__item{
+    padding: 1rem;
   }
   .filter__mob{
     display: block;
@@ -5529,6 +5628,7 @@ label.error{
     width: 2rem;
     height: 2rem;
     right: 0;
+    display: none;
   }
   .category__img{
     aspect-ratio: 1/1;
@@ -5945,7 +6045,7 @@ label.error{
     margin: 0;
   }
   .account .tab__content-item{
-    padding: 2rem 1.6rem;
+    padding: 4rem 1.6rem 2rem;
   }
   .form__item{
     padding: 1.2rem 1rem;
@@ -6039,6 +6139,18 @@ label.error{
     display: flex;
     margin: -3.1rem auto 0;
   }
+  .account__error > *{
+    font-size: 1rem;
+  }
+  .spline .container{
+    padding: 3rem 1.6rem 4rem;
+  }
+  .spline__flex{
+    flex-direction: column;
+  }
+  .spline__flex > *{
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 480px) {
@@ -6046,7 +6158,7 @@ label.error{
     width: 100%;
   }
   .reviews__list{
-    gap:4rem
+    gap:4rem;
   }
   .about__team{
     gap:4rem;
