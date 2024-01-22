@@ -277,29 +277,9 @@ const validateForm = (form, func) => {
             },
 
         },
-
         submitHandler: function () {
             func();
-            // let selectElement = $(".form__select");
-            // selectElement.each(function () {
-            //     $(this).val(selectElement.find("option:first").val());
-            // })
-
-            // $('.form__select').select2({});
-            //
-            // $('.form__select').on('select2:select', function (e) {
-            //     let rendered = $(this).closest('.form__item-wrap').find('.select2-selection__rendered')
-            //     let renderedText = rendered.text()
-            //     if( renderedText !== 'Choose from the list' ){
-            //         rendered.addClass('black')
-            //     }
-            //     else{
-            //         rendered.removeClass('black')
-            //     }
-            // });
-            // Скидаємо значення select на перший елемент
-            // selectElement.val(selectElement.find("option:first").val());
-            // $('.form__select option:first-child').prop('selected', true);
+            resetSelect()
             form[0].reset();
 
         }
@@ -307,6 +287,26 @@ const validateForm = (form, func) => {
 };
 
 
+function resetSelect(){
+    let selectElement = $(".form__select");
+    selectElement.each(function () {
+        $(this).val(selectElement.find("option:first").val());
+    })
+    $('.form__select').select2({});
+    $('.form__select').on('select2:select', function (e) {
+        let rendered = $(this).closest('.form__item-wrap').find('.select2-selection__rendered')
+        let renderedText = rendered.text()
+        if( renderedText !== 'Choose from the list' ){
+            rendered.addClass('black')
+        }
+        else{
+            rendered.removeClass('black')
+        }
+    });
+    selectElement.val(selectElement.find("option:first").val());
+    $('.form__select option:first-child').prop('selected', true);
+
+}
 
 function filterMob(){
     // $('.filter__mob').click(function (){
@@ -315,59 +315,65 @@ function filterMob(){
 }
 
 
+
+
 function spline(){
-    var options = {
-        series: [{
-            name: "242 Acoustic Panel ",
-            data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
-        }, {
-            name: "2A Alpha Panel",
-            data: [15, 55, 60, 70, 40, 77, 88, 99, 120]
-        },  {
-            name: "Freestanding Acoustic Panel",
-            data: [33, 22, 55, 99, 40, 22, 55, 77, 130]
-        }],
-        chart: {
-            height: 350,
-            type: 'line',
-            zoom: {
-                enabled: false
-            }
-        },
-        dataLabels: {
-            enabled: false
-        },
-        stroke: {
-            curve: 'straight'
-        },
-        title: {
-            text: 'Acoustic Panels Comparison',
-            align: 'left'
-        },
-        grid: {
-            row: {
-                colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-                opacity: 0.5
-            },
-        },
-        xaxis: {
-            categories: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+    if($('.spline__container').length>0){
+        let name = $('.spline__container').data('name').split(',')
+        let info = $('.spline__container').data('info').split('/')
+
+        let chart = [];
+        for (let i = 0; i < name.length; i++) {
+            let data = info[i].split(',').map(Number);
+            let panel = {
+                name: name[i].trim(),
+                data: data
+            };
+            chart.push(panel);
         }
-    };
 
-    var chart = new ApexCharts(document.querySelector("#chart"), options);
-    chart.render();
+        let options = {
+            series: chart,
+            chart: {
+                height: 300,
+                type: 'line',
+                zoom: {
+                    enabled: false
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'straight'
+            },
+            grid: {
+                row: {
+                    colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                    opacity: 0.5
+                },
+            },
+            xaxis: {
+                categories: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+            }
+        };
+
+        var spline = new ApexCharts(document.querySelector(".spline__container"), options);
+        spline.render();
 
 
-    let arr=[]
-    let i=0
-    $('.apexcharts-legend-marker').each(function (){
-        arr.push($(this).css("background-color"))
-    })
-    $('.spline__desc-title span').each(function (){
-        $(this).css("background-color", `${arr[i]}`)
-        i++
-    })
+        let arr = []
+        let i = 0
+        $('.apexcharts-legend-marker').each(function (){
+            arr.push($(this).css("background-color"))
+        })
+        $('.spline__desc-title span').each(function (){
+            $(this).css("background-color", `${arr[i]}`)
+            i++
+        })
+    }
+
+
 }
 function checkInput(){
     $(document).on("click", '.form button', function (e) {
