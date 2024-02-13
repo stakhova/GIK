@@ -852,11 +852,11 @@ function sendForm(form, url, funcSuccess, funcError) {
 }
 
 function searchActive() {
-    $('.form__input').focus(function () {
+    $('.faq .form__input').focus(function () {
         $(this).closest('.form__item').addClass('big active');
         $(this).removeAttr('placeholder');
     });
-    $('.form__input').blur(function () {
+    $('.faq .form__input').blur(function () {
         $(this).closest('.form__item').removeClass('big active');
         $(this).attr('placeholder', 'Search');
     });
@@ -940,6 +940,28 @@ function setActiveArticle() {
         sendForm($('.articles__category'), '/wp-admin/admin-ajax.php', function () {});
     });
 }
+
+function adviceStep(){
+    $(document).on('click','.step__next',function (){
+        let currentBlock = $(this).closest('.step__block')
+
+        currentBlock.removeClass('active')
+        currentBlock.next().addClass('active')
+
+        $('.step__item').each(function (){
+            if( $('.step__block.active').data('step') == $(this).data('active') ){
+                $(this).addClass('active')
+            }
+        })
+    })
+    $(document).on('click','.step__prev',function (){
+        let currentBlock = $(this).closest('.step__block')
+        currentBlock.removeClass('active')
+        currentBlock.prev().addClass('active')
+    })
+
+
+}
 $(document).ready(function () {
     let formFilter = $('.filter__block');
     $('.filter__select').each(function () {
@@ -965,6 +987,7 @@ $(document).ready(function () {
             rendered.removeClass('black');
         }
     });
+    adviceStep()
     tab();
     searchActive();
     openReadMore();

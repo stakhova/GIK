@@ -1,0 +1,250 @@
+//= partials/head.html
+
+<div class="wrap">
+
+    <div class="wrap__main">
+
+
+
+        <section class="question ">
+            <div class="container">
+                <div class="question__logo img">
+                    <img src="img/logo.png" alt="">
+                </div>
+                <h3 class="section__title">Custom Room Advice Form</h3>
+                <div class="question__subtitle">
+                    <p>Please complete the following questions and we will be in touch with you shortly to discuss your room. You can always call our main number and ask to speak to a consultant.</p>
+                    <p>Do not use URL's on this form or your submission may not reach us.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step__item active fill" data-active="first"><span>1</span><h3>Information</h3></div>
+                    <div class="step__item" data-active="second"><span>2</span><h3>Your Space</h3></div>
+                    <div class="step__item" data-active="third"><span>3</span><h3>Objectives</h3></div>
+                    <div class="step__item" data-active="fourth"><span>4</span><h3>Images And Plans</h3></div>
+                </div>
+                <form action="" class="question__form form">
+                    <input type="hidden" name="action" value="advice">
+
+
+                    <div class="step__block active" data-step="first">
+                        <h3 class="step__title">Contact Information</h3>
+                        <div class="form__row">
+                            <div class="form__item-wrap">
+                                <label class="form__label">First name *</label>
+                                <div class="form__item">
+                                    <input type="text" name="name" placeholder="Start typing..." class="form__input">
+                                </div>
+                            </div>
+                            <div class="form__item-wrap">
+                                <label class="form__label">Last name *</label>
+                                <div class="form__item">
+                                    <input type="text" name="lastname" placeholder="Start typing..." class="form__input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__row">
+                            <div class="form__item-wrap">
+                                <label class="form__label">Email *</label>
+                                <div class="form__item">
+                                    <input type="text" name="email" placeholder="Start typing..." class="form__input">
+                                </div>
+                            </div>
+                            <div class="form__item-wrap">
+                                <label class="form__label">Phone</label>
+                                <div class="form__item">
+                                    <input type="text" name="phone" placeholder="Start typing..." class="form__input">
+                                </div>
+                            </div>
+
+                        </div>
+                        <h4 class="question__address">Address</h4>
+                        <div class="form__item-wrap">
+                            <label class="form__label">Street Address</label>
+                            <div class="form__item">
+                                <input type="text" name="address1" placeholder="Start typing..." class="form__input">
+                            </div>
+                        </div>
+                        <div class="form__item-wrap">
+                            <label class="form__label">Address Line 2</label>
+                            <div class="form__item">
+                                <input type="text" name="address2" placeholder="Start typing..." class="form__input">
+                            </div>
+                        </div>
+                        <div class="form__row">
+                            <div class="form__item-wrap">
+                                <label class="form__label">City</label>
+                                <div class="form__item">
+                                    <input type="text" name="city" placeholder="Start typing..." class="form__input">
+                                </div>
+                            </div>
+                            <div class="form__item-wrap">
+                                <label class="form__label">Country / State / Region</label>
+                                <div class="form__item">
+                                    <input type="text" name="county-state-region" placeholder="Start typing..." class="form__input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__row">
+                            <div class="form__item-wrap">
+                                <label class="form__label">ZIP / Postal Code</label>
+                                <div class="form__item">
+                                    <input type="text" name="city" placeholder="Start typing..." class="form__input">
+                                </div>
+                            </div>
+                            <div class="form__item-wrap">
+                                <label class="form__label">Country</label>
+                                <select name="country" class="form__select" >
+                                    <option value="default">Select country </option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="question__button ">
+                            <button type="button" class="section__button step__next">Next</button>
+                        </div>
+                    </div>
+                    <div class="step__block" data-step="second">
+                        <h3 class="step__title">About Your Space</h3>
+
+
+                        <div class="form__item-wrap">
+                            <label class="form__label">What kind of room are you treating? *</label>
+                            <select name="kind-room" class="form__select" >
+                                <option value="default">Select kind of room</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+
+                        </div>
+
+                        <div class="question__item">
+                            <h3 class='question__title'>Will you be recording in the same space?</h3>
+                            <div class="question__radio">
+                                <input type="radio" id="recording1" name="recording"
+                                       value='Yes'><label
+                                    for="recording1">Yes</label>
+                                <input type="radio" id="recording2" name="recording"
+                                       value='No'><label
+                                    for="recording2">No</label>
+                            </div>
+
+                        </div>
+                        <div class="form__item-wrap">
+                            <label class="form__label">Room Size (width x length x height) *</label>
+                            <div class="form__item">
+                                <input type="text" name="room_size" placeholder="Start typing..." class="form__input">
+                            </div>
+                        </div>
+                        <div class="question__item">
+                            <h3 class='question__title'>Is this a dedicated room?</h3>
+                            <div class="question__radio">
+                                <input type="radio" id="dedicated1" name="dedicated_room"
+                                       value='Yes'><label
+                                    for="dedicated1">Yes</label>
+                                <input type="radio" id="dedicated2" name="dedicated_room"
+                                       value='No'><label
+                                    for="dedicated2">No</label>
+                            </div>
+                        </div>
+                        <div class="form__item-wrap">
+                            <label class="form__label">What model of speakers / sub(s) will be used in this room?</label>
+                            <div class="form__item">
+                                <textarea name="room_size" placeholder="Start typing..." class="form__input"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="question__item">
+                            <h3 class='question__title'>Please describe the flooring in the space</h3>
+                            <div class="question__radio">
+                                <input type="radio" id="describe-flooring1" name="describe-flooring"
+                                       value='Hard surface (tile, wood, concrete, etc.)'><label
+                                    for="describe-flooring1">Hard surface (tile, wood, concrete, etc.)</label>
+                                <input type="radio" id="describe-flooring2" name="describe-flooring"
+                                       value='Soft surface (carpet, rugs, etc.)'><label
+                                    for="describe-flooring2">Soft surface (carpet, rugs, etc.)</label>
+                            </div>
+
+                        </div>
+                        <div class="question__item">
+                            <h3 class='question__title'> Are you able to move the location of your set up within your room if needed?*</h3>
+                            <div class="question__radio">
+                                <input type="radio" id="move_location1" name="move_location"
+                                       value='Yes'><label
+                                    for="move_location1">Yes</label>
+                                <input type="radio" id="move_location2" name="move_location"
+                                       value='No'><label
+                                    for="move_location2">No</label>
+                            </div>
+                        </div>
+
+                        <div class="form__item-wrap">
+                            <label class="form__label">Any restrictions on where you can place treatments in the room? (i.e. windows, doors, fireplaces, etc.)</label>
+                            <div class="form__item">
+                                <textarea name="restrictions" placeholder="Start typing..." class="form__input"></textarea>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+                        <div class="question__button">
+                            <button type="button" class="section__button step__prev">Previous</button>
+                            <button type="button" class="section__button step__next">Next</button>
+                        </div>
+                    </div>
+                    <div class="step__block" data-step="third">
+                        <div class="question__item">
+                            <h3 class='question__title'>Interested in*</h3>
+                            <div class="question__radio">
+                                <input type="radio" id="interest1" name="Interested"
+                                       value='Absorption'><label
+                                    for="interest1">Absorption</label>
+                                <input type="radio" id="interest2" name="Interested"
+                                       value='Diffusion'><label
+                                    for="interest2">Diffusion</label>
+                                <input type="radio" id="interest3" name="Interested"
+                                       value='Both'><label
+                                    for="interest3">Both</label>
+                            </div>
+                        </div>
+                        <div class="question__button">
+                            <button type="button" class="section__button step__prev">Previous</button>
+                            <button type="button" class="section__button step__next">Next</button>
+                        </div>
+                    </div>
+                    <div class="step__block" data-step="fourth">
+                        4444
+                        <div class="question__button">
+                            <button type="button" class="section__button step__prev">Previous</button>
+                            <button type="submit" class="section__button step__next">Next</button>
+                        </div>
+                    </div>
+
+
+
+
+
+                </form>
+
+
+            </div>
+        </section>
+    </div>
+</div>
+
+//= partials/scripts.html
+
+</body>
+</html>

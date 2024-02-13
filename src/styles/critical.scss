@@ -70,6 +70,13 @@
     font-weight: 500;
     font-style: normal;
 }
+@font-face {
+    font-family: "Gilroy";
+    src: url("/fonts/UA-BRAND.eot");
+    src: url("/fonts/UA-BRAND.eot?#iefix") format("embedded-opentype"), url("../fonts/Gilroy-Regular.woff") format("woff"), url("/fonts/UA-BRAND.ttf") format("truetype"), url("/fonts/UA-BRAND.svg#Montserrat") format("svg");
+    font-weight: 400;
+    font-style: normal;
+}
 
 :root {
     --color-white: #fff;
