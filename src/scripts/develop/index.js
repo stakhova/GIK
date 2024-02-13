@@ -1,6 +1,291 @@
 const INNER_WIDTH = window.innerWidth;
 
 
+let map;
+
+async function initMap(lat, lng, text) {
+    const { Map } = await google.maps.importLibrary("maps");
+
+
+    map = new Map(document.getElementById("map"), {
+        center: { lat: 0, lng: 0 },
+        zoom: 1,
+        linksControl: false,
+        panControl: false,
+        addressControl: false,
+        zoomControl: false,
+        fullscreenControl: false,
+        enableCloseButton: false,
+    });
+
+    positionMaps.forEach(position => {
+        const marker = new google.maps.Marker({
+            position: { lat: position.lat, lng: position.lng },
+            map: map,
+            icon: mapIcon,
+        });
+        const info = new google.maps.InfoWindow({
+            content: position.text
+        });
+        google.maps.event.addListener(marker, "mouseover", () => {
+            info.open(map, marker);
+        });
+        // google.maps.event.addListener(marker, "click", () => {
+        //     info.open(map, marker);
+        // });
+        google.maps.event.addListener(map, "click", function(event) {
+            // infowindow.close();
+            info.close(map, marker);
+        });
+        // google.maps.event.addListener(marker, "mouseout", () => {
+        //     info.close(map, marker);
+        // });
+    });
+    // const marker = new google.maps.Marker({
+    //     position:  { lat: lat, lng: lng },
+    //     map: map,
+    //     icon: mapIcon,
+    // });
+
+
+    map.setOptions({
+        styles: [
+            {
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#f5f5f5"
+                    }
+                ]
+            },
+            {
+                "elementType": "labels",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "elementType": "labels.icon",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#616161"
+                    }
+                ]
+            },
+            {
+                "elementType": "labels.text.stroke",
+                "stylers": [
+                    {
+                        "color": "#f5f5f5"
+                    }
+                ]
+            },
+            {
+                "featureType": "administrative",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "administrative.land_parcel",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "administrative.land_parcel",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#bdbdbd"
+                    }
+                ]
+            },
+            {
+                "featureType": "administrative.neighborhood",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#eeeeee"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#757575"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi.park",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#e5e5e5"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi.park",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#9e9e9e"
+                    }
+                ]
+            },
+            {
+                "featureType": "road",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "road",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#ffffff"
+                    }
+                ]
+            },
+            {
+                "featureType": "road",
+                "elementType": "labels.icon",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.arterial",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#757575"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#dadada"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#616161"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.local",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#9e9e9e"
+                    }
+                ]
+            },
+            {
+                "featureType": "transit",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "transit.line",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#e5e5e5"
+                    }
+                ]
+            },
+            {
+                "featureType": "transit.station",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#eeeeee"
+                    }
+                ]
+            },
+            {
+                "featureType": "water",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#c9c9c9"
+                    }
+                ]
+            },
+            {
+                "featureType": "water",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#9e9e9e"
+                    }
+                ]
+            }
+        ]
+    });
+}
+
+function showMap() {
+        const lat = 38.8951;
+        const lng =  -77.0364;
+        const text = 'texttexttext';
+        console.log(11111111111)
+        initMap(lat, lng, text);
+}
+
 
 function openReadMore() {
     $(document).on('click', '.section__drop', function () {
@@ -49,35 +334,33 @@ function initSliders() {
             prevEl: ".popular__prev"
         },
         breakpoints: {
-            0:{
+            0: {
                 slidesPerView: 2,
-                spaceBetween: 8,
+                spaceBetween: 8
             },
             666: {
-                slidesPerView: 3,
+                slidesPerView: 3
             },
-            800:  {
-                slidesPerView: 4,
-            },
+            800: {
+                slidesPerView: 4
+            }
 
         }
     });
 }
 
+function accordion() {
+    $(document).on('click', '.faq__header', function () {
+        let content = $(this).next('.faq__content');
+        $(this).closest('.faq__item').prevAll().find('.faq__content').removeClass('open');
+        $(this).closest('.faq__item').nextAll().find('.faq__content').removeClass('open');
 
-function accordion(){
-    $(document).on('click', '.faq__header', function (){
-      let content =  $(this).next('.faq__content');
-      $(this).closest('.faq__item').prevAll().find('.faq__content').removeClass('open')
-      $(this).closest('.faq__item').nextAll().find('.faq__content').removeClass('open')
-
-      if(content.hasClass('open')){
-          content.removeClass('open')
-      }else{
-          content.addClass('open')
-
-      }
-    })
+        if (content.hasClass('open')) {
+            content.removeClass('open');
+        } else {
+            content.addClass('open');
+        }
+    });
 }
 
 function playVideo() {
@@ -87,7 +370,6 @@ function playVideo() {
         $(this).replaceWith(video);
     });
 }
-
 
 function toggleModal(btn, modal) {
     btn.click(function () {
@@ -105,8 +387,6 @@ function toggleModal(btn, modal) {
         $('body').css('overflow', 'visible');
         return false;
     });
-
-
 
     $(document).keydown(function (e) {
         if (e.keyCode === 27) {
@@ -132,7 +412,7 @@ function showPassword() {
 
 const validateForm = (form, func) => {
     form.on("submit", function (e) {
-        checkInput()
+        checkInput();
         e.preventDefault();
     });
     $.validator.addMethod("goodName", function (value, element) {
@@ -152,19 +432,19 @@ const validateForm = (form, func) => {
         rules: {
             name: {
                 required: true,
-                goodName: true,
+                goodName: true
                 // minlength:2,
                 // maxLength: 30
             },
             displayName: {
                 required: true,
-                goodName: true,
+                goodName: true
                 // minlength:2,
                 // maxLength: 30
             },
             lastname: {
                 required: true,
-                goodName: true,
+                goodName: true
                 // minlength:2,
                 // maxLength: 30
             },
@@ -173,10 +453,10 @@ const validateForm = (form, func) => {
                 goodPhone: true
 
             },
-            VAT:{
-                required: true,
+            VAT: {
+                required: true
             },
-            phoneAccount:{
+            phoneAccount: {
                 goodPhone: true
             },
             email: {
@@ -218,6 +498,15 @@ const validateForm = (form, func) => {
                 // minlength:2,
                 // maxLength: 25
             },
+            password_reg: {
+                required: true,
+                minlength: 8
+            },
+            password_reg_confirm: {
+                required: true,
+                minlength: 8,
+                equalTo: "#password_reg"
+            },
         },
         messages: {
             name: {
@@ -234,7 +523,7 @@ const validateForm = (form, func) => {
                 required: "This field is required",
                 phone: "Please enter correct phone number"
             },
-            phoneAccount:{
+            phoneAccount: {
                 phone: "Please enter correct phone number"
             },
             email: {
@@ -250,12 +539,21 @@ const validateForm = (form, func) => {
                 minlength: "Password can't be shorter than 8 characters"
             },
             password_confirm: {
-                required: "Це поле є обов’язкове",
+                required: "This field is required",
                 equalTo: "Passwords not equal",
                 minlength: "Password can't be shorter than 8 characters"
             },
-            VAT:{
+            password_reg: {
                 required: "This field is required",
+                minlength: "Password can't be shorter than 8 characters"
+            },
+            password_reg_confirm: {
+                required: "This field is required",
+                equalTo: "Passwords not equal",
+                minlength: "Password can't be shorter than 8 characters"
+            },
+            VAT: {
+                required: "This field is required"
             },
             passwordNew: {
                 required: "This field is required",
@@ -274,53 +572,46 @@ const validateForm = (form, func) => {
                 required: "This field is required",
                 minlength: "Contact name can't be shorter than 2 characters",
                 maxLength: "Contact name can't be longer than 30 characters "
-            },
+            }
 
         },
         submitHandler: function () {
             func();
-            resetSelect()
+            resetSelect();
             form[0].reset();
-
         }
     });
 };
 
-
-function resetSelect(){
+function resetSelect() {
     let selectElement = $(".form__select");
     selectElement.each(function () {
         $(this).val(selectElement.find("option:first").val());
-    })
+    });
     $('.form__select').select2({});
     $('.form__select').on('select2:select', function (e) {
-        let rendered = $(this).closest('.form__item-wrap').find('.select2-selection__rendered')
-        let renderedText = rendered.text()
-        if( renderedText !== 'Choose from the list' ){
-            rendered.addClass('black')
-        }
-        else{
-            rendered.removeClass('black')
+        let rendered = $(this).closest('.form__item-wrap').find('.select2-selection__rendered');
+        let renderedText = rendered.text();
+        if (renderedText !== 'Choose from the list') {
+            rendered.addClass('black');
+        } else {
+            rendered.removeClass('black');
         }
     });
     selectElement.val(selectElement.find("option:first").val());
     $('.form__select option:first-child').prop('selected', true);
-
 }
 
-function filterMob(){
+function filterMob() {
     // $('.filter__mob').click(function (){
     //     $(this).closest('.filter__block').find('.filter__item-wrapper').toggleClass('show')
     // })
 }
 
-
-
-
-function spline(){
-    if($('.spline__container').length>0){
-        let name = $('.spline__container').data('name').split(',')
-        let info = $('.spline__container').data('info').split('/')
+function spline() {
+    if ($('.spline__container').length > 0) {
+        let name = $('.spline__container').data('name').split(',');
+        let info = $('.spline__container').data('info').split('/');
 
         let chart = [];
         for (let i = 0; i < name.length; i++) {
@@ -351,43 +642,38 @@ function spline(){
                 row: {
                     colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
                     opacity: 0.5
-                },
+                }
             },
             xaxis: {
-                categories: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+                categories: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
             }
         };
 
         var spline = new ApexCharts(document.querySelector(".spline__container"), options);
         spline.render();
 
-
-        let arr = []
-        let i = 0
-        $('.apexcharts-legend-marker').each(function (){
-            arr.push($(this).css("background-color"))
-        })
-        $('.spline__desc-title span').each(function (){
-            $(this).css("background-color", `${arr[i]}`)
-            i++
-        })
+        let arr = [];
+        let i = 0;
+        $('.apexcharts-legend-marker').each(function () {
+            arr.push($(this).css("background-color"));
+        });
+        $('.spline__desc-title span').each(function () {
+            $(this).css("background-color", `${arr[i]}`);
+            i++;
+        });
     }
-
-
 }
-function checkInput(){
+function checkInput() {
     $(document).on("click", '.form button', function (e) {
-        $(this).closest('.form').find('.form__item').each(function (){
-            if($(this).find('.form__input').hasClass('error')){
-                $(this).addClass('error')
-            } else{
-                $(this).removeClass('error')
+        $(this).closest('.form').find('.form__item').each(function () {
+            if ($(this).find('.form__input').hasClass('error')) {
+                $(this).addClass('error');
+            } else {
+                $(this).removeClass('error');
             }
-        })
-
+        });
     });
 }
-
 
 function dropMenuHeader() {
     let dropMenu = $('.header__drop-menu .header__drop-btn');
@@ -472,30 +758,24 @@ function mobileChange() {
             navigation: {
                 nextEl: ".gallery__next",
                 prevEl: ".gallery__prev"
-            },
+            }
         });
-
-
-
-
 
         let slidersCount = $('.feedback .swiper-pagination-bullet').length;
         $('.feedback .swiper-pagination-bullet').css('width', `calc(100%/${slidersCount})`);
 
-        $('.popular .container').append($('.slider__nav'))
+        $('.popular .container').append($('.slider__nav'));
 
-
-        $('.dealers__country').each(function (){
-            $(this).closest('.dealers__item').find('.dealers__img').after($(this))
-        })
-
+        $('.dealers__country').each(function () {
+            $(this).closest('.dealers__item').find('.dealers__img').after($(this));
+        });
     }
     if (INNER_WIDTH <= 1024) {
         $('.header__drop-item').each(function () {
             $(this).append('<div class="header__drop-btn-wrap"><button class="header__drop-btn"></button></div>');
         });
         $('.header__block').append($('.header__social'));
-        $('.header__icon-mob').prepend($('.header__phone'))
+        $('.header__icon-mob').prepend($('.header__phone'));
     } else {
         $('body').addClass('desc');
     }
@@ -571,14 +851,14 @@ function sendForm(form, url, funcSuccess, funcError) {
     ajaxSend(form, url, funcSuccess, funcError);
 }
 
-function searchActive(){
-    $('.form__input').focus(function() {
+function searchActive() {
+    $('.form__input').focus(function () {
         $(this).closest('.form__item').addClass('big active');
-        $(this).removeAttr('placeholder')
+        $(this).removeAttr('placeholder');
     });
-    $('.form__input').blur(function() {
+    $('.form__input').blur(function () {
         $(this).closest('.form__item').removeClass('big active');
-        $(this).attr('placeholder','Search')
+        $(this).attr('placeholder', 'Search');
     });
     $(document).on('submit', '.faq__form', function (e) {
         e.preventDefault();
@@ -586,11 +866,10 @@ function searchActive(){
     });
 }
 
-
-function tab(){
-    $(".tab__header-item").click(function() {
+function tab() {
+    $(".tab__header-item").click(function () {
         $(".tab__header-item").removeClass("active").eq($(this).index()).addClass("active");
-        $(".tab__content-item").hide().eq($(this).index()).fadeIn()
+        $(".tab__content-item").hide().eq($(this).index()).fadeIn();
     }).eq(0).addClass("active");
 }
 
@@ -603,12 +882,12 @@ function searchSuccess() {
     $('.header__search-form').hide(300);
     $('.header__search').show(300);
     $('.header__search-form')[0].reset();
-    $('.header__phone').show(300)
+    $('.header__phone').show(300);
 }
 function openSearch() {
     $(document).on('click', '.header__search', function () {
         if (INNER_WIDTH <= 1024) {
-            $('.header__phone').hide()
+            $('.header__phone').hide();
         }
         $(this).hide();
         $('.header__search-form').show(300);
@@ -619,77 +898,71 @@ function openSearch() {
     });
 }
 
-
-function firstSubmenuActive(){
-    $('.head .header__drop-item').removeClass('active')
-    $('.head .header__drop-item:first-child').addClass('active')
-    $('.head .header__append-content>*').remove()
-    let firstActive = $('.head .header__drop-item:first-child').find('.header__drop-list').clone()
-    let firstTitle = $('.head .header__drop-item:first-child').find('.header__drop-title h2').text()
-    $('.head .header__append-content').append(firstActive)
-    $('.head .header__append-link span').text(firstTitle)
+function firstSubmenuActive() {
+    $('.head .header__drop-item').removeClass('active');
+    $('.head .header__drop-item:first-child').addClass('active');
+    $('.head .header__append-content>*').remove();
+    let firstActive = $('.head .header__drop-item:first-child').find('.header__drop-list').clone();
+    let firstTitle = $('.head .header__drop-item:first-child').find('.header__drop-title h2').text();
+    $('.head .header__append-content').append(firstActive);
+    $('.head .header__append-link span').text(firstTitle);
 }
 
-function headerSubmenu(){
-    if(INNER_WIDTH > 1024){
-        firstSubmenuActive()
+function headerSubmenu() {
+    if (INNER_WIDTH > 1024) {
+        firstSubmenuActive();
         $('.head .header__drop-item').each(function () {
             $(this).on("mouseover", function () {
-                let submenu = $(this).find('.header__drop-list').clone()
-                $('.head .header__drop-item').removeClass('active')
-                $(this).addClass('active')
-                $('.head .header__append-content .header__drop-list').remove()
-                $('.head .header__append-content').append(submenu)
+                let submenu = $(this).find('.header__drop-list').clone();
+                $('.head .header__drop-item').removeClass('active');
+                $(this).addClass('active');
+                $('.head .header__append-content .header__drop-list').remove();
+                $('.head .header__append-content').append(submenu);
 
-                let title = $(this).find('.header__drop-title h2').text()
-                $('.head .header__append-link span').text(title)
-            })
-        })
+                let title = $(this).find('.header__drop-title h2').text();
+                $('.head .header__append-link span').text(title);
+            });
+        });
 
-        $('.head .header__drop-wrap').each(function (){
-            $(this).on("mouseleave", firstSubmenuActive)
-        })
-
+        $('.head .header__drop-wrap').each(function () {
+            $(this).on("mouseleave", firstSubmenuActive);
+        });
     }
 }
 
-
-function setActiveArticle(){
-    $('.articles__category-item').click(function (){
-        $(this).toggleClass('active')
-        $(this).prevAll().removeClass('active')
-        $(this).nextAll().removeClass('active')
-        let val = $(this).text()
-        $('.articles__input').val(val)
-        sendForm($('.articles__category'), '/wp-admin/admin-ajax.php', function (){
-
-        });
-    })
+function setActiveArticle() {
+    $('.articles__category-item').click(function () {
+        $(this).toggleClass('active');
+        $(this).prevAll().removeClass('active');
+        $(this).nextAll().removeClass('active');
+        let val = $(this).text();
+        $('.articles__input').val(val);
+        sendForm($('.articles__category'), '/wp-admin/admin-ajax.php', function () {});
+    });
 }
 $(document).ready(function () {
-    let formFilter = $('.filter__block')
-    $('.filter__select').each(function() {
+    let formFilter = $('.filter__block');
+    $('.filter__select').each(function () {
         const currentSelect = $(this);
         const currentSelectDropdown = currentSelect.closest('.filter__item-wrapper').find('.filter__dropdown');
         currentSelect.select2({
             minimumResultsForSearch: -1,
-            dropdownParent: currentSelectDropdown,
+            dropdownParent: currentSelectDropdown
         });
-    })
+    });
 
     $('.filter__select').on('select2:select', function (e) {
         sendForm(formFilter, '/wp-admin/admin-ajax.php');
-    })
+    });
     $('.form__select').select2({});
 
     $('.form__select').on('select2:select', function (e) {
-        let rendered = $(this).closest('.form__item-wrap').find('.select2-selection__rendered')
-        let renderedText = rendered.text()
-        if( renderedText !== 'Choose from the list' ){
-            rendered.addClass('black')
-        }
-        else{
-            rendered.removeClass('black')
+        let rendered = $(this).closest('.form__item-wrap').find('.select2-selection__rendered');
+        let renderedText = rendered.text();
+        if (renderedText !== 'Choose from the list') {
+            rendered.addClass('black');
+        } else {
+            rendered.removeClass('black');
         }
     });
     tab();
@@ -703,11 +976,12 @@ $(document).ready(function () {
     headerSubmenu();
     playVideo();
     accordion();
-    showPassword()
+    showPassword();
     setActiveArticle();
     filterMob();
     spline();
-    toggleModal($('.account__logout'), $('.modal__logout'))
+    showMap()
+    toggleModal($('.account__logout'), $('.modal__logout'));
 
     $(document).on('click', '.header__burger,.header__hide', openMenu);
 
@@ -715,6 +989,24 @@ $(document).ready(function () {
     validateForm(formSign, function () {
         sendForm(formSign, '/wp-admin/admin-ajax.php');
     });
+    let formSignReset = $('.sign__form-reset');
+    validateForm(formSignReset, function () {
+        sendForm(formSignReset, '/wp-admin/admin-ajax.php',function (){
+            $('.sign__form-reset').hide()
+            $('.sign__block  > .sign__title').hide()
+            $('.sign__block  > .sign__subtitle').hide()
+            $('.form__success').show()
+            console.log(11117777)
+        },function (){
+            $('.sign__form-reset').hide()
+            $('.sign__block  > .sign__title').hide()
+            $('.sign__block  > .sign__subtitle').hide()
+            $('.form__success').show()
+            console.log(11117777)
+        });
+    });
+
+
 
     let formReg = $('.sign__form-reg');
     validateForm(formReg, function () {
@@ -745,4 +1037,5 @@ $(document).ready(function () {
 $(window).load(function () {});
 
 $(window).resize(function () {});
+//# sourceMappingURL=index.js.map
 //# sourceMappingURL=index.js.map
