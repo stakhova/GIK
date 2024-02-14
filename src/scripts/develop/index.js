@@ -771,6 +771,7 @@ function mobileChange() {
         });
     }
     if (INNER_WIDTH <= 1024) {
+        $('.advice__top-desc').prepend($('.advice__top-title'))
         $('.header__drop-item').each(function () {
             $(this).append('<div class="header__drop-btn-wrap"><button class="header__drop-btn"></button></div>');
         });
@@ -941,25 +942,119 @@ function setActiveArticle() {
     });
 }
 
+function checkInputsToValid() {
+    $(document).on(
+        'input',
+        '.form__input-required, .question__radio input, .form__select-required',
+        validateAdviceForm
+    );
+}
+function validateAdviceForm(){
+    let isValid = true;
+
+    $('.step__block.active .form__input-required').each(function (){
+        let error = $(this).closest('.form__item-wrap').find('.form__input-error');
+
+        if($(this).val() == ''){
+            error.show()
+            isValid = false
+        } else{
+            error.hide()
+        }
+    })
+    $('.form__input-required[name=email]').each(function (){
+        let error = $(this).closest('.form__item-wrap').find('.form__input-error');
+        let val = $(this).val()
+        let regex =  /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,62}$/i
+
+        if(!regex.test(val)){
+            error.show()
+            isValid = false
+        } else{
+            error.hide()
+        }
+    })
+    $('.step__block.active .question__radio-required').each(function () {
+        let radioGroup = $(this).find('input[type="radio"]');
+        let error = $(this).closest('.question__item').find('.form__input-error');
+
+        if (!radioGroup.is(':checked')) {
+            error.show()
+            isValid = false;
+        } else {
+            error.hide()
+        }
+    });
+
+    $('.step__block.active .form__select-required').each(function () {
+        let error = $(this).closest('.form__item-wrap').find('.form__input-error');
+
+        if($(this).val() == '' || $(this).val() == 'default'){
+            error.show()
+            isValid = false
+        } else{
+            error.hide()
+        }
+    });
+    return isValid;
+}
+
+
+
+function sendQuestionForm() {
+    $(document).on('submit', '.question__form', function (e) {
+        e.preventDefault();
+        let dataForm = $('.question__form').serialize();
+
+        if (!validateAdviceForm()) {
+            checkInputsToValid();
+        } else {
+            // $('.quest__button button').addClass('disable')
+            ajaxSend(dataForm, '/wp-admin/admin-ajax.php', function (){
+                console.log('sussess')
+            });
+            checkInputsToValid();
+        }
+    });
+}
+
+
+
+
+
 function adviceStep(){
     $(document).on('click','.step__next',function (){
         let currentBlock = $(this).closest('.step__block')
-
-        currentBlock.removeClass('active')
-        currentBlock.next().addClass('active')
-
-        $('.step__item').each(function (){
-            if( $('.step__block.active').data('step') == $(this).data('active') ){
-                $(this).addClass('active')
-            }
-        })
+        if( validateAdviceForm() ){
+            $('.step__item').each(function (){
+                if( currentBlock.data('step') == $(this).data('active') ){
+                    $(this).addClass('fill')
+                }
+            })
+            currentBlock.removeClass('active')
+            currentBlock.next().addClass('active')
+            $('.step__item').each(function (){
+                if( $('.step__block.active').data('step') == $(this).data('active') ){
+                    $(this).addClass('active')
+                }
+            })
+        }
     })
     $(document).on('click','.step__prev',function (){
         let currentBlock = $(this).closest('.step__block')
         currentBlock.removeClass('active')
         currentBlock.prev().addClass('active')
     })
+}
 
+function customUpload(){
+    $(document).on('change','.form__item-upload input', function (){
+
+        // console.log(1,$(this))
+        // // console.log(2,$(this).files[0])
+        // // console.log(3,$(this))
+        $(this).closest('.form__item-upload').find('.form__item-file').text($(this)[0].files[0].name)
+    })
 
 }
 $(document).ready(function () {
@@ -1003,7 +1098,10 @@ $(document).ready(function () {
     setActiveArticle();
     filterMob();
     spline();
-    showMap()
+    showMap();
+    sendQuestionForm();
+    checkInputsToValid();
+    customUpload()
     toggleModal($('.account__logout'), $('.modal__logout'));
 
     $(document).on('click', '.header__burger,.header__hide', openMenu);
