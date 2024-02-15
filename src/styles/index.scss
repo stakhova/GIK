@@ -4345,6 +4345,7 @@ input{
   .form__item-file{
     color:#808080;
     font:600 1.4rem / normal 'Lato';
+
   }
   input[type="file"] {
     display: none;
@@ -4356,6 +4357,7 @@ input{
     align-items: center;
     gap:2rem;
     & > label{
+      cursor: pointer;
       padding: 1.2rem 4rem;
       color:white;
       font: 700 1.4rem / normal 'Lato';
@@ -4366,8 +4368,12 @@ input{
     display: flex;
     flex-direction: column;
     gap:0.8rem;
+    margin-top: 1.6rem;
     h5{
       font:400 1.2rem / normal 'Lato';
+    }
+    h6{
+      font:600 1.2rem / normal 'Lato';
     }
   }
   .form__row{
@@ -4484,7 +4490,7 @@ input{
       white-space: nowrap;
       font: 700 1.4rem / normal 'Lato';
       position: absolute;
-      bottom: -4rem;
+      bottom: -5.5rem;
       left: 50%;
       transform: translateX(-50%);
     }
@@ -4585,6 +4591,7 @@ input{
     }
   }
   &__block{
+    position: relative;
     display: none;
     &.active{
       display: flex;
@@ -4597,6 +4604,14 @@ input{
   }
 }
 
+
+.message__required{
+  position: absolute;
+  color:red;
+  font: 700 2rem / normal 'Lato';
+  top: -2.8rem;
+  left: 0;
+}
 .advice{
   &__title{
     font: 700 3.6rem / normal 'Lato';
@@ -7760,6 +7775,51 @@ input{
   }
   .advice__text-block a{
     font-size: 1.6rem;
+  }
+  .question__title{
+    font-size: 1.2rem;
+  }
+  .form__input-error{
+    font-size: 1.2rem;
+  }
+  .step__block.active{
+    gap:2rem;
+  }
+  .question__logo{
+   height: 2.8rem;
+    margin: 0 auto 6.1rem;
+  }
+  .question .section__title{
+    text-align: center;
+    font-size: 2rem;
+    max-width: 50%;
+    margin: 0 auto;
+  }
+  .question__subtitle{
+    margin: 1rem 0 5.2rem;
+    & > *{
+      font-size: 1.2rem;
+    }
+  }
+  .step__item h3{
+    display: none;
+  }
+  .step__title{
+    font-size: 2rem;
+  }
+  .question__button{
+    gap:2rem;
+    margin: 0 ;
+  }
+  .question__button > *{
+    min-width: auto;
+  }
+  .question  .form__item-upload-desc > *{
+    font-size: 1rem!important;
+  }
+  .message__required{
+    font: 700 1.6rem / normal 'Lato';
+    top: -2.2rem;
   }
 }
 

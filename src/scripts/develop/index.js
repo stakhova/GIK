@@ -943,12 +943,61 @@ function setActiveArticle() {
 }
 
 function checkInputsToValid() {
-    $(document).on(
-        'input',
-        '.form__input-required, .question__radio input, .form__select-required',
-        validateAdviceForm
-    );
+    let isValid = true;
+    function hideError(){
+        $('.step__block.active .form__input-error').each(function (){
+            if($(this).css("display") === "block"){
+                $('.step__block.active').prepend('<span class="message__required">Please fill the required fields </span.>')
+            } else{
+                $('.message__required').remove();
+            }
+        })
+    }
+    $(document).on('input', '.form__input-required, .form__select-required', function (){
+        let ths = $(this);
+        if(ths.hasClass('form__input-required')){
+            let error = $(this).closest('.form__item-wrap').find('.form__input-error');
+
+            if($(this).val() == ''){
+                error.show()
+                isValid = false
+            } else{
+                error.hide()
+            }
+        }
+
+        if(ths.hasClass('form__select-required')){
+            let error = $(this).closest('.form__item-wrap').find('.form__input-error');
+            if($(this).val() == '' || $(this).val() == 'default'){
+                error.show()
+                isValid = false
+            } else{
+                error.hide()
+            }
+        }
+        hideError()
+
+
+    });
+    $(document).on('click', '.question__radio-required', function (){
+        $('.step__block.active .question__radio-required').each(function () {
+            let radioGroup = $(this).find('input[type="radio"]');
+            let error = $(this).closest('.question__item').find('.form__input-error');
+
+            if (!radioGroup.is(':checked')) {
+                error.show()
+                isValid = false;
+            } else {
+                error.hide()
+            }
+        });
+        hideError()
+    })
+    return isValid;
 }
+
+
+
 function validateAdviceForm(){
     let isValid = true;
 
@@ -962,6 +1011,7 @@ function validateAdviceForm(){
             error.hide()
         }
     })
+
     $('.form__input-required[name=email]').each(function (){
         let error = $(this).closest('.form__item-wrap').find('.form__input-error');
         let val = $(this).val()
@@ -974,6 +1024,7 @@ function validateAdviceForm(){
             error.hide()
         }
     })
+
     $('.step__block.active .question__radio-required').each(function () {
         let radioGroup = $(this).find('input[type="radio"]');
         let error = $(this).closest('.question__item').find('.form__input-error');
@@ -988,7 +1039,6 @@ function validateAdviceForm(){
 
     $('.step__block.active .form__select-required').each(function () {
         let error = $(this).closest('.form__item-wrap').find('.form__input-error');
-
         if($(this).val() == '' || $(this).val() == 'default'){
             error.show()
             isValid = false
@@ -996,6 +1046,11 @@ function validateAdviceForm(){
             error.hide()
         }
     });
+
+    if(isValid){
+        $('.message__required').remove();
+    }
+
     return isValid;
 }
 
@@ -1004,14 +1059,24 @@ function validateAdviceForm(){
 function sendQuestionForm() {
     $(document).on('submit', '.question__form', function (e) {
         e.preventDefault();
-        let dataForm = $('.question__form').serialize();
 
+        let formData = new FormData($('.question__form')[0]);
         if (!validateAdviceForm()) {
             checkInputsToValid();
         } else {
-            // $('.quest__button button').addClass('disable')
-            ajaxSend(dataForm, '/wp-admin/admin-ajax.php', function (){
-                console.log('sussess')
+            $.ajax({
+                url: '/wp-admin/admin-ajax.php',
+                method: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                cache: false,
+                success: function () {
+                    console.log('success ajax');
+                },
+                error: function (error) {
+                }
+
             });
             checkInputsToValid();
         }
@@ -1025,6 +1090,8 @@ function sendQuestionForm() {
 function adviceStep(){
     $(document).on('click','.step__next',function (){
         let currentBlock = $(this).closest('.step__block')
+        currentBlock.find('.message__required').remove();
+        checkInputsToValid();
         if( validateAdviceForm() ){
             $('.step__item').each(function (){
                 if( currentBlock.data('step') == $(this).data('active') ){
@@ -1038,25 +1105,26 @@ function adviceStep(){
                     $(this).addClass('active')
                 }
             })
+        } else{
+            $("html, body").animate({ scrollTop: 0 }, 400);
+            currentBlock.prepend('<span class="message__required">Please fill the required fields </span.>')
         }
     })
     $(document).on('click','.step__prev',function (){
         let currentBlock = $(this).closest('.step__block')
         currentBlock.removeClass('active')
         currentBlock.prev().addClass('active')
+        checkInputsToValid();
     })
 }
 
 function customUpload(){
     $(document).on('change','.form__item-upload input', function (){
-
-        // console.log(1,$(this))
-        // // console.log(2,$(this).files[0])
-        // // console.log(3,$(this))
         $(this).closest('.form__item-upload').find('.form__item-file').text($(this)[0].files[0].name)
     })
-
 }
+
+
 $(document).ready(function () {
     let formFilter = $('.filter__block');
     $('.filter__select').each(function () {
@@ -1100,7 +1168,7 @@ $(document).ready(function () {
     spline();
     showMap();
     sendQuestionForm();
-    checkInputsToValid();
+    // checkInputsToValid();
     customUpload()
     toggleModal($('.account__logout'), $('.modal__logout'));
 
