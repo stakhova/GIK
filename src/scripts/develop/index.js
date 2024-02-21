@@ -1,11 +1,9 @@
 const INNER_WIDTH = window.innerWidth;
 
-
 let map;
 
 async function initMap(lat, lng, text) {
     const { Map } = await google.maps.importLibrary("maps");
-
 
     map = new Map(document.getElementById("map"), {
         center: { lat: 0, lng: 0 },
@@ -15,14 +13,14 @@ async function initMap(lat, lng, text) {
         addressControl: false,
         zoomControl: false,
         fullscreenControl: false,
-        enableCloseButton: false,
+        enableCloseButton: false
     });
 
     positionMaps.forEach(position => {
         const marker = new google.maps.Marker({
             position: { lat: position.lat, lng: position.lng },
             map: map,
-            icon: mapIcon,
+            icon: mapIcon
         });
         const info = new google.maps.InfoWindow({
             content: position.text
@@ -33,7 +31,7 @@ async function initMap(lat, lng, text) {
         // google.maps.event.addListener(marker, "click", () => {
         //     info.open(map, marker);
         // });
-        google.maps.event.addListener(map, "click", function(event) {
+        google.maps.event.addListener(map, "click", function (event) {
             // infowindow.close();
             info.close(map, marker);
         });
@@ -49,243 +47,163 @@ async function initMap(lat, lng, text) {
 
 
     map.setOptions({
-        styles: [
-            {
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#f5f5f5"
-                    }
-                ]
-            },
-            {
-                "elementType": "labels",
-                "stylers": [
-                    {
-                        "visibility": "off"
-                    }
-                ]
-            },
-            {
-                "elementType": "labels.icon",
-                "stylers": [
-                    {
-                        "visibility": "off"
-                    }
-                ]
-            },
-            {
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#616161"
-                    }
-                ]
-            },
-            {
-                "elementType": "labels.text.stroke",
-                "stylers": [
-                    {
-                        "color": "#f5f5f5"
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "visibility": "off"
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative.land_parcel",
-                "stylers": [
-                    {
-                        "visibility": "off"
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative.land_parcel",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#bdbdbd"
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative.neighborhood",
-                "stylers": [
-                    {
-                        "visibility": "off"
-                    }
-                ]
-            },
-            {
-                "featureType": "poi",
-                "stylers": [
-                    {
-                        "visibility": "off"
-                    }
-                ]
-            },
-            {
-                "featureType": "poi",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#eeeeee"
-                    }
-                ]
-            },
-            {
-                "featureType": "poi",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#757575"
-                    }
-                ]
-            },
-            {
-                "featureType": "poi.park",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#e5e5e5"
-                    }
-                ]
-            },
-            {
-                "featureType": "poi.park",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#9e9e9e"
-                    }
-                ]
-            },
-            {
-                "featureType": "road",
-                "stylers": [
-                    {
-                        "visibility": "off"
-                    }
-                ]
-            },
-            {
-                "featureType": "road",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#ffffff"
-                    }
-                ]
-            },
-            {
-                "featureType": "road",
-                "elementType": "labels.icon",
-                "stylers": [
-                    {
-                        "visibility": "off"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.arterial",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#757575"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.highway",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#dadada"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.highway",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#616161"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.local",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#9e9e9e"
-                    }
-                ]
-            },
-            {
-                "featureType": "transit",
-                "stylers": [
-                    {
-                        "visibility": "off"
-                    }
-                ]
-            },
-            {
-                "featureType": "transit.line",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#e5e5e5"
-                    }
-                ]
-            },
-            {
-                "featureType": "transit.station",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#eeeeee"
-                    }
-                ]
-            },
-            {
-                "featureType": "water",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#c9c9c9"
-                    }
-                ]
-            },
-            {
-                "featureType": "water",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#9e9e9e"
-                    }
-                ]
-            }
-        ]
+        styles: [{
+            "elementType": "geometry",
+            "stylers": [{
+                "color": "#f5f5f5"
+            }]
+        }, {
+            "elementType": "labels",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        }, {
+            "elementType": "labels.icon",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        }, {
+            "elementType": "labels.text.fill",
+            "stylers": [{
+                "color": "#616161"
+            }]
+        }, {
+            "elementType": "labels.text.stroke",
+            "stylers": [{
+                "color": "#f5f5f5"
+            }]
+        }, {
+            "featureType": "administrative",
+            "elementType": "geometry",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        }, {
+            "featureType": "administrative.land_parcel",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        }, {
+            "featureType": "administrative.land_parcel",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+                "color": "#bdbdbd"
+            }]
+        }, {
+            "featureType": "administrative.neighborhood",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        }, {
+            "featureType": "poi",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        }, {
+            "featureType": "poi",
+            "elementType": "geometry",
+            "stylers": [{
+                "color": "#eeeeee"
+            }]
+        }, {
+            "featureType": "poi",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+                "color": "#757575"
+            }]
+        }, {
+            "featureType": "poi.park",
+            "elementType": "geometry",
+            "stylers": [{
+                "color": "#e5e5e5"
+            }]
+        }, {
+            "featureType": "poi.park",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+                "color": "#9e9e9e"
+            }]
+        }, {
+            "featureType": "road",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        }, {
+            "featureType": "road",
+            "elementType": "geometry",
+            "stylers": [{
+                "color": "#ffffff"
+            }]
+        }, {
+            "featureType": "road",
+            "elementType": "labels.icon",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        }, {
+            "featureType": "road.arterial",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+                "color": "#757575"
+            }]
+        }, {
+            "featureType": "road.highway",
+            "elementType": "geometry",
+            "stylers": [{
+                "color": "#dadada"
+            }]
+        }, {
+            "featureType": "road.highway",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+                "color": "#616161"
+            }]
+        }, {
+            "featureType": "road.local",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+                "color": "#9e9e9e"
+            }]
+        }, {
+            "featureType": "transit",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        }, {
+            "featureType": "transit.line",
+            "elementType": "geometry",
+            "stylers": [{
+                "color": "#e5e5e5"
+            }]
+        }, {
+            "featureType": "transit.station",
+            "elementType": "geometry",
+            "stylers": [{
+                "color": "#eeeeee"
+            }]
+        }, {
+            "featureType": "water",
+            "elementType": "geometry",
+            "stylers": [{
+                "color": "#c9c9c9"
+            }]
+        }, {
+            "featureType": "water",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+                "color": "#9e9e9e"
+            }]
+        }]
     });
 }
 
 function showMap() {
-        const lat = 38.8951;
-        const lng =  -77.0364;
-        const text = 'texttexttext';
-        console.log(11111111111)
-        initMap(lat, lng, text);
+    const lat = 38.8951;
+    const lng = -77.0364;
+    const text = 'texttexttext';
+    console.log(11111111111);
+    initMap(lat, lng, text);
 }
-
 
 function openReadMore() {
     $(document).on('click', '.section__drop', function () {
@@ -345,6 +263,42 @@ function initSliders() {
                 slidesPerView: 4
             }
 
+        }
+    });
+    const sliderProductThumbnail = new Swiper('.product__slider-thumbnail', {
+        slidesPerView: 8,
+        freeMode: true,
+        spaceBetween: 10,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+        breakpoints: {
+            0: {
+                slidesPerView: 4,
+                spaceBetween: 8
+            },
+            1024: {
+                slidesPerView: 4
+            },
+            1440: {
+                slidesPerView: 8
+            }
+
+        }
+
+    });
+
+
+    const sliderProduct = new Swiper('.product__slider', {
+        pagination: {
+            el: '.product__pagination',
+            clickable: true
+        },
+        navigation: {
+            nextEl: '.product__next',
+            prevEl: '.product__prev',
+        },
+        thumbs: {
+            swiper: sliderProductThumbnail
         }
     });
 }
@@ -506,7 +460,7 @@ const validateForm = (form, func) => {
                 required: true,
                 minlength: 8,
                 equalTo: "#password_reg"
-            },
+            }
         },
         messages: {
             name: {
@@ -771,7 +725,7 @@ function mobileChange() {
         });
     }
     if (INNER_WIDTH <= 1024) {
-        $('.advice__top-desc').prepend($('.advice__top-title'))
+        $('.advice__top-desc').prepend($('.advice__top-title'));
         $('.header__drop-item').each(function () {
             $(this).append('<div class="header__drop-btn-wrap"><button class="header__drop-btn"></button></div>');
         });
@@ -830,6 +784,25 @@ function showSideMenu() {
     });
 }
 
+function openFullScreen(){
+
+    $(".product__open-button").click(function(e) {
+        e.stopPropagation(); // Prevent the click event from bubbling up
+        let currentImage = $('.product__slider .swiper-slide-active img').attr('src')
+        $(".product__open-image").attr("src", currentImage);
+        $(".product__open").fadeIn();
+        $(this).addClass('open')
+        if($(this).hasClass('open')){
+
+        }
+    });
+    $(document).click(function(e){
+        if (!$(e.target).is('img')) {
+            $('.product__open').hide();
+        }
+    })
+}
+
 function ajaxSend(date, url, funcSuccess, funcError) {
     $.ajax({
         url: url,
@@ -880,10 +853,13 @@ function faqSearchSuccess() {
     // $('.faq__form').removeClass('big')
 }
 function searchSuccess() {
-    $('.header__search-form').hide(300);
-    $('.header__search').show(300);
+    $('.header__search-form').hide(400);
+    $('.header__search').show(400);
     $('.header__search-form')[0].reset();
-    $('.header__phone').show(300);
+    if(innerWidth >666){
+        $('.header__phone').show(300);
+    }
+
 }
 function openSearch() {
     $(document).on('click', '.header__search', function () {
@@ -944,110 +920,106 @@ function setActiveArticle() {
 
 function checkInputsToValid() {
     let isValid = true;
-    function hideError(){
-        $('.step__block.active .form__input-error').each(function (){
-            if($(this).css("display") === "block"){
-                $('.step__block.active').prepend('<span class="message__required">Please fill the required fields </span.>')
-            } else{
+    function hideError() {
+        $('.step__block.active .form__input-error').each(function () {
+            if ($(this).css("display") === "block") {
+                $('.step__block.active').prepend('<span class="message__required">Please fill the required fields </span.>');
+            } else {
                 $('.message__required').remove();
             }
-        })
+        });
     }
-    $(document).on('input', '.form__input-required, .form__select-required', function (){
+    $(document).on('input', '.form__input-required, .form__select-required', function () {
         let ths = $(this);
-        if(ths.hasClass('form__input-required')){
+        if (ths.hasClass('form__input-required')) {
             let error = $(this).closest('.form__item-wrap').find('.form__input-error');
 
-            if($(this).val() == ''){
-                error.show()
-                isValid = false
-            } else{
-                error.hide()
+            if ($(this).val() == '') {
+                error.show();
+                isValid = false;
+            } else {
+                error.hide();
             }
         }
 
-        if(ths.hasClass('form__select-required')){
+        if (ths.hasClass('form__select-required')) {
             let error = $(this).closest('.form__item-wrap').find('.form__input-error');
-            if($(this).val() == '' || $(this).val() == 'default'){
-                error.show()
-                isValid = false
-            } else{
-                error.hide()
+            if ($(this).val() == '' || $(this).val() == 'default') {
+                error.show();
+                isValid = false;
+            } else {
+                error.hide();
             }
         }
-        hideError()
-
-
+        hideError();
     });
-    $(document).on('click', '.question__radio-required', function (){
+    $(document).on('click', '.question__radio-required', function () {
         $('.step__block.active .question__radio-required').each(function () {
             let radioGroup = $(this).find('input[type="radio"]');
             let error = $(this).closest('.question__item').find('.form__input-error');
 
             if (!radioGroup.is(':checked')) {
-                error.show()
+                error.show();
                 isValid = false;
             } else {
-                error.hide()
+                error.hide();
             }
         });
-        hideError()
-    })
+        hideError();
+    });
     return isValid;
 }
 
-
-
-function validateAdviceForm(){
+function validateAdviceForm() {
     let isValid = true;
 
-    $('.step__block.active .form__input-required').each(function (){
+    $('.step__block.active .form__input-required').each(function () {
         let error = $(this).closest('.form__item-wrap').find('.form__input-error');
 
-        if($(this).val() == ''){
-            error.show()
-            isValid = false
-        } else{
-            error.hide()
+        if ($(this).val() == '') {
+            error.show();
+            isValid = false;
+        } else {
+            error.hide();
         }
-    })
+    });
 
-    $('.form__input-required[name=email]').each(function (){
+    $('.form__input-required[name=email]').each(function () {
         let error = $(this).closest('.form__item-wrap').find('.form__input-error');
-        let val = $(this).val()
-        let regex =  /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,62}$/i
+        let val = $(this).val();
+        let regex = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,62}$/i;
 
-        if(!regex.test(val)){
-            error.show()
-            isValid = false
-        } else{
-            error.hide()
+        if (!regex.test(val)) {
+            error.show();
+            isValid = false;
+        } else {
+            error.hide();
         }
-    })
+    });
 
     $('.step__block.active .question__radio-required').each(function () {
         let radioGroup = $(this).find('input[type="radio"]');
         let error = $(this).closest('.question__item').find('.form__input-error');
 
         if (!radioGroup.is(':checked')) {
-            error.show()
+            error.show();
             isValid = false;
         } else {
-            error.hide()
+            error.hide();
         }
     });
 
     $('.step__block.active .form__select-required').each(function () {
         let error = $(this).closest('.form__item-wrap').find('.form__input-error');
-        if($(this).val() == '' || $(this).val() == 'default'){
-            error.show()
-            isValid = false
-        } else{
-            error.hide()
+        if ($(this).val() == '' || $(this).val() == 'default') {
+            error.show();
+            isValid = false;
+        } else {
+            error.hide();
         }
     });
 
-    if(isValid){
+    if (isValid) {
         $('.message__required').remove();
     }
 
@@ -1056,74 +1028,88 @@ function validateAdviceForm(){
 
 
 
+
+function submitUserForm() {
+    const response = grecaptcha.getResponse();
+    if (response.length === 0) {
+        $('#g-recaptcha-error-advice').html(`<span class="form__input-error" >This field is required</span>`);
+        return false;
+    }
+    return true;
+}
+function verifyCaptchaAdviceForm() {
+    $('#g-recaptcha-error-advice').html('');
+}
+window.verifyCaptchaRegistration = verifyCaptchaAdviceForm;
+
+
+
+
+
+
 function sendQuestionForm() {
     $(document).on('submit', '.question__form', function (e) {
         e.preventDefault();
+        if(submitUserForm('advice')) {
+            let formData = new FormData($('.question__form')[0]);
+            if (!validateAdviceForm()) {
+                checkInputsToValid();
+            } else {
+                $.ajax({
+                    url: '/wp-admin/admin-ajax.php',
+                    method: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    cache: false,
+                    success: function () {
+                        console.log('success ajax');
+                    },
+                    error: function (error) {}
 
-        let formData = new FormData($('.question__form')[0]);
-        if (!validateAdviceForm()) {
-            checkInputsToValid();
-        } else {
-            $.ajax({
-                url: '/wp-admin/admin-ajax.php',
-                method: 'POST',
-                data: formData,
-                contentType: false,
-                processData: false,
-                cache: false,
-                success: function () {
-                    console.log('success ajax');
-                },
-                error: function (error) {
-                }
-
-            });
-            checkInputsToValid();
+                });
+                checkInputsToValid();
+            }
         }
     });
 }
 
-
-
-
-
-function adviceStep(){
-    $(document).on('click','.step__next',function (){
-        let currentBlock = $(this).closest('.step__block')
+function adviceStep() {
+    $(document).on('click', '.step__next[type=button]', function () {
+        let currentBlock = $(this).closest('.step__block');
         currentBlock.find('.message__required').remove();
         checkInputsToValid();
-        if( validateAdviceForm() ){
-            $('.step__item').each(function (){
-                if( currentBlock.data('step') == $(this).data('active') ){
-                    $(this).addClass('fill')
+        if (validateAdviceForm()) {
+            $('.step__item').each(function () {
+                if (currentBlock.data('step') == $(this).data('active')) {
+                    $(this).addClass('fill');
                 }
-            })
-            currentBlock.removeClass('active')
-            currentBlock.next().addClass('active')
-            $('.step__item').each(function (){
-                if( $('.step__block.active').data('step') == $(this).data('active') ){
-                    $(this).addClass('active')
+            });
+            currentBlock.removeClass('active');
+            currentBlock.next().addClass('active');
+            $('.step__item').each(function () {
+                if ($('.step__block.active').data('step') == $(this).data('active')) {
+                    $(this).addClass('active');
                 }
-            })
-        } else{
+            });
+        } else {
             $("html, body").animate({ scrollTop: 0 }, 400);
-            currentBlock.prepend('<span class="message__required">Please fill the required fields </span.>')
+            currentBlock.prepend('<span class="message__required">Please fill the required fields </span.>');
         }
-    })
-    $(document).on('click','.step__prev',function (){
-        let currentBlock = $(this).closest('.step__block')
-        currentBlock.removeClass('active')
-        currentBlock.prev().addClass('active')
+    });
+    $(document).on('click', '.step__prev', function () {
+        let currentBlock = $(this).closest('.step__block');
+        currentBlock.removeClass('active');
+        currentBlock.prev().addClass('active');
         checkInputsToValid();
-    })
+    });
 }
 
-function customUpload(){
-    $(document).on('change','.form__item-upload input', function (){
-        $(this).closest('.form__item-upload').find('.form__item-file').text($(this)[0].files[0].name)
-    })
+function customUpload() {
+    $(document).on('change', '.form__item-upload input', function () {
+        $(this).closest('.form__item-upload').find('.form__item-file').text($(this)[0].files[0].name);
+    });
 }
-
 
 $(document).ready(function () {
     let formFilter = $('.filter__block');
@@ -1150,7 +1136,8 @@ $(document).ready(function () {
             rendered.removeClass('black');
         }
     });
-    adviceStep()
+    openFullScreen();
+    adviceStep();
     tab();
     searchActive();
     openReadMore();
@@ -1169,7 +1156,7 @@ $(document).ready(function () {
     showMap();
     sendQuestionForm();
     // checkInputsToValid();
-    customUpload()
+    customUpload();
     toggleModal($('.account__logout'), $('.modal__logout'));
 
     $(document).on('click', '.header__burger,.header__hide', openMenu);
@@ -1180,22 +1167,18 @@ $(document).ready(function () {
     });
     let formSignReset = $('.sign__form-reset');
     validateForm(formSignReset, function () {
-        sendForm(formSignReset, '/wp-admin/admin-ajax.php',function (){
-            $('.sign__form-reset').hide()
-            $('.sign__block  > .sign__title').hide()
-            $('.sign__block  > .sign__subtitle').hide()
-            $('.form__success').show()
-            console.log(11117777)
-        },function (){
-            $('.sign__form-reset').hide()
-            $('.sign__block  > .sign__title').hide()
-            $('.sign__block  > .sign__subtitle').hide()
-            $('.form__success').show()
-            console.log(11117777)
+        sendForm(formSignReset, '/wp-admin/admin-ajax.php', function () {
+            $('.sign__form-reset').hide();
+            $('.sign__block  > .sign__title').hide();
+            $('.sign__block  > .sign__subtitle').hide();
+            $('.form__success').show();
+        }, function () {
+            $('.sign__form-reset').hide();
+            $('.sign__block  > .sign__title').hide();
+            $('.sign__block  > .sign__subtitle').hide();
+            $('.form__success').show();
         });
     });
-
-
 
     let formReg = $('.sign__form-reg');
     validateForm(formReg, function () {
@@ -1226,5 +1209,6 @@ $(document).ready(function () {
 $(window).load(function () {});
 
 $(window).resize(function () {});
+//# sourceMappingURL=index.js.map
 //# sourceMappingURL=index.js.map
 //# sourceMappingURL=index.js.map
