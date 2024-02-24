@@ -22,6 +22,21 @@
     font-weight: 700;
     font-style: normal;
 }
+@font-face {
+    font-family: "Lato";
+    src: url("/fonts/Lato-Bold.eot");
+    src: url("/fonts/Lato-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Lato-Heavy.woff") format("woff"), url("/fonts/Lato-Bold.ttf") format("truetype"), url("/fonts/Lato-Bold.svg#Montserrat") format("svg");
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Lato";
+    src: url("/fonts/Lato-Bold.eot");
+    src: url("/fonts/Lato-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Lato-Black.woff") format("woff"), url("/fonts/Lato-Bold.ttf") format("truetype"), url("/fonts/Lato-Black.svg#Montserrat") format("svg");
+    font-weight: 900;
+    font-style: normal;
+}
+
 
 @font-face {
     font-family: "ua BRAND";

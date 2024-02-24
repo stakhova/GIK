@@ -3,47 +3,60 @@
 <div class="wrap">
     //= partials/header.html
 
-    <div class="wrap__main">
-        <section class="delivery">
-            <div class="container">
-                <div class="delivery__text">
-                    <div class="img delivery__icon"><img src="./img/delivery.svg" alt=""></div>
-                    <h2>Fast Delivery</h2>
-                    <h3>As quick as 5 days!</h3>
-                    <a href="" class="delivery__button">Click here</a>
-                </div>
-            </div>
-        </section>
-        <section class="banner">
+    <div class="wrap__main wrap__index">
+        <section class="banner banner__top">
             <div class="banner__slider swiper-container">
                 <ul class="banner__list swiper-wrapper">
                     <li class="banner__item swiper-slide">
-                        <picture class="banner__img img">
-                            <source media="(min-width: 666px)" srcset="./img/back.png">
-                            <source media="(min-width: 320px)" srcset="./img/back-mob.png">
-                            <img src="img/back.png" alt="">
-                        </picture>
+                        <div class="banner__back img">
+                            <img src="./img/banner-img.png" alt="">
+                        </div>
+                        <div class="banner__wrap">
+                            <div class="banner__img-text img">
+                                <img src="./img/banner-text.png" alt="">
+                            </div>
+                            <div class="banner__item-text">
+                                <p>We're helping musicians, producers and audio enthusiasts to shine. Achieve stellar sound in any space with our innovative products and acoustical expertise. For 20 years, we've been providing exceptional solutions for music studios, home cinemas, listening spaces conference rooms and we're driven to support our customers in their unique acoustic challenges.</p>
+                            </div>
+                            <div class="section__link banner__item-link">
+                                <a href="">Learn More</a>
+                            </div>
+                        </div>
 
                     </li>
                     <li class="banner__item swiper-slide">
-                        <picture class="banner__img img">
-                            <source media="(min-width: 666px)" srcset="./img/back.png">
-                            <source media="(min-width: 320px)" srcset="./img/back-mob.png">
-                            <img src="./img/back.png" alt="">
-                        </picture>
+                        <div class="banner__back img">
+                            <img src="./img/banner-img.png" alt="">
+                        </div>
+                        <div class="banner__wrap">
+                            <div class="banner__img-text img">
+                                <img src="./img/banner-text.png" alt="">
+                            </div>
+                            <div class="banner__item-text">
+                                <p>We're helping musicians, producers and audio enthusiasts to shine. Achieve stellar sound in any space with our innovative products and acoustical expertise. For 20 years, we've been providing exceptional solutions for music studios, home cinemas, listening spaces conference rooms and we're driven to support our customers in their unique acoustic challenges.</p>
+                            </div>
+                            <div class="section__link banner__item-link">
+                                <a href="">Learn More</a>
+                            </div>
+                        </div>
+
                     </li>
                 </ul>
                 <div class="banner__nav slider__nav">
                     <div class="banner__prev swiper-button-prev"></div>
                     <div class="banner__pagination slider__pagination"></div>
-                    <div class="banner__prev swiper-button-next"></div>
+                    <div class="banner__next swiper-button-next"></div>
                 </div>
+            </div>
+            <div class="banner__brand img">
+                <img src="./img/back__brand.png" alt="">
             </div>
 
         </section>
         <section class="featured ">
             <div class="container">
                 <h2 class="section__title">Featured Products</h2>
+                <h3 class="featured-subtitle">Discover our best selling acoustic panels, bass traps and diffusers.</h3>
                 <ul class="featured__list">
                     <li class="featured__item">
                         <span class="featured__flash">Bass Traps</span>
@@ -97,8 +110,11 @@
             </div>
         </section>
         <section class="acoustics section__grey">
+            <div class="acoustics__back img">
+                <img src="./img/back__acoustic.png" alt="">
+            </div>
             <div class="container">
-                <h2 class="section__title">Room Acoustics:</h2>
+                <h2 class="section__title">Acoustics Expertise:</h2>
                 <h3 class="acoustics__subtitle">Get expert acoustical advice for acoustic treatment for your room</h3>
                 <p class="section__text">Treating over 5,000 rooms worldwide annually with acoustic panels, bass traps, and diffusors from our locations in the U.S. and Europe, it is clear that GIK Acoustics is the #1 choice for recording studios, listening rooms, home theaters, restaurants, churches, and live auditoriums. GIK Acoustics not only provides the largest selection of high quality, patented, eco-friendly products at affordable prices, but provides clients with professional design assistance and friendly support staff to help achieve the best acoustically sounding space possible.</p>
                 <ul class="acoustics__list">
@@ -128,6 +144,7 @@
         <section class="categories">
             <div class="container">
                 <h2 class="section__title">Product Categories</h2>
+                <h3 class="featured-subtitle">World class acoustic products for excellent sound reproduction in any space.</h3>
                 <ul class="categories__list">
                     <li class="categories__item">
                         <a href="">
@@ -135,14 +152,16 @@
                                 <img src="./img/c1.png" alt="">
                             </div>
                             <h3 class="section__name">Acoustic panels</h3>
+                            <h3 class="categories__name-desc">Superior Noise Control Products</h3>
                         </a>
                     </li>
                     <li class="categories__item">
                         <a href="">
                             <div class="categories__img img">
-                                <img src="./img/c2.png" alt="">
+                                <img src="./img/feat2.png" alt="">
                             </div>
                             <h3 class="section__name">Bass traps</h3>
+                            <h3 class="categories__name-desc">Powerful Low-End Control</h3>
                         </a>
                     </li>
                     <li class="categories__item">
@@ -150,7 +169,8 @@
                             <div class="categories__img img">
                                 <img src="./img/c3.png" alt="">
                             </div>
-                            <h3 class="section__name">Acoustic art panels</h3>
+                            <h3 class="section__name">DIFFUSION</h3>
+                            <h3 class="categories__name-desc">Lushious Sound Scattering</h3>
                         </a>
                     </li>
                     <li class="categories__item">
@@ -158,7 +178,8 @@
                             <div class="categories__img img">
                                 <img src="./img/c4.png" alt="">
                             </div>
-                            <h3 class="section__name">Vocal Shields & Gobos</h3>
+                            <h3 class="section__name">COMBINATION DEVICES</h3>
+                            <h3 class="categories__name-desc">Merging Absorption & Diffusion</h3>
                         </a>
                     </li>
                     <li class="categories__item">
@@ -166,7 +187,8 @@
                             <div class="categories__img img">
                                 <img src="./img/c5.png" alt="">
                             </div>
-                            <h3 class="section__name">Diffusors</h3>
+                            <h3 class="section__name">ACOUSTIC ART PANELS</h3>
+                            <h3 class="categories__name-desc">Custom Printed Wall Art</h3>
                         </a>
                     </li>
                     <li class="categories__item">
@@ -174,7 +196,8 @@
                             <div class="categories__img img">
                                 <img src="./img/c6.png" alt="">
                             </div>
-                            <h3 class="section__name">Absorption / Diffusion</h3>
+                            <h3 class="section__name">VOCAL SHIELDS / GOBOS</h3>
+                            <h3 class="categories__name-desc">Free Standing Shieds & Panels</h3>
                         </a>
                     </li>
                     <li class="categories__item">
@@ -182,7 +205,8 @@
                             <div class="categories__img img">
                                 <img src="./img/c7.png" alt="">
                             </div>
-                            <h3 class="section__name">Room Kits</h3>
+                            <h3 class="section__name">ACOUSTIC ROOM KITS</h3>
+                            <h3 class="categories__name-desc">Smart Room Bundles</h3>
                         </a>
                     </li>
                     <li class="categories__item">
@@ -191,12 +215,16 @@
                                 <img src="./img/c8.png" alt="">
                             </div>
                             <h3 class="section__name">Accessories</h3>
+                            <h3 class="categories__name-desc">Fixing Made Easy</h3>
                         </a>
                     </li>
                 </ul>
             </div>
         </section>
         <section class="series section__grey">
+            <div class="acoustics__back img">
+                <img src="./img/back__acoustic.png" alt="">
+            </div>
             <div class="container">
                 <ul class="series__list">
                     <li class="series__item">
@@ -204,11 +232,14 @@
                             <div class="series__logo img">
                                 <img src="./img/logo1.png" alt="">
                             </div>
-                            <h3 class="section__name">Impression Panels</h3>
-                            <p class="section__text">Reflect your style with our selection of unique patterns for acoustic panels, and use both diffusion and absorption in your acoustic room treatment at the same time.</p>
-                            <div class="section__link">
-                                <a href="">Shop now </a>
+                            <div>
+                                <h3 class="section__name">Impression Panels</h3>
+                                <p class="section__text">Reflect your style with our selection of unique patterns for acoustic panels, and use both diffusion and absorption in your acoustic room treatment at the same time.</p>
+                                <div class="section__link">
+                                    <a href="">Learn More</a>
+                                </div>
                             </div>
+
                         </div>
                         <div class="series__img img" >
                             <img src="./img/series1.png" alt="">
@@ -219,17 +250,27 @@
                             <div class="series__logo img">
                                 <img src="./img/logo2.png" alt="">
                             </div>
-                            <h3 class="section__name">Sound Blocks</h3>
-                            <p class="section__text">Sound Blocks are a revolutionary concept in the GIK Acoustics product line, establishing a new benchmark in performance and flexibility for high-end audio rooms that need world-class performance.</p>
-                        </div>
+                            <div>
+                                <h3 class="section__name">Sound Blocks</h3>
+                                <p class="section__text">Sound Blocks are a revolutionary concept in the GIK Acoustics product line, establishing a new benchmark in performance and flexibility for high-end audio rooms that need world-class performance.</p>
+                                <div class="section__link">
+                                    <a href="">Learn More</a>
+                                </div>
+                            </div>
+                         </div>
                         <div class="series__img img" >
                             <img src="./img/series2.png" alt="">
                         </div>
                     </li>
                     <li class="series__item">
                         <div class="series__block">
-                            <h3 class="section__name">GOTHAM N23 5” QUADRATIC DIFFUSOR</h3>
-                            <p class="section__text">Provides unparalleled performance with the widest diffusion range on the market: from 1250hz to 9500hz with scattering effects down to 650hz.</p>
+                            <div>
+                                <h3 class="section__name">GOTHAM N23 5” QUADRATIC DIFFUSOR</h3>
+                                <p class="section__text">Provides unparalleled performance with the widest diffusion range on the market: from 1250hz to 9500hz with scattering effects down to 650hz.</p>
+                                <div class="section__link">
+                                    <a href="">Learn More</a>
+                                </div>
+                            </div>
                         </div>
                         <div class="series__img img" >
                             <img src="./img/series3.png" alt="">
@@ -240,8 +281,13 @@
                             <div class="series__logo img">
                                 <img src="./img/logo3.png" alt="">
                             </div>
-                            <h3 class="section__name">Alpha Series</h3>
-                            <p class="section__text">Sound Blocks are a revolutionary concept in the GIK Acoustics product line, establishing a new benchmark in performance and flexibility for high-end audio rooms that need world-class performance.</p>
+                            <div>
+                                <h3 class="section__name">Alpha Series</h3>
+                                <p class="section__text">Sound Blocks are a revolutionary concept in the GIK Acoustics product line, establishing a new benchmark in performance and flexibility for high-end audio rooms that need world-class performance.</p>
+                                <div class="section__link">
+                                    <a href="">Learn More</a>
+                                </div>
+                            </div>
                         </div>
                         <div class="series__img img" >
                             <img src="./img/series4.png" alt="">
@@ -250,120 +296,210 @@
                 </ul>
             </div>
         </section>
-        <section class="flexrange">
+        <section class="technology">
             <div class="container">
-                <div class="flexrange__block">
-                    <div class="flexrange__logo img">
-                        <img src="./img/flexrange-logo.png" alt="">
+                <h2 class="section__title">Product Categories</h2>
+                <h3 class="featured-subtitle">World class acoustic products for excellent sound reproduction in any space.</h3>
+
+
+                <div class="tab">
+                    <div class="tab__header">
+                        <button class="tab__header-item">FLEXRANGE</button>
+                        <button class="tab__header-item">DDM TECHNOLOGY</button>
+                        <button class="tab__header-item">GREENSAFE</button>
+                        <button class="tab__header-item">MODULAR</button>
                     </div>
-                    <h3 class="flexrange__title">Our innovative solution to lifeless and overdamped spaces</h3>
+                    <div class="tab__content">
+                        <div class="tab__content-item">
+                            <div class="technology__logo img">
+                                <img src="./img/flexrange-logo.png" alt="">
+                            </div>
+                            <ul class="technology__list">
+                                <li class="technology__item">
+                                    <div class="technology__img img">
+                                        <img src="./img/tech1.png" alt="">
+                                    </div>
+                                    <h3 class="technology__title">Full Range</h3>
+                                    <h4 class="technology__subtitle">Unhindered broadband absorption of all frequencies, only restrained by the lower cutoff-frequency of the panel</h4>
+                                </li>
+                                <li class="technology__item">
+                                    <div class="technology__img img">
+                                        <img src="./img/tech1.png" alt="">
+                                    </div>
+                                    <h3 class="technology__title">Range Limiter</h3>
+                                    <h4 class="technology__subtitle">Add a membrane to your bass trap panels, retaining upper frequencies while maximizng low-end absorption.</h4>
+                                </li>
+                                <li class="technology__item">
+                                    <div class="technology__img img">
+                                        <img src="./img/tech1.png" alt="">
+                                    </div>
+                                    <h3 class="technology__title">Scatter Plate</h3>
+                                    <h4 class="technology__subtitle">Add a Scatter Plate to your panels and diffuse/scatter high frequency content to keep your room from sounding lifeless.</h4>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab__content-item">
+                            <div class="technology__logo img">
+                                <img src="./img/logo2.png" alt="">
+                            </div>
+                            <ul class="technology__list">
+                                <li class="technology__item">
+                                    <div class="technology__img img">
+                                        <img src="./img/tech1.png" alt="">
+                                    </div>
+                                    <h3 class="technology__title">Full Range</h3>
+                                    <h4 class="technology__subtitle">Unhindered broadband absorption of all frequencies, only restrained by the lower cutoff-frequency of the panel</h4>
+                                </li>
+                                <li class="technology__item">
+                                    <div class="technology__img img">
+                                        <img src="./img/tech1.png" alt="">
+                                    </div>
+                                    <h3 class="technology__title">Range Limiter</h3>
+                                    <h4 class="technology__subtitle">Add a membrane to your bass trap panels, retaining upper frequencies while maximizng low-end absorption.</h4>
+                                </li>
+                                <li class="technology__item">
+                                    <div class="technology__img img">
+                                        <img src="./img/tech1.png" alt="">
+                                    </div>
+                                    <h3 class="technology__title">Scatter Plate</h3>
+                                    <h4 class="technology__subtitle">Add a Scatter Plate to your panels and diffuse/scatter high frequency content to keep your room from sounding lifeless.</h4>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab__content-item">
+                            <div class="technology__logo img">
+                                <img src="./img/logo3.png" alt="">
+                            </div>
+                            <ul class="technology__list">
+                                <li class="technology__item">
+                                    <div class="technology__img img">
+                                        <img src="./img/tech1.png" alt="">
+                                    </div>
+                                    <h3 class="technology__title">Full Range</h3>
+                                    <h4 class="technology__subtitle">Unhindered broadband absorption of all frequencies, only restrained by the lower cutoff-frequency of the panel</h4>
+                                </li>
+                                <li class="technology__item">
+                                    <div class="technology__img img">
+                                        <img src="./img/tech1.png" alt="">
+                                    </div>
+                                    <h3 class="technology__title">Range Limiter</h3>
+                                    <h4 class="technology__subtitle">Add a membrane to your bass trap panels, retaining upper frequencies while maximizng low-end absorption.</h4>
+                                </li>
+                                <li class="technology__item">
+                                    <div class="technology__img img">
+                                        <img src="./img/tech1.png" alt="">
+                                    </div>
+                                    <h3 class="technology__title">Scatter Plate</h3>
+                                    <h4 class="technology__subtitle">Add a Scatter Plate to your panels and diffuse/scatter high frequency content to keep your room from sounding lifeless.</h4>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab__content-item">
+                            <div class="technology__logo img">
+                                <img src="./img/flexrange-logo.png" alt="">
+                            </div>
+                            <ul class="technology__list">
+                                <li class="technology__item">
+                                    <div class="technology__img img">
+                                        <img src="./img/tech1.png" alt="">
+                                    </div>
+                                    <h3 class="technology__title">Full Range</h3>
+                                    <h4 class="technology__subtitle">Unhindered broadband absorption of all frequencies, only restrained by the lower cutoff-frequency of the panel</h4>
+                                </li>
+                                <li class="technology__item">
+                                    <div class="technology__img img">
+                                        <img src="./img/tech1.png" alt="">
+                                    </div>
+                                    <h3 class="technology__title">Range Limiter</h3>
+                                    <h4 class="technology__subtitle">Add a membrane to your bass trap panels, retaining upper frequencies while maximizng low-end absorption.</h4>
+                                </li>
+                                <li class="technology__item">
+                                    <div class="technology__img img">
+                                        <img src="./img/tech1.png" alt="">
+                                    </div>
+                                    <h3 class="technology__title">Scatter Plate</h3>
+                                    <h4 class="technology__subtitle">Add a Scatter Plate to your panels and diffuse/scatter high frequency content to keep your room from sounding lifeless.</h4>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <ul class="flexrange__type">
-                    <li class="flexrange__item">
-                        <div class="flexrange__img img">
-                            <img src="./img/flexrange1.png" alt="">
+            </div>
+        </section>
+        <section class="banner quotes">
+            <div class="banner__back img">
+                <img src="./img/quotes.png" alt="">
+            </div>
+            <div class="banner__slider swiper-container">
+                <ul class="banner__list swiper-wrapper">
+                    <li class="banner__item swiper-slide">
+                        <div class="container">
+                            <div class="quotes__text ">
+                               <blockquote>We are delighted to work with GIK Acoustics! Their products and expertise have allowed us to set up one of our studios very quickly and with great results. </blockquote>
+                            </div>
+                            <div class="quotes__text-bottom">
+                                <p>The wide selection of colours, sizes and modularity of their panels were a major factor in our decision to use GIK products.</p>
+                            </div>
+                            <div class="quotes__info">
+                                <div class="quotes__info-img img">
+                                    <img src="./img/quotes-img.png" alt="">
+                                </div>
+                                <div class="quotes__info-text">
+                                    <h3>Luca Barassi</h3>
+                                    <h4>Managing DirectorAbbey Road Institute.</h4>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="section__name">Full Range</h3>
-                        <p class="section__text">Broadband full range absorption bass traps.</p>
+
                     </li>
-                    <li class="flexrange__item">
-                        <div class="flexrange__img img">
-                            <img src="./img/flexrange2.png" alt="">
+                    <li class="banner__item swiper-slide">
+                        <div class=" container">
+                            <div class="quotes__text ">
+                                <blockquote>We are delighted to work with GIK Acoustics! Their products and expertise have allowed us to set up one of our studios very quickly and with great results. </blockquote>
+                            </div>
+                            <div class="quotes__text-bottom">
+                                <p>The wide selection of colours, sizes and modularity of their panels were a major factor in our decision to use GIK products.</p>
+                            </div>
+                            <div class="quotes__info">
+                                <div class="quotes__info-img img">
+                                    <img src="./img/quotes-img.png" alt="">
+                                </div>
+                                <div class="quotes__info-text">
+                                    <h3>Luca Barassi</h3>
+                                    <h4>Managing DirectorAbbey Road Institute.</h4>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="section__name">Range Limiter</h3>
-                        <p class="section__text">Add a membrane to your bass trap panels starting at $8.50 per panel, retaining upper frequencies while maximizng low-end absorption.</p>
-                        <div class="section__link">
-                            <a href="" >Shop Bass Traps</a>
-                        </div>
+
                     </li>
-                    <li class="flexrange__item">
-                        <div class="flexrange__img img">
-                            <img src="./img/flexrange3.png" alt="">
+                    <li class="banner__item swiper-slide">
+                        <div class=" container">
+                            <div class="quotes__text ">
+                                <blockquote>We are delighted to work with GIK Acoustics! Their products and expertise have allowed us to set up one of our studios very quickly and with great results. </blockquote>
+                            </div>
+                            <div class="quotes__text-bottom">
+                                <p>The wide selection of colours, sizes and modularity of their panels were a major factor in our decision to use GIK products.</p>
+                            </div>
+                            <div class="quotes__info">
+                                <div class="quotes__info-img img">
+                                    <img src="./img/quotes-img.png" alt="">
+                                </div>
+                                <div class="quotes__info-text">
+                                    <h3>Luca Barassi</h3>
+                                    <h4>Managing DirectorAbbey Road Institute.</h4>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="section__name">Scatter Plate</h3>
-                        <p class="section__text">Add a Scatter Plate to your panels starting at $30 per panel and diffuse/scatter high frequency content to keep your room from sounding dead”.</p>
+
                     </li>
                 </ul>
-            </div>
-        </section>
-        <section class="feedback section__grey">
-            <div class="container">
-                <div class="feedback__slider swiper-container">
-                    <ul class="feedback__list swiper-wrapper">
-                        <li class="feedback__item swiper-slide">
-                            <div class="feedback__img img">
-                                <img src="./img/feed1.png" alt="">
-                            </div>
-                            <h3 class="section__name">Recording Magazine</h3>
-                            <p class="section__text">Recording Magazine's Paul Vnuk reviewed our Impression Series in the November 2017 issue.</p>
-                        </li>
-                        <li class="feedback__item swiper-slide">
-                            <div class="feedback__img img">
-                                <img src="./img/feed2.png" alt="">
-                            </div>
-                            <h3 class="section__name">AV Nirvana</h3>
-                            <p class="section__text">In September, AV Nirvana's Todd Anderson reviewed our 4A Alpha Series Panels.</p>
-                        </li>
-                        <li class="feedback__item swiper-slide">
-                            <div class="feedback__img img">
-                                <img src="./img/feed3.png" alt="">
-                            </div>
-                            <h3 class="section__name">Positive Feedback</h3>
-                            <p class="section__text">Read Gary Beard's full review of our Impression Series on Positive Feedback.</p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="feedback__pagination slider__pagination"></div>
-            </div>
-        </section>
-        <section class="brand">
-            <div class="container">
-                <div class="brand__img img">
-                    <img src="./img/brands.png" alt="">
+                <div class="banner__nav slider__nav">
+                    <div class="banner__prev swiper-button-prev"></div>
+                    <div class="banner__next swiper-button-next"></div>
                 </div>
             </div>
         </section>
-        <section class="testimonials section__grey">
-            <div class="container">
-                <h2 class="section__title">Testimonials</h2>
-                <div class="testimonials__slider swiper-container">
-                    <ul class="testimonials__list swiper-wrapper">
-                        <li class="testimonials__item swiper-slide">
-                            <div class="testimonials__img img">
-                                <img src="./img/testimonials.png" alt="">
-                            </div>
-                            <div class="testimonials__desc">
-                                <h3 class="testimonials__title">Luca Barassi</h3>
-                                <h4 class="testimonials__subtitle">Managing DirectorAbbey Road Institute.</h4>
-                                <blockquote>We are delighted to work with GIK Acoustics. Their products and expertise have allowed us to set up one of our studios very quickly and with great results. The wide selection of colours, sizes and modularity of their panels were a major factor in our decision to use GIK products.</blockquote>
-                                <div class="section__link">
-                                    <a href=" " >Read Review</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="testimonials__item swiper-slide">
-                            <div class="testimonials__img img">
-                                <img src="./img/testimonials.png" alt="">
-                            </div>
-                            <div class="testimonials__desc">
-                                <h3 class="testimonials__title">Luca Barassi</h3>
-                                <h4 class="testimonials__subtitle">Managing DirectorAbbey Road Institute.</h4>
-                                <blockquote>We are delighted to work with GIK Acoustics. Their products and expertise have allowed us to set up one of our studios very quickly and with great results. The wide selection of colours, sizes and modularity of their panels were a major factor in our decision to use GIK products. We are delighted to work with GIK Acoustics. Their products and expertise have allowed us to set up one of our studios very quickly and with great results. The wide selection of colours, sizes and modularity of their panels were a major factor </blockquote>
-                                <div class="section__link">
-                                    <a href=" " >Read Review</a>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="testimonials__nav">
-                        <div class="testimonials__prev swiper-button-prev"></div>
-                        <div class="testimonials__next swiper-button-next"></div>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
+      
         <section class="difference">
             <div class="container">
                 <div class="difference__block">

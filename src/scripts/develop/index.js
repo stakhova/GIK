@@ -223,7 +223,7 @@ function initSliders() {
             prevEl: ".testimonials__prev"
         }
     });
-    const banner = new Swiper('.banner__slider', {
+    const banner = new Swiper('.banner__top .banner__slider', {
         slidesPerView: 1,
         spaceBetween: 0,
         centeredSlides: true,
@@ -234,8 +234,23 @@ function initSliders() {
             clickable: true
         },
         navigation: {
-            nextEl: ".banner__next",
-            prevEl: ".banner__prev"
+            nextEl: ".banner__top .banner__next",
+            prevEl: ".banner__top .banner__prev"
+        }
+    });
+    const quotes = new Swiper('.quotes .banner__slider', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        centeredSlides: true,
+        loop: true,
+
+        pagination: {
+            el: '.banner__pagination',
+            clickable: true
+        },
+        navigation: {
+            nextEl: ".quotes .banner__next",
+            prevEl: ".quotes .banner__prev"
         }
     });
     const popular = new Swiper('.popular__slider', {
@@ -328,6 +343,10 @@ function playVideo() {
 function toggleModal(btn, modal) {
     btn.click(function () {
         modal.show();
+        if($('.product__build').length > 0 && $('.product__roomle iframe').length === 0 ){
+            openRoomle()
+        }
+
         $('body').css('overflow', 'hidden');
         return false;
     });
@@ -687,7 +706,7 @@ function mobileChange() {
         // $('.header__block').append($('.header__social'));
 
         $('.delivery__text h2, .delivery__text h3').wrapAll("<div class='delivery__text-block'></div>");
-        $(".footer__item:nth-child(4), .footer__item:nth-child(5)").wrapAll("<div class='footer__item footer__item-mob'></div>");
+        $(".footer-mobile").wrapAll("<div class='footer__item footer__item-mob'></div>");
 
         const main = new Swiper('.feedback__slider', {
             slidesPerView: 1.5,
@@ -856,6 +875,7 @@ function searchSuccess() {
     $('.header__search-form').hide(400);
     $('.header__search').show(400);
     $('.header__search-form')[0].reset();
+    $('.header__search-block').removeClass('show');
     if(innerWidth >666){
         $('.header__phone').show(300);
     }
@@ -868,6 +888,8 @@ function openSearch() {
         }
         $(this).hide();
         $('.header__search-form').show(300);
+        $('.header__search-block').addClass('show');
+
     });
     $(document).on('click', '.header__search-btn', function (e) {
         e.preventDefault();
@@ -1074,6 +1096,15 @@ function sendQuestionForm() {
     });
 }
 
+
+function openRoomle(){
+    // $(document).on('change', '.modal__roomle',function (){
+        let currentProduct = $('.product__build').attr('data-configurationID')
+        console.log('currentProduct',currentProduct)
+        let fullLink = `https://www.roomle.com/t/cp/?configuratorId=gikacoustics&id=${currentProduct}&api=false`
+        $('.product__roomle').append(`<iframe src=${fullLink}></iframe>`)
+    // })
+}
 function adviceStep() {
     $(document).on('click', '.step__next[type=button]', function () {
         let currentBlock = $(this).closest('.step__block');
@@ -1136,6 +1167,7 @@ $(document).ready(function () {
             rendered.removeClass('black');
         }
     });
+    toggleModal($('.product__build'), $('.modal__roomle'));
     openFullScreen();
     adviceStep();
     tab();
@@ -1158,6 +1190,7 @@ $(document).ready(function () {
     // checkInputsToValid();
     customUpload();
     toggleModal($('.account__logout'), $('.modal__logout'));
+
 
     $(document).on('click', '.header__burger,.header__hide', openMenu);
 
