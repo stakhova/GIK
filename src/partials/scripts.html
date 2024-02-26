@@ -11,28 +11,32 @@
 <script type="text/javascript" src="scripts/plagins/jquery.validate.min.js" ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-<!--<script src="./scripts/roomle.es.min.js" type="module"></script>-->
+<script src="./scripts/roomle.min.js" type="module"></script>
 
 
-<!--<script type="module">-->
-<!--    import RoomleConfiguratorApi from "./scripts/roomle.es.min";-->
 
-<!--    const button = document.querySelector('.button');-->
-<!--    const options = {-->
-<!--        id: 'usm:frame',-->
-<!--    };-->
-<!--    button.addEventListener('click', async () => {-->
-<!--        console.log(444)-->
-<!--        const configurator = await RoomleConfiguratorApi.createConfigurator(-->
-<!--            'demoConfigurator',-->
-<!--            document.getElementById('configurator-container'),-->
-<!--            options,-->
-<!--        );-->
-<!--        configurator.ui.startConfiguring();-->
-<!--    });-->
-<!--</script>-->
 
 
 <script type="text/javascript" src="scripts/basic_scripts.js" ></script>
 <script type="text/javascript" src="scripts/develop/index.js" ></script>
 
+<script type="module">
+    import RoomleConfiguratorApi from "./scripts/roomle.min.js";
+
+    const button = document.querySelector('.product__build');
+    const currentProduct = button.getAttribute('data-configurationID')
+    const options = {
+        id: currentProduct,
+    };
+    button.addEventListener('click', async () => {
+        const configurator = await RoomleConfiguratorApi.createConfigurator(
+            'demoConfigurator',
+            document.querySelector('.product__roomle'),
+            options,
+        );
+        configurator.ui.startConfiguring();
+        configurator.ui.callbacks.onRequestProduct = (configurationId, image, partlist, price, labels, configuration) => {
+            console.log(configurationId, image, partlist, price, labels, configuration);
+        };
+    });
+</script>

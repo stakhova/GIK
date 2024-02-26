@@ -7628,7 +7628,7 @@ input {
   .footer__item *{
     text-align: center;
   }
-  .footer__item-mob * > {
+  .footer__item-mob > * {
     width: calc(50% - 0.5rem);
     margin: 0 !important;
   }

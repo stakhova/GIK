@@ -343,9 +343,9 @@ function playVideo() {
 function toggleModal(btn, modal) {
     btn.click(function () {
         modal.show();
-        if($('.product__build').length > 0 && $('.product__roomle iframe').length === 0 ){
-            openRoomle()
-        }
+        // if($('.product__build').length > 0 && $('.product__roomle iframe').length === 0 ){
+        //     openRoomle()
+        // }
 
         $('body').css('overflow', 'hidden');
         return false;
@@ -1096,15 +1096,15 @@ function sendQuestionForm() {
     });
 }
 
-
-function openRoomle(){
-    // $(document).on('change', '.modal__roomle',function (){
-        let currentProduct = $('.product__build').attr('data-configurationID')
-        console.log('currentProduct',currentProduct)
-        let fullLink = `https://www.roomle.com/t/cp/?configuratorId=gikacoustics&id=${currentProduct}&api=false`
-        $('.product__roomle').append(`<iframe src=${fullLink}></iframe>`)
-    // })
-}
+// let currentProduct
+// function openRoomle(){
+//     // $(document).on('change', '.modal__roomle',function (){
+//     currentProduct = $('.product__build').attr('data-configurationID')
+//         console.log('currentProduct',currentProduct)
+//         // let fullLink = `https://www.roomle.com/t/cp/?configuratorId=gikacoustics&id=${currentProduct}&api=false`
+//         // $('.product__roomle').append(`<iframe src=${fullLink}></iframe>`)
+//     // })
+// }
 
 // const configurator = await RoomleConfiguratorApi.createConfigurator(
 //     'demoConfigurator',
@@ -1120,13 +1120,7 @@ function openRoomle(){
 //     // },
 //
 // );
-// configurator.ui.callbacks.onButtonClicked = (name) => {
-//     if (name === 'savedraft') {
-//         console.log('Custom save draft!');
-//         return true;
-//     }
-//     return false;
-// };
+
 
 
 function adviceStep() {
