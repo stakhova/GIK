@@ -1105,6 +1105,30 @@ function openRoomle(){
         $('.product__roomle').append(`<iframe src=${fullLink}></iframe>`)
     // })
 }
+
+// const configurator = await RoomleConfiguratorApi.createConfigurator(
+//     'demoConfigurator',
+//     // document.getElementById('configurator-container'),
+//     // {
+//     //     ...options,
+//     //     skin: {
+//     //         'primary-color': '#1d68bd', // optional but please use a CSS RGB hex like #ff00ff if you want to rely on the color detection see explaination above
+//     //         'color-on-primary': '#f4e440', // optional, Roomle can decide this for you
+//     //         'cta-color': '#980d3f',  // please use a CSS RGB hex like #ff00ff if you want to rely on the color detection see explaination above
+//     //         'color-on-cta': '#8e8e8e', // optional, Roomle can decide this for you
+//     //     },
+//     // },
+//
+// );
+// configurator.ui.callbacks.onButtonClicked = (name) => {
+//     if (name === 'savedraft') {
+//         console.log('Custom save draft!');
+//         return true;
+//     }
+//     return false;
+// };
+
+
 function adviceStep() {
     $(document).on('click', '.step__next[type=button]', function () {
         let currentBlock = $(this).closest('.step__block');
