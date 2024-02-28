@@ -369,8 +369,12 @@
   background: url("../img/arrow-white.svg") center/contain no-repeat;
 }
 .wrap__index .section__link:hover > * {
-  color: white;
+  //color: white;
   background-color: inherit;
+}
+
+.wrap__index .section__link:hover > a:after {
+  background: url("../img/arrow-orange.svg") center/contain no-repeat;
 }
 
 header {
@@ -932,6 +936,7 @@ header {
   width: calc((100vh - 11.9rem)/3);
   text-align: center;
   padding: 2rem 0;
+  z-index: 5;
   text-transform: uppercase;
   cursor: pointer;
 }
@@ -2620,8 +2625,27 @@ header {
 
 .shop .category__list > * {
   width: calc((100% - 9rem)/4);
+  background-color: #F5F5F7;
+  position: relative;
 }
+.shop .category__list > *:hover:after{
+  content: '';
+  position: absolute;
+  background-color: var(--color-primary);
+  width: 100%;
+  height: 0.4rem;
+  top: 0;
+  left: 0;
+  transition: .2s ease;
+}
+.shop .category__list > *:hover .category__title{
+  color:var(--color-primary);
+  transition: .2s ease;
+}
+.shop .category__list > *:hover .category__title:after{
 
+  background: url("../img/down-arrow-orange.svg") center/1.8rem 1.8rem no-repeat;
+}
 .shop .category__img {
   margin-bottom: 1rem;
 }
@@ -5631,6 +5655,7 @@ input {
     & > *{
     font: 700 2rem / normal 'Lato';
     color:#747D8C;
+      white-space: nowrap;
     }
     & > h2{
        color:var(--color-primary)
@@ -5643,6 +5668,7 @@ input {
     display: block;
     transition: .2s ease;
     color:var(--color-primary);
+    white-space: nowrap;
     &:hover{
       background-color: var(--color-primary);
       color: var(--color-white);
@@ -6092,6 +6118,7 @@ input {
     //padding-left: 4.8rem;
     gap: 4.6rem;
   }
+
   //.header__drop-list-img {
   //  width: 20rem;
   //  height: 20rem;
@@ -6198,6 +6225,12 @@ input {
   }
   .footer__payment{
     gap: 2rem 3rem;
+  }
+  .product__name{
+    font-size: 2.8rem;
+  }
+  .technology__title{
+    font-size: 2rem;
   }
 }
 @media only screen and (max-width: 1440px) {
