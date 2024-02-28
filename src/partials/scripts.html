@@ -37,6 +37,12 @@
         configurator.ui.startConfiguring();
         configurator.ui.callbacks.onRequestProduct = (configurationId, image, partlist, price, labels, configuration) => {
             console.log(configurationId, image, partlist, price, labels, configuration);
+            let id = configuration.id
+            let img = configuration.perspectiveImage
+            $('.product__form input[name=id]').val(id)
+            $('.product__form input[name=img]').val(img)
+            sendForm($('.product__form'), '/wp-admin/admin-ajax.php');
         };
+
     });
 </script>
