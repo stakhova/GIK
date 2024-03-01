@@ -4,6 +4,10 @@ let map;
 
 async function initMap(lat, lng, text) {
     const { Map } = await google.maps.importLibrary("maps");
+    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+    const customMarkerImg = document.createElement("img");
+
+    customMarkerImg.src = mapIcon;
 
     map = new Map(document.getElementById("map"), {
         center: { lat: 0, lng: 0 },
@@ -16,29 +20,29 @@ async function initMap(lat, lng, text) {
         enableCloseButton: false
     });
 
-    positionMaps.forEach(position => {
-        const marker = new google.maps.Marker({
-            position: { lat: position.lat, lng: position.lng },
-            map: map,
-            icon: mapIcon
-        });
-        const info = new google.maps.InfoWindow({
-            content: position.text
-        });
-        google.maps.event.addListener(marker, "mouseover", () => {
-            info.open(map, marker);
-        });
-        // google.maps.event.addListener(marker, "click", () => {
-        //     info.open(map, marker);
-        // });
-        google.maps.event.addListener(map, "click", function (event) {
-            // infowindow.close();
-            info.close(map, marker);
-        });
-        // google.maps.event.addListener(marker, "mouseout", () => {
-        //     info.close(map, marker);
-        // });
-    });
+    // positionMaps.forEach(position => {
+    //     const marker = new AdvancedMarkerElement({
+    //         position: { lat: position.lat, lng: position.lng },
+    //         map: map,
+    //         content: customMarkerImg,
+    //     });
+    //     const info = new google.maps.InfoWindow({
+    //         content: position.text
+    //     });
+    //     google.maps.event.addListener(marker, "mouseover", () => {
+    //         info.open(map, marker);
+    //     });
+    //     // google.maps.event.addListener(marker, "click", () => {
+    //     //     info.open(map, marker);
+    //     // });
+    //     google.maps.event.addListener(map, "click", function (event) {
+    //         // infowindow.close();
+    //         info.close(map, marker);
+    //     });
+    //     // google.maps.event.addListener(marker, "mouseout", () => {
+    //     //     info.close(map, marker);
+    //     // });
+    // });
     // const marker = new google.maps.Marker({
     //     position:  { lat: lat, lng: lng },
     //     map: map,

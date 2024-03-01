@@ -11,38 +11,6 @@
                     <a href="#">Dealers</a>
                 </div>
                 <h3 class="section__title">Dealers</h3>
-                <form class="filter__block">
-                    <input type="text" hidden name="action" value="filter-dealers">
-                    <button type="button" class ="filter__mob img">
-                        <img src="./img/Filter.svg" alt="">
-                    </button>
-                    <h3 class="filter__title">Filter</h3>
-                    <div class="filter__item-wrapper">
-                        <div class="filter__item">
-                            <span>Sort by:</span>
-                            <select name="sort" class="filter__select" >
-                                <option value="default">Default sorting</option>
-                                <option value="latest">Latest</option>
-                                <option value="low to high">Low to high</option>
-                                <option value="high to low">High to low</option>
-                            </select>
-                        </div>
-                        <div class="filter__dropdown"></div>
-                    </div>
-                    <div class="filter__item-wrapper">
-                        <div class="filter__item">
-                            <span>Sort by price:</span>
-                            <select name="sort-by-price" class="filter__select" >
-                                <option value="default">Default sorting</option>
-                                <option value="latest">Latest</option>
-                                <option value="low to high">Low to high</option>
-                                <option value="high to low">High to low</option>
-                            </select>
-                        </div>
-                        <div class="filter__dropdown"></div>
-                    </div>
-
-                </form>
                 <ul class="dealers__list">
                     <li class="dealers__item">
                         <h3 class="dealers__country">Israel</h3>
@@ -102,9 +70,38 @@
                         </div>
                     </li>
                 </ul>
-                <div class="dealers__map img">
-                    <img src="./img/World_Map.svg" alt="">
-                </div>
+            </div>
+            <div class="dealers__map img">
+                <div class="map" id="map"></div>
+                <script>
+                    let positionMaps = [{lat:38.8951,lng:-77.0364, text:'<p>ldfgkdflgkdf<p> <p><a href="tel:4444444">4444444</a></p>'  }, {lat:39.91389,lng:116.39167, text:'<p>ldfgkdflgkdf<p>'}];
+                    // (g => {
+                    //     var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary",
+                    //         q = "__ib__", m = document, b = window;
+                    //     b = b[c] || (b[c] = {});
+                    //     var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams,
+                    //         u = () => h || (h = new Promise(async (f, n) => {
+                    //             await (a = m.createElement("script"));
+                    //             e.set("libraries", [...r] + "");
+                    //             for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+                    //             e.set("callback", c + ".maps." + q);
+                    //             a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+                    //             d[q] = f;
+                    //             a.onerror = () => h = n(Error(p + " could not load."));
+                    //             a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+                    //             m.head.append(a)
+                    //         }));
+                    //     d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n))
+                    // })({
+                    //     key: "AIzaSyDgGhu7gVtSqKxCC9tSywaqlPIpufe0CHs",
+                    //     v: "weekly",
+                    // });
+
+                    (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+                        key: "AIzaSyDgGhu7gVtSqKxCC9tSywaqlPIpufe0CHs",
+                        v: "weekly",
+                    });
+                </script>
             </div>
         </section>
     </div>

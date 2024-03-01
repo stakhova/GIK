@@ -1,5 +1,5 @@
 <script>
-    let mapIcon = '<?= TEMPLATE_PATH ?>/img/maps.svg';
+    let mapIcon = '../img/maps.svg';
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <!--<script type="text/javascript" src="scripts/validate_script.js" ></script>-->
@@ -24,25 +24,28 @@
     import RoomleConfiguratorApi from "./scripts/roomle.min.js";
 
     const button = document.querySelector('.product__build');
-    const currentProduct = button.getAttribute('data-configurationID')
-    const options = {
-        id: currentProduct,
-    };
-    button.addEventListener('click', async () => {
-        const configurator = await RoomleConfiguratorApi.createConfigurator(
-            'demoConfigurator',
-            document.querySelector('.product__roomle'),
-            options,
-        );
-        configurator.ui.startConfiguring();
-        configurator.ui.callbacks.onRequestProduct = (configurationId, image, partlist, price, labels, configuration) => {
-            console.log(configurationId, image, partlist, price, labels, configuration);
-            let id = configuration.id
-            let img = configuration.perspectiveImage
-            $('.product__form input[name=id]').val(id)
-            $('.product__form input[name=img]').val(img)
-            sendForm($('.product__form'), '/wp-admin/admin-ajax.php');
+    if(document.body.contains(button)){
+        const currentProduct = button.getAttribute('data-configurationID')
+        const options = {
+            id: currentProduct,
         };
+        button.addEventListener('click', async () => {
+            const configurator = await RoomleConfiguratorApi.createConfigurator(
+                'demoConfigurator',
+                document.querySelector('.product__roomle'),
+                options,
+            );
+            configurator.ui.startConfiguring();
+            configurator.ui.callbacks.onRequestProduct = (configurationId, image, partlist, price, labels, configuration) => {
+                console.log(configurationId, image, partlist, price, labels, configuration);
+                let id = configuration.id
+                let img = configuration.perspectiveImage
+                $('.product__form input[name=id]').val(id)
+                $('.product__form input[name=img]').val(img)
+                sendForm($('.product__form'), '/wp-admin/admin-ajax.php');
+            };
 
-    });
+        });
+    }
+
 </script>
