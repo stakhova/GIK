@@ -17,38 +17,38 @@ async function initMap(lat, lng, text) {
         addressControl: false,
         zoomControl: false,
         fullscreenControl: false,
-        enableCloseButton: false
+        enableCloseButton: false,
+        mapId: 'DEMO_MAP_ID',
     });
 
-    // positionMaps.forEach(position => {
-    //     const marker = new AdvancedMarkerElement({
-    //         position: { lat: position.lat, lng: position.lng },
-    //         map: map,
-    //         content: customMarkerImg,
-    //     });
-    //     const info = new google.maps.InfoWindow({
-    //         content: position.text
-    //     });
-    //     google.maps.event.addListener(marker, "mouseover", () => {
-    //         info.open(map, marker);
-    //     });
-    //     // google.maps.event.addListener(marker, "click", () => {
-    //     //     info.open(map, marker);
-    //     // });
-    //     google.maps.event.addListener(map, "click", function (event) {
-    //         // infowindow.close();
-    //         info.close(map, marker);
-    //     });
-    //     // google.maps.event.addListener(marker, "mouseout", () => {
-    //     //     info.close(map, marker);
-    //     // });
-    // });
-    // const marker = new google.maps.Marker({
-    //     position:  { lat: lat, lng: lng },
-    //     map: map,
-    //     icon: mapIcon,
-    // });
-
+    positionMaps.forEach(position => {
+        const marker = new AdvancedMarkerElement({
+            position: { lat: position.lat, lng: position.lng },
+            map: map,
+            content: customMarkerImg,
+        });
+        const info = new google.maps.InfoWindow({
+            content: position.text
+        });
+        google.maps.event.addListener(marker, "mouseover", () => {
+            info.open(map, marker);
+        });
+        google.maps.event.addListener(marker, "click", () => {
+            info.open(map, marker);
+        });
+        google.maps.event.addListener(map, "click", function (event) {
+            // infowindow.close();
+            info.close(map, marker);
+        });
+        google.maps.event.addListener(marker, "mouseout", () => {
+            info.close(map, marker);
+        });
+    });
+    const marker = new google.maps.Marker({
+        position:  { lat: lat, lng: lng },
+        map: map,
+        icon: mapIcon,
+    });
 
     map.setOptions({
         styles: [{
