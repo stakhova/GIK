@@ -754,9 +754,19 @@ function mobileChange() {
         });
         $('.header__block').append($('.header__social'));
         $('.header__icon-mob').prepend($('.header__phone'));
+
+        $('.policy .section__top-title').after($('.policy .section__flex-white'))
+
     } else {
         $('body').addClass('desc');
     }
+}
+
+function changeNamePolicy(){
+    $(document).on('click','.policy .tab__header-item', function (){
+        let text = $(this).text()
+        $('.section__title').text(text)
+    })
 }
 
 function showSideMenu() {
@@ -1259,6 +1269,7 @@ $(document).ready(function () {
     validateForm(formVat, function () {
         sendForm(formVat, '/wp-admin/admin-ajax.php');
     });
+    changeNamePolicy()
 });
 
 $(window).load(function () {});
