@@ -4,7 +4,6 @@
   width: 100%;
   color: var(--color-black);
   position: relative;
-  /*background-color: var(--color-back-light);*/
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
@@ -41,7 +40,6 @@
 .section__subtitle{
   font: 400 1.6rem / 2.4rem 'Lato';
 }
-
 .section__flex{
   display: flex;
   &-left{
@@ -62,7 +60,7 @@
     //  top: 0;
     //  right: -44%;
     //  z-index: -1;
-    //  width: 30vw;
+    //  width: 50vw;
     //  background-color: var(--color-white);
     //
     //}
@@ -162,6 +160,7 @@
 .section__button-black{
   background-color: var(--color-black);
 }
+
 
 .form__row {
   display: -ms-flexbox;
@@ -9034,7 +9033,7 @@ input {
     min-width: auto;
   }
   .notfound__block {
-    gap: 3rem;
+    gap: 8.6rem;
   }
   .notfound__image h3 {
     font-size: 2.4rem;
@@ -9585,6 +9584,9 @@ input {
    width: 100%;
     height: auto;
     aspect-ratio: 1/1;
+  }
+  .notfound__back {
+    top: 54vw;
   }
 
 }

@@ -205,7 +205,6 @@ function showMap() {
     const lat = 38.8951;
     const lng = -77.0364;
     const text = 'texttexttext';
-    console.log(11111111111);
     initMap();
 }
 
@@ -1275,6 +1274,4 @@ $(document).ready(function () {
 $(window).load(function () {});
 
 $(window).resize(function () {});
-//# sourceMappingURL=index.js.map
-//# sourceMappingURL=index.js.map
-//# sourceMappingURL=index.js.map
+
