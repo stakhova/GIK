@@ -1079,7 +1079,36 @@ window.verifyCaptchaRegistration = verifyCaptchaAdviceForm;
 
 
 
+let page = 1;
+function loadMore(action, btn){
+    $(document).on('click',btn, function (){
+        let btn = $(this)
+        let wrap = btn.closest('.tab__content-item')
+        let category = wrap.attr('id')
+        let page = wrap.attr('data-page')
+        page++
 
+        wrap.attr('data-page', page)
+        let obj = { action, page, category}
+        $.ajax({
+            url: '/wp-admin/admin-ajax.php',
+            data: obj,
+            method: 'POST',
+            success: function () {
+                console.log('success ajax');
+                btn.hide()
+                btn.closest('.video__list').append(res);
+            },
+            error: function (error) {
+                console.log('error ajax');
+            },
+            complete: function (){
+
+            }
+        });
+    })
+
+}
 
 
 function sendQuestionForm() {
@@ -1221,7 +1250,7 @@ $(document).ready(function () {
     // checkInputsToValid();
     customUpload();
     toggleModal($('.account__logout'), $('.modal__logout'));
-
+    loadMore('more__articles','.articles .load__more')
 
     $(document).on('click', '.header__burger,.header__hide', openMenu);
 
