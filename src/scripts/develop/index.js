@@ -284,21 +284,21 @@ function initSliders() {
         }
     });
     const sliderProductThumbnail = new Swiper('.product__slider-thumbnail', {
-        slidesPerView: 8,
+        slidesPerView: 7,
         freeMode: true,
-        spaceBetween: 10,
+        spaceBetween:16,
         watchSlidesVisibility: true,
         watchSlidesProgress: true,
         breakpoints: {
             0: {
                 slidesPerView: 4,
-                spaceBetween: 8
+                spaceBetween: 16
             },
             1024: {
                 slidesPerView: 4
             },
             1440: {
-                slidesPerView: 8
+                slidesPerView: 7
             }
 
         }
