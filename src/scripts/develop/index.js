@@ -1247,7 +1247,6 @@ $(document).ready(function () {
     spline();
     showMap();
     sendQuestionForm();
-    // checkInputsToValid();
     customUpload();
     toggleModal($('.account__logout'), $('.modal__logout'));
     loadMore('more__articles','.articles .load__more')
