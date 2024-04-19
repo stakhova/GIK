@@ -747,7 +747,7 @@ function mobileChange() {
         });
     }
     if (INNER_WIDTH <= 1024) {
-        $('.advice__top-desc').prepend($('.advice__top-title'));
+        $('.advice__top-desc').prepend($('.section__top .advice__top-title'));
         $('.header__drop-item').each(function () {
             $(this).append('<div class="header__drop-btn-wrap"><button class="header__drop-btn"></button></div>');
         });
