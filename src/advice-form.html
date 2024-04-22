@@ -1,0 +1,384 @@
+//= partials/head.html
+
+<div class="wrap">
+
+    <div class="wrap__main">
+
+
+
+        <section class="question ">
+            <div class="container">
+                <div class="question__logo img">
+                    <img src="../img/logo.jpg" alt="">
+                </div>
+                <h3 class="section__title">Custom Room Advice Form</h3>
+                <div class="question__subtitle">
+                    <p>Please complete the following questions and we will be in touch with you shortly to discuss your room. You can always call our main number and ask to speak to a consultant.</p>
+                    <p>Do not use URL's on this form or your submission may not reach us.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step__item active" data-active="first"><span>1</span><h3>Information</h3><div class="progress__line"></div></div>
+                    <div class="step__item" data-active="second"><span>2</span><h3>Your Space</h3><div class="progress__line"></div></div>
+                    <div class="step__item" data-active="third"><span>3</span><h3>Objectives</h3><div class="progress__line"></div></div>
+                    <div class="step__item" data-active="fourth"><span>4</span><h3>Images And Plans</h3><div class="progress__line"></div></div>
+                </div>
+                <form action="" class="question__form form">
+                    <input type="hidden" name="action" value="advice">
+
+
+                    <div class="step__block active" data-step="first">
+                        <h3 class="step__title">Contact Information</h3>
+
+                        <div class="form__row">
+                            <div class="form__item-wrap">
+                                <label class="form__label">First name *</label>
+                                <div class="form__item">
+                                    <input type="text" name="name" placeholder="Start typing..." class="form__input form__input-required">
+                                </div>
+                                <span class="form__input-error">First name is required</span>
+                            </div>
+                            <div class="form__item-wrap">
+                                <label class="form__label">Last name *</label>
+                                <div class="form__item">
+                                    <input type="text" name="lastname" placeholder="Start typing..." class="form__input form__input-required">
+                                </div>
+                                <span class="form__input-error">Last name is required</span>
+                            </div>
+                        </div>
+                        <div class="form__row">
+                            <div class="form__item-wrap">
+                                <label class="form__label">Email *</label>
+                                <div class="form__item">
+                                    <input type="email" name="email" placeholder="Start typing..." class="form__input form__input-required">
+                                </div>
+                                <span class="form__input-error">Invalid email</span>
+                            </div>
+                            <div class="form__item-wrap">
+                                <label class="form__label">Phone</label>
+                                <div class="form__item">
+                                    <input type="text" name="phone" placeholder="Start typing..." class="form__input">
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <h4 class="question__address">Address</h4>
+                        <div class="form__item-wrap">
+                            <label class="form__label">Street Address</label>
+                            <div class="form__item">
+                                <input type="text" name="address1" placeholder="Start typing..." class="form__input">
+                            </div>
+                        </div>
+                        <div class="form__item-wrap">
+                            <label class="form__label">Address Line 2</label>
+                            <div class="form__item">
+                                <input type="text" name="address2" placeholder="Start typing..." class="form__input">
+                            </div>
+                        </div>
+                        <div class="form__row">
+                            <div class="form__item-wrap">
+                                <label class="form__label">City</label>
+                                <div class="form__item">
+                                    <input type="text" name="city" placeholder="Start typing..." class="form__input">
+                                </div>
+                            </div>
+                            <div class="form__item-wrap">
+                                <label class="form__label">Country / State / Region</label>
+                                <div class="form__item">
+                                    <input type="text" name="county-state-region" placeholder="Start typing..." class="form__input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__row">
+                            <div class="form__item-wrap">
+                                <label class="form__label">ZIP / Postal Code</label>
+                                <div class="form__item">
+                                    <input type="text" name="city" placeholder="Start typing..." class="form__input">
+                                </div>
+                            </div>
+                            <div class="form__item-wrap">
+                                <label class="form__label">Country</label>
+                                <select name="country" class="form__select" >
+                                    <option value="default">Select country </option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="question__button ">
+                            <button type="button" class="section__button step__next">Next</button>
+                        </div>
+                    </div>
+                    <div class="step__block" data-step="second">
+                        <h3 class="step__title">About Your Space</h3>
+                        <div class="form__item-wrap">
+                            <label class="form__label">What kind of room are you treating? *</label>
+                            <select name="kind-room" class="form__select form__select-required" >
+                                <option value="default">Select kind of room</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <span class="form__input-error">This field is required</span>
+                        </div>
+
+                        <div class="question__item">
+                            <h3 class='question__title'>Will you be recording in the same space?</h3>
+                            <div class="question__radio">
+                                <input type="radio" id="recording1" name="recording"
+                                       value='Yes'><label
+                                    for="recording1">Yes</label>
+                                <input type="radio" id="recording2" name="recording"
+                                       value='No'><label
+                                    for="recording2">No</label>
+                            </div>
+
+                        </div>
+                        <div class="form__item-wrap">
+                            <label class="form__label">Room Size (width x length x height) *</label>
+                            <div class="form__item">
+                                <input type="text" name="room_size" placeholder="Start typing..." class="form__input form__input-required">
+                            </div>
+                            <span class="form__input-error">This field is required</span>
+                        </div>
+                        <div class="question__item">
+                            <h3 class='question__title'>Is this a dedicated room?</h3>
+                            <div class="question__radio">
+                                <input type="radio" id="dedicated1" name="dedicated_room"
+                                       value='Yes'><label
+                                    for="dedicated1">Yes</label>
+                                <input type="radio" id="dedicated2" name="dedicated_room"
+                                       value='No'><label
+                                    for="dedicated2">No</label>
+                            </div>
+                        </div>
+                        <div class="form__item-wrap">
+                            <label class="form__label">What model of speakers / sub(s) will be used in this room?</label>
+                            <div class="form__item">
+                                <textarea name="room_size" placeholder="Start typing..." class="form__input"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="question__item">
+                            <h3 class='question__title'>Please describe the flooring in the space</h3>
+                            <div class="question__radio">
+                                <input type="radio" id="describe-flooring1" name="describe-flooring"
+                                       value='Hard surface (tile, wood, concrete, etc.)'><label
+                                    for="describe-flooring1">Hard surface (tile, wood, concrete, etc.)</label>
+                                <input type="radio" id="describe-flooring2" name="describe-flooring"
+                                       value='Soft surface (carpet, rugs, etc.)'><label
+                                    for="describe-flooring2">Soft surface (carpet, rugs, etc.)</label>
+                            </div>
+
+                        </div>
+                        <div class="question__item">
+                            <h3 class='question__title'> Are you able to move the location of your set up within your room if needed?*</h3>
+                            <div class="question__radio question__radio-required">
+                                <input type="radio" id="move_location1" name="move_location"
+                                       value='Yes'><label
+                                    for="move_location1">Yes</label>
+                                <input type="radio" id="move_location2" name="move_location"
+                                       value='No'><label
+                                    for="move_location2">No</label>
+                            </div>
+                            <span class="form__input-error">This field is required</span>
+                        </div>
+
+                        <div class="form__item-wrap">
+                            <label class="form__label">Any restrictions on where you can place treatments in the room? (i.e. windows, doors, fireplaces, etc.)</label>
+                            <div class="form__item">
+                                <textarea name="restrictions" placeholder="Start typing..." class="form__input"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="question__button">
+                            <button type="button" class="section__button step__prev">Previous</button>
+                            <button type="button" class="section__button step__next">Next</button>
+                        </div>
+                    </div>
+                    <div class="step__block" data-step="third">
+                        <h3 class="step__title">Your Objectives</h3>
+                        <div class="question__item">
+                            <h3 class='question__title'>Interested in*</h3>
+                            <div class="question__radio question__radio-required">
+                                <input type="radio" id="interest1" name="Interested"
+                                       value='Absorption'><label
+                                    for="interest1">Absorption</label>
+                                <input type="radio" id="interest2" name="Interested"
+                                       value='Diffusion'><label
+                                    for="interest2">Diffusion</label>
+                                <input type="radio" id="interest3" name="Interested"
+                                       value='Both'><label
+                                    for="interest3">Both</label>
+                            </div>
+                            <span class="form__input-error">This field is required</span>
+                        </div>
+                        <div class="form__item-wrap">
+                            <label class="form__label">Are there any certain GIK products you would like for us try to incorporate in your room? (To select multiple products, hold down the Ctrl button on your keyboard.)</label>
+                            <select name="certain_GIK_products" class="form__select" >
+                                <option value="default">Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                        <div class="form__item-wrap">
+                            <label class="form__label">Please describe any other kind of acoustic treatment you have and its placement in your room</label>
+                            <div class="form__item">
+                                <textarea name="other_kind_of_acoustic_treatment" placeholder="Start typing..." class="form__input"></textarea>
+                            </div>
+                        </div>
+                        <div class="form__item-wrap">
+                            <label class="form__label">Estimated budget for project *</label>
+                            <div class="form__item">
+                                <input type="text" name="budget" placeholder="Start typing..." class="form__input form__input-required">
+                            </div>
+                            <span class="form__input-error">This field is required</span>
+                        </div>
+                        <div class="question__item">
+                            <h3 class='question__title'>To help us understand your budget, how would you best describe the level of acoustic performance you would like to achieve in your room</h3>
+                            <div class="question__radio">
+                                <input type="radio" id="level_of_ac1" name="level_of_acoustic_performance"
+                                       value='I’m looking to get started and plan on adding treatment in the future (if needed)'><label
+                                    for="level_of_ac1">I’m looking to get started and plan on adding treatment in the future (if needed)</label>
+                                <input type="radio" id="level_of_ac2" name="level_of_acoustic_performance"
+                                       value='I’m looking for minimal treatment'><label
+                                    for="level_of_ac2">I’m looking for minimal treatment</label>
+                                <input type="radio" id="level_of_ac3" name="level_of_acoustic_performance"
+                                       value='I’m looking for the best sounding room possible and wish to completely treat my room on this purchase'><label
+                                    for="level_of_ac3">I’m looking for the best sounding room possible and wish to completely treat my room on this purchase</label>
+                            </div>
+                            <p class="question__item-desc">GIK Acoustics always works within specified budgets to recommend the best possible solutions.</p>
+
+                        </div>
+                        <div class="form__item-wrap">
+                            <label class="form__label">As we design your room, how much does the aesthetic matter? Do you have a certain look in mind? For example: we have fabric covered panels, we offer Camira upgrade fabrics, we create ArtPanels, and we offer treatments with wood face plates. Please describe how important aesthetics are and the look you're going for.*</label>
+                            <div class="form__item">
+                                <textarea name="aesthetic_matter" placeholder="Start typing..." class="form__input form__input-required"></textarea>
+                            </div>
+                            <span class="form__input-error">This field is required</span>
+                        </div>
+                        <div class="form__item-wrap">
+                            <label class="form__label">What issues are you experiencing in the room? (To select multiple options, hold down the Ctrl button on your keyboard.)</label>
+                            <select name="issues_in_room" class="form__select" >
+                                <option value="default">Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                        <div class="form__item-wrap">
+                            <label class="form__label">Any additional information or issues we should know about?</label>
+                            <div class="form__item">
+                                <textarea name="additional_info" placeholder="Start typing..." class="form__input"></textarea>
+                            </div>
+                        </div>
+                        <div class="question__button">
+                            <button type="button" class="section__button step__prev">Previous</button>
+                            <button type="button" class="section__button step__next">Next</button>
+                        </div>
+                    </div>
+                    <div class="step__block" data-step="fourth">
+                        <h3 class="step__title">Images and Plans</h3>
+
+                        <div class="form__item-wrap">
+                            <label class="form__label">(Optional) Share your 3D room using our Room Acoustics Visualizer</label>
+                            <p class="question__item-desc">If you created your room using our free tool, please share the url here:</p>
+                            <div class="form__item">
+                                <input type="text" name="url" placeholder="http://" class="form__input ">
+                            </div>
+                        </div>
+                        <div class="form__item-wrap">
+                            <h3 class='question__title'> Please include any pictures or drawings you may have of your room (highly recommended)</h3>
+                            <label class="form__label">File</label>
+                            <div class="form__item form__item-upload">
+                                <label >
+                                    <input type="file" name="file1" accept=".png, .jpg, .jpeg, .pdf"/>
+                                    Browse
+                                </label>
+                                <span class="form__item-file">No file selected</span>
+                            </div>
+                            <div class="form__item-upload-desc">
+                                <h5>Accepted file types: jpg, gif, png, pdf, Max. file size: 200 MB.</h5>
+                                <h6>Allowed extensions: jpg, gif, png, pdf. Limit file size to 60MB total.</h6>
+                            </div>
+                        </div>
+                        <div class="form__item-wrap">
+                            <label class="form__label">File</label>
+                            <div class="form__item form__item-upload">
+                                <label >
+                                    <input type="file" name="file2" accept=".png, .jpg, .jpeg, .pdf"/>
+                                    Browse
+                                </label>
+                                <span class="form__item-file">No file selected</span>
+                            </div>
+                            <div class="form__item-upload-desc">
+                                <h5>Accepted file types: jpg, gif, png, pdf, Max. file size: 200 MB.</h5>
+                                <h6>Allowed extensions: jpg, gif, png, pdf. Limit file size to 60MB total.</h6>
+                            </div>
+                        </div>
+                        <div class="form__item-wrap">
+                            <label class="form__label">File</label>
+                            <div class="form__item form__item-upload">
+                                <label >
+                                    <input type="file" name="file3" accept=".png, .jpg, .jpeg, .pdf"/>
+                                    Browse
+                                </label>
+                                <span class="form__item-file">No file selected</span>
+                            </div>
+                            <div class="form__item-upload-desc">
+                                <h5>Accepted file types: jpg, gif, png, pdf, Max. file size: 200 MB.</h5>
+                                <h6>Allowed extensions: jpg, gif, png, pdf. Limit file size to 60MB total.</h6>
+                            </div>
+                        </div>
+                        <div class="form__item-wrap">
+                            <label class="form__label">How did you hear about GIK Acoustics? *</label>
+                            <select name="hear_about_GIK" class="form__select form__select-required" >
+                                <option value="default">Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <span class="form__input-error">This field is required</span>
+                        </div>
+                        <div class="question__item">
+                            <h3 class='question__title'>Mailing List</h3>
+                            <div class="question__radio">
+                                <input type="checkbox" id="mailing-list" name="mailing-list"
+                                       value='yes'><label
+                                    for="mailing-list">Yes, sign me up for updates!</label>
+                            </div>
+                            <p class="question__item-desc">Sign up for our mailing list for new acoustics products releases, exclusive discounts, and new articles about acoustics</p>
+                        </div>
+                        <div class="question__item">
+                            <h3 class='question__title'>Consent</h3>
+                            <div class="question__radio">
+                                <input type="checkbox" id="consent" name="mailing-list"
+                                       value='agree'><label
+                                    for="consent">By using this form you agree with the storage and handling of your data by this website.</label>
+                            </div>
+                        </div>
+
+
+
+                        <div class="question__button">
+                            <button type="button" class="section__button step__prev">Previous</button>
+                            <button type="submit" class="section__button step__next">Submit</button>
+                        </div>
+                    </div>
+
+                </form>
+
+
+            </div>
+        </section>
+    </div>
+</div>
+
+//= partials/scripts.html
+
+</body>
+</html>

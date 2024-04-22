@@ -241,6 +241,7 @@ function initSliders() {
             prevEl: ".banner__top .banner__prev"
         }
     });
+
     const quotes = new Swiper('.quotes .banner__slider', {
         slidesPerView: 1,
         spaceBetween: 0,
@@ -753,11 +754,28 @@ function mobileChange() {
         });
         $('.header__block').append($('.header__social'));
         $('.header__icon-mob').prepend($('.header__phone'));
-
         $('.policy .section__top-title').after($('.policy .section__flex-white'))
+        $('.product__desc').prepend($('.product__help'))
+        $('.product__desc').prepend($('.product__medal'))
+        $('.product__desc').append($('.like'))
+        $('.product__wrap').append($('.product__flex'))
+
 
     } else {
         $('body').addClass('desc');
+
+        const like = new Swiper('.like__slider', {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            centeredSlides: true,
+            loop: true,
+
+
+            navigation: {
+                nextEl: ".like__next",
+                prevEl: ".like__prev"
+            }
+        });
     }
 }
 

@@ -1,0 +1,147 @@
+//= partials/head.html
+
+<div class="wrap">
+    //= partials/header.html
+
+    <div class="wrap__main dealers contact">
+        <section class="section__top">
+            <div class="container">
+                <div class="section__flex">
+                    <div class="section__top-desc section__flex-left">
+                        <div class="breadcrumbs">
+                            <a href="#">Main</a>
+                            <a href="#">Dealers</a>
+                        </div>
+                        <div class="section__top-title">
+                            <h3 class="section__title">Dealers</h3>
+                            <p class="section__subtitle">Welcome to the Affiliate Program of GIK Acoustics. This program helps creators, publishers, and bloggers monetizing their traffic. With GIK Acoustics products being available worldwide, affiliates use our link-building tool to recommend GIK Acoustics to their audience and earn from valid purchases.</p>
+                            <div class="section__primary">
+                                <strong>Join us, recommend our products and start earning today!</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section__top-img img section__flex-right">
+                        <div class="map" id="map"></div>
+
+                        <script>
+                            // let mapIcon = '<?= TEMPLATE_PATH ?>/img/map-icon.svg';
+                            let positionMaps = [{lat:49.42719767175673, lng:26.988720057696828, text:'<p>4444444</p>'}, {lat:39.91389,lng:116.39167, text:'<p>222222<p>'}];
+                            (g => {
+                                var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary",
+                                    q = "__ib__", m = document, b = window;
+                                b = b[c] || (b[c] = {});
+                                var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams,
+                                    u = () => h || (h = new Promise(async (f, n) => {
+                                        await (a = m.createElement("script"));
+                                        e.set("libraries", [...r] + "");
+                                        for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+                                        e.set("callback", c + ".maps." + q);
+                                        a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+                                        d[q] = f;
+                                        a.onerror = () => h = n(Error(p + " could not load."));
+                                        a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+                                        m.head.append(a)
+                                    }));
+                                d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n))
+                            })({
+                                key: "AIzaSyDD6ffsydvAmFzM1JjRfjS_oRrtJMt3NOk",
+                                v: "weekly",
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section__bottom ">
+            <div class="container">
+                <div class="section__flex">
+                    <div class="section__flex-left">
+                        <div class="section__bottom-padding">
+                            <div class="affiliate__cta affiliate__cta-map">
+                                <div class="img">
+                                    <img src="../img/Earth.svg" alt="">
+                                </div>
+                                <h3 class="affiliate__cta-title">CTA Heading</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum</p>
+                                <button class="section__button">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section__flex-right section__flex-white">
+
+                        <ul class="dealers__list">
+                            <li class="dealers__item">
+                                <h3 class="dealers__country">Israel</h3>
+                                <div class="dealers__img img">
+                                    <img src="../img/image1.png" alt="">
+                                </div>
+                                <div class="dealers__text">
+                                    <p>AudioLab <br>
+                                        Kibbutz Galuyot 34 <br>
+                                        Tel Aviv <br>
+                                        6655019 <br>
+                                        Israel
+                                    </p>
+                                </div>
+                                <div class="dealers__text">
+                                    <a href="https://www.audiolab.co.il">www.audiolab.co.il</a>
+                                    <a href="mailto:info@audiolab.co.il">info@audiolab.co.il</a>
+                                    <a href="tel:972526485048">972 526485048</a>
+                                </div>
+                            </li>
+                            <li class="dealers__item">
+                                <h3 class="dealers__country">China</h3>
+                                <div class="dealers__img img">
+                                    <img src="../img/image2.png" alt="">
+                                </div>
+                                <div class="dealers__text">
+                                    <p>AudioLab <br>
+                                        Kibbutz Galuyot 34 <br>
+                                        Tel Aviv <br>
+                                        6655019 <br>
+                                        Israel
+                                    </p>
+                                </div>
+                                <div class="dealers__text">
+                                    <a href="https://www.audiolab.co.il">www.audiolab.co.il</a>
+                                    <a href="mailto:info@audiolab.co.il">info@audiolab.co.il</a>
+                                    <a href="tel:972526485048">972 526485048</a>
+                                </div>
+                            </li>
+                            <li class="dealers__item">
+                                <h3 class="dealers__country">United Arab Emirates</h3>
+                                <div class="dealers__img img">
+                                    <img src="../img/image2.png" alt="">
+                                </div>
+                                <div class="dealers__text">
+                                    <p>AudioLab <br>
+                                        Kibbutz Galuyot 34 <br>
+                                        Tel Aviv <br>
+                                        6655019 <br>
+                                        Israel
+                                    </p>
+                                </div>
+                                <div class="dealers__text">
+                                    <a href="https://www.audiolab.co.il">www.audiolab.co.il</a>
+                                    <a href="mailto:info@audiolab.co.il">info@audiolab.co.il</a>
+                                    <a href="tel:972526485048">972 526485048</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+    </div>
+
+    //= partials/footer.html
+</div>
+
+//= partials/scripts.html
+
+</body>
+</html>

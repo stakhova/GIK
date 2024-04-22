@@ -1,0 +1,152 @@
+//= partials/head.html
+
+<div class="wrap">
+    //= partials/header.html
+
+    <div class="wrap__main">
+
+        <section class="account">
+            <div class="account__header">
+                    <div class="breadcrumbs">
+                        <a href="#">Main</a>
+                        <a href="#">My account</a>
+                    </div>
+                    <h1 class="section__title">My account</h1>
+                    <h2 class="account__subtitle">Account details</h2>
+            </div>
+            <div class="account__block">
+                    <div class="tab tab__account">
+                        <div class="tab__account-header">
+                            <div class="account__user">
+                                <div class="account__user-img img">
+                                    <img src="../img/account.png" alt="">
+                                </div>
+                                <h3 class="account__user-name">username #11354</h3>
+                            </div>
+                            <div class="tab__header">
+                                <button class="tab__header-item">ACCOUNT DETAILS</button>
+                                <button class="tab__header-item">PASSWORD CHANGE</button>
+                                <button class="tab__header-item">VAT NUMBER</button>
+                                <button class="tab__header-item account__logout">LOGOUT</button>
+                            </div>
+                        </div>
+                        <div class="tab__content">
+                            <div class="tab__content-item">
+                                <form action="" class="account__form form">
+                                    <input type="hidden" name="action" value="account-details">
+                                    <div class="form__row">
+                                        <div class="form__item-wrap">
+                                            <label class="form__label">First name *</label>
+                                            <div class="form__item">
+                                                <input type="text" name="name" placeholder="Start typing..." class="form__input">
+                                            </div>
+                                        </div>
+                                        <div class="form__item-wrap">
+                                            <label class="form__label">Last name *</label>
+                                            <div class="form__item">
+                                                <input type="text" name="lastname" placeholder="Start typing..." class="form__input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form__row">
+                                        <div class="form__item-wrap">
+                                            <label class="form__label">Display name *</label>
+                                            <div class="form__item">
+                                                <input type="text" name="displayName" placeholder="Start typing..." class="form__input">
+                                            </div>
+                                            <span class="form__item-desc">This name will appear in the account section and reviews</span>
+                                        </div>
+                                        <div class="form__item-wrap">
+                                            <label class="form__label">Email address *</label>
+                                            <div class="form__item">
+                                                <input type="text" name="email" placeholder="Start typing..." class="form__input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="contact__submit">
+                                        <button class="section__button">Save</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab__content-item">
+                                <form action="" class="account__form-password form">
+                                    <input type="hidden" name="action" value="change-password">
+                                    <div class="form__row">
+                                        <div class="form__item-wrap">
+                                            <label class="form__label">Current password (leave blank to leave unchanged)</label>
+                                            <div class="form__item">
+                                                <input type="password" name="currentPassword" placeholder="Start typing..." class="form__input">
+                                                <div class="form__eye"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form__row">
+                                        <div class="form__item-wrap">
+                                            <label class="form__label">New password (leave blank to leave unchanged)</label>
+                                            <div class="form__item">
+                                                <input type="password" name="passwordNew" id="passwordNew" placeholder="Start typing..." class="form__input">
+                                                <div class="form__eye"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form__item-wrap">
+                                            <label class="form__label">Confirm new password</label>
+                                            <div class="form__item">
+                                                <input type="password" name="passwordNewRepeat" placeholder="Start typing..." class="form__input">
+                                                <div class="form__eye"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="contact__submit">
+                                        <button class="section__button">Save</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab__content-item">
+                                <form action="" class="account__vat form">
+                                    <input type="hidden" name="action" value="set__vat">
+                                    <div class="account__error">
+                                        <span>VAT Number can not be validated because the billing country is missing. Please update your billing address.</span>
+                                    </div>
+                                    <div class="form__row">
+                                        <div class="form__item-wrap">
+                                            <label class="form__label">VAT Number</label>
+                                            <div class="form__item">
+                                                <input type="text" name="VAT" placeholder="Start typing..." class="form__input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="contact__submit">
+                                        <button class="section__button">Save</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+
+
+        </section>
+        <section>
+            <div class="modal modal__logout">
+                <div class="modal__wrap">
+                    <div class="modal__content">
+                       <div class="modal__close"></div>
+                       <h2 class="modal__title">Are you sure you want to exit your personal account?</h2>
+                        <div class="modal__btn">
+                            <button class="modal__btn-close">No</button>
+                            <a href="" class="modal__btn-active">Yes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    //= partials/footer.html
+</div>
+
+//= partials/scripts.html
+
+</body>
+</html>
