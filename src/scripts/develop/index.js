@@ -1246,6 +1246,7 @@ $(document).ready(function () {
         }
     });
     toggleModal($('.product__build'), $('.modal__roomle'));
+    toggleModal($('.product__help'), $('.modal__help'));
     openFullScreen();
     adviceStep();
     tab();

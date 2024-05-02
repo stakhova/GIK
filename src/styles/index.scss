@@ -1061,7 +1061,7 @@ header {
 .side__item:after, .side__item:before {
   content: '';
   position: absolute;
-  width: 2rem;
+  width: 5.8rem;
   height: 0.1rem;
   left: 50%;
   transform: translateX(-50%);
@@ -1094,7 +1094,7 @@ header {
 }
 
 .side__item > *:hover {
-  color: var(--color-primary-second);
+  color: var(--color-primary);
   transition: .2s ease;
 }
 
@@ -1107,7 +1107,7 @@ header {
   bottom: 0rem;
   height: 0.4rem;
   width: 100%;
-  background-color: var(--color-primary-second);
+  background-color: var(--color-primary);
   transition: .2s ease;
 }
 
@@ -1124,7 +1124,7 @@ header {
   bottom: 0rem;
   height: 0.4rem;
   width: 100%;
-  background-color: var(--color-primary-second);
+  background-color: var(--color-primary);
 }
 
 .side__item > *:nth-child(2) {
@@ -1534,7 +1534,7 @@ header {
 
 
 .wrap__index .section__title{
-  text-transform: uppercase;
+  text-transform: capitalize;
   color: var(--color-primary-second);
 }
 .acoustics .container {
@@ -2368,7 +2368,7 @@ header {
   position: relative;
 }
 .products__banner .breadcrumbs{
-  margin-bottom: 17rem;
+  margin-bottom: 15rem;
 }
 
 .products__title {
@@ -2381,7 +2381,7 @@ header {
 }
 
 .products__banner-top .container {
-  padding: 3rem 10rem 22rem;
+  padding: 3rem 10rem 15rem;
 }
 
 
@@ -2628,7 +2628,7 @@ header {
 .category__list-info{
   height: 100%;
   padding-right: 4rem;
-  width: 20%;
+  width: 25%;
 }
 .category__list-title{
   font: 700 2.4rem/normal "Lato";
@@ -2702,7 +2702,7 @@ header {
 }
 
 .shop__subcategory .category__list-info{
-  width: 17% ;
+  width: 25% ;
 }
 .category__list-wrap{
   background-color: #fff;
@@ -2727,11 +2727,11 @@ header {
   padding: 0;
 }
 .shop__title{
-  font: 600 1.6rem / 150% "Lato";
+  font: 400 1.6rem / 150% "Lato";
   text-transform: capitalize;
 }
 .shop__price{
-  font: 700 2rem / 150% "Lato";
+  font: 700 1.7rem / 150% "Lato";
 }
 .category__title{
   font: 600 2rem/150% "Lato";
@@ -2846,7 +2846,7 @@ header {
 .shop__img{
   background-color: #F3F3F3;
   margin-bottom: 1.2rem;
-  aspect-ratio: 4/3;
+  aspect-ratio: 1/1;
   overflow: hidden;
 }
 .shop__img img{
@@ -2870,6 +2870,15 @@ header {
   top: 0;
   left: 0;
   transition: .2s ease;
+}
+.shop__img img{
+transition: .2s ease;
+
+}
+
+.shop .category__list > *:hover .shop__img img{
+
+  transform: scale(1.1);
 }
 .shop .category__list > *:hover .category__title{
   color:var(--color-primary);
@@ -3537,7 +3546,10 @@ header {
 .modal__content::-webkit-scrollbar-thumb {
   background-color: var(--color-grey);
 }
-
+.modal__help .modal__content{
+  max-width: 56.7rem;
+  padding: 4rem 6rem;
+}
 
 
 .content > * {
@@ -3563,7 +3575,7 @@ header {
   td{
     padding: 4rem 0 1.6rem;
     text-align: left;
-    font: 500 2rem/150% 'Lato';
+    font: 400 2rem/150% 'Lato';
     border-bottom: 0.1rem solid #BEC1C7;
     &:first-child{
       font-weight: 700;
@@ -3581,7 +3593,7 @@ header {
   width: 100%;
 }
 .content p, .content span {
-  font: 500 1.6rem/150% 'Lato';
+  font: 400 1.6rem/150% 'Lato';
   color: var(--color-black);
 }
 .content p {
@@ -3609,7 +3621,7 @@ header {
   background-color: var(--color-black);
 }
 .content li {
-  font: 500 1.6rem/150% 'Lato';
+  font: 400 1.6rem/150% 'Lato';
   color: var(--color-black);
 }
 .content a {
@@ -3635,7 +3647,7 @@ header {
 }
 
 .content a {
-  font: 500 1.6rem/150% 'Lato';
+  font: 400 1.6rem/150% 'Lato';
 }
 
 .reviews__send-content p {
@@ -4060,7 +4072,7 @@ header {
 }
 
 .breadcrumbs a {
-  font: 600 1.6rem/1.9rem 'Lato';
+  font: 500 1.6rem/1.9rem 'Lato';
   position: relative;
   color: var(--color-subtitle);
 }
@@ -5856,7 +5868,7 @@ input {
   &__help{
     display: flex;
     gap:2rem;
-    padding: 1.2rem 3rem;
+    padding: 1rem 3rem;
     align-items: center;
     margin: -2rem auto 0;
     border-radius: 999.9rem;
@@ -5871,8 +5883,8 @@ input {
       display: flex;
       gap:0.6rem;
       & > *{
-        width: 4.4rem;
-        height: 4.4rem;
+        width: 3.4rem;
+        height: 3.4rem;
         border-radius: 50%;
       }
     }
@@ -5923,10 +5935,10 @@ input {
     margin-top: 4rem;
   }
   &__side{
-    max-width: 50.2rem;
+    //max-width: 50.2rem;
     padding: 0rem 0 3rem 6rem;
     background-color: white;
-    width: 100%;
+    width: 27%;
     display: flex;
     flex-direction: column;
     gap:6rem;
@@ -5965,7 +5977,7 @@ input {
 
     }
     &-img{
-      width: 100%;
+      width: 80%;
     }
     &__title{
       color:#222;
@@ -6049,9 +6061,9 @@ input {
     }
   }
   &__name{
-    font: 700 3.6rem / normal 'Lato';
+    font: 600 3.6rem / normal 'Lato';
     &-mob{
-      font: 700 2rem / normal 'Lato';
+      font: 600 2.4rem / normal 'Lato';
       display: none;
     }
   }
@@ -6489,7 +6501,7 @@ input {
 
   }
   .head .header__drop-wrap {
-    height: calc(100vh - 12rem);
+    height:max-content;
   }
   .head .header__drop-wrap::-webkit-scrollbar {
     width: 0.1rem;
@@ -6543,8 +6555,13 @@ input {
     align-items: center;
     gap: 2rem;
     margin-top: 4.2rem;
+    transition: .2s ease;
   }
-  .header__append-link:after {
+  .header__append-link:hover > *{
+
+    filter: invert(52%) sepia(40%) saturate(4572%) hue-rotate(354deg) brightness(101%) contrast(98%);
+  }
+  .header__append-link:hover:after {
     content: '';
     position: absolute;
     width: 0.4rem;
@@ -6553,7 +6570,7 @@ input {
     top: 0;
     left: 0;
   }
-  .header__append > h2 {
+  .header__append-link .header__append > h2 {
     font: 700 1.4rem/normal 'Lato';
     text-transform: uppercase;
     margin-bottom: 2.4rem;
@@ -6834,15 +6851,16 @@ input {
   .footer__payment{
     gap: 2rem 3rem;
   }
-  .product__name{
-    font-size: 2.8rem;
-  }
+
   .technology__title{
     font-size: 2rem;
   }
-  .product__wrap{
-    width: 65%;
-  }
+  //.product__wrap{
+  //  width: 65%;
+  //}
+  //.product__side{
+  //  width: 35%;
+  //}
 }
 @media only screen and (max-width: 1440px) {
   .footer__item:nth-child(2) {
@@ -7598,7 +7616,7 @@ input {
     height: calc(100vh - 4.5rem);
   }
   .side__item:after, .side__item:before {
-    width: 1rem;
+    width: 3.6rem;
   }
   .side__wrap {
     top: 4.7rem;

@@ -198,14 +198,16 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 120px;
 }
+
 @media only screen and (max-width: 1919px) {
     html {
-        //font-size: 9px;
+        font-size: 9px;
     }
 }
 @media only screen and (max-width: 1024px) {
     html {
         scroll-padding-top: 80px;
+        font-size: 8px;
     }
 }
 @media only screen and (max-width: 666px) {
