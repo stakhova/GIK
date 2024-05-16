@@ -226,6 +226,30 @@ function initSliders() {
             prevEl: ".testimonials__prev"
         }
     });
+    const featuredSlider = new Swiper('.featured__slider', {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        loop: false,
+        navigation: {
+            nextEl: ".featured__next",
+            prevEl: ".featured__prev"
+        },
+        scrollbar: {
+            el: '.swiper-scrollbar',
+            draggable: true,
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 2
+            },
+            666: {
+                slidesPerView: 4
+            },
+        }
+    });
+
+
+
     const banner = new Swiper('.banner__top .banner__slider', {
         slidesPerView: 1,
         spaceBetween: 0,
@@ -786,6 +810,27 @@ function changeNamePolicy(){
     })
 }
 
+
+function showHelp(){
+    $(document).on('click','.product__help',function (){
+        $('.product__help-modal').animate({ right: '0' }, 400);
+    })
+    $(document).on('click','.product__help-type-item', function (){
+        $('.product__help-type-item').removeClass('active')
+        $(this).addClass('active')
+        let text = $(this).data('text')
+        $('.product__help-link').text(text)
+    })
+    $("body").on("click", function(event){
+        let target = $(event.target);
+        let modal= $(".product__help-modal");
+        let button = $(".product__help-modal");
+        if(!target.is(modal) && !target.closest(modal).length && !target.is(button)  ){
+            $('.product__help-modal').animate({ right: '-100%' }, 400);
+        }
+    });
+
+}
 function showSideMenu() {
     let block = $('.side__block');
     $(document).on("click", ".side__item button", function () {
@@ -1246,7 +1291,6 @@ $(document).ready(function () {
         }
     });
     toggleModal($('.product__build'), $('.modal__roomle'));
-    toggleModal($('.product__help'), $('.modal__help'));
     openFullScreen();
     adviceStep();
     tab();
@@ -1316,6 +1360,7 @@ $(document).ready(function () {
         sendForm(formVat, '/wp-admin/admin-ajax.php');
     });
     changeNamePolicy()
+    showHelp()
 });
 
 $(window).load(function () {});
